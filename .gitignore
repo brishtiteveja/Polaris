@@ -1,0 +1,11 @@
+# secrets — this repo goes public for hackathon submission
+.env
+.env.*
+!.env.example
+
+# deps / build
+node_modules/
+dist/
+.expo/
+*.log
+.DS_Store

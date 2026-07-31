@@ -1,0 +1,160 @@
+[
+  {
+    "id": "little-longhorn-fri",
+    "name": "Friday Night at Little Longhorn",
+    "venue": "Little Longhorn Saloon",
+    "area": "Allandale",
+    "day": "FRI",
+    "start": "17:00",
+    "end": "21:00",
+    "styles": [
+      "two-step",
+      "country"
+    ],
+    "live_music": true,
+    "price_usd": 0,
+    "price_note": "Free!",
+    "ig_handle": "littlelonghornsaloon",
+    "blurb": "Friday Night at Little Longhorn Saloon in Allandale. Free two-step and country dancing to live music at a classic honky-tonk dive. Beginner friendly country night.",
+    "location": {
+      "lat": 30.3272,
+      "lon": -97.7405
+    },
+    "location_approx": true
+  },
+  {
+    "id": "white-horse-fri",
+    "name": "Honky Tonk Friday at White Horse",
+    "venue": "The White Horse",
+    "area": "East Austin",
+    "day": "FRI",
+    "start": "19:00",
+    "styles": [
+      "two-step",
+      "country"
+    ],
+    "live_music": true,
+    "lesson": true,
+    "price_usd": 10,
+    "price_note": "$10 cover",
+    "ig_handle": "thewhitehorseaustin",
+    "blurb": "Honky Tonk Friday at The White Horse, East Austin. Two-step lesson early, live country bands all night. Legendary Austin honky-tonk dance floor.",
+    "location": {
+      "lat": 30.2643,
+      "lon": -97.7286
+    },
+    "location_approx": true
+  },
+  {
+    "id": "sagebrush-fri",
+    "name": "Friday Night at Sagebrush",
+    "venue": "Sagebrush",
+    "area": "South Austin",
+    "day": "FRI",
+    "start": "19:00",
+    "styles": [
+      "two-step",
+      "country"
+    ],
+    "live_music": true,
+    "price_usd": null,
+    "price_note": "Cover varies by act — check sagebrushaustin.com for the week's lineup. No weekend dance lessons; lessons run Sun/Tue/Thu.",
+    "ig_handle": "sagebrushtexas",
+    "blurb": "Friday Night at Sagebrush in South Austin. Country and two-step dancing with live acts, cover varies by band. Honky-tonk on South Congress.",
+    "location": {
+      "lat": 30.1975,
+      "lon": -97.777
+    },
+    "location_approx": true
+  },
+  {
+    "id": "sams-town-point-fri",
+    "name": "Friday Night at Sam's Town Point",
+    "venue": "Sam's Town Point",
+    "area": "South Austin",
+    "day": "FRI",
+    "start": "20:00",
+    "styles": [
+      "two-step",
+      "country"
+    ],
+    "live_music": true,
+    "price_usd": 5,
+    "price_note": "$5 cover",
+    "ig_handle": "samstownpoint",
+    "blurb": "Friday Night at Sam's Town Point, a hidden South Austin honky-tonk. Two-step and country dancing to live music in a backyard neighborhood bar.",
+    "location": {
+      "lat": 30.172,
+      "lon": -97.7907
+    },
+    "location_approx": true
+  },
+  {
+    "id": "fuego-friday",
+    "name": "Fuego Friday",
+    "venue": "Blue Moon Dance Co.",
+    "area": "South Lamar",
+    "day": "FRI",
+    "start": "20:00",
+    "end": "02:00",
+    "styles": [
+      "salsa",
+      "bachata",
+      "zouk"
+    ],
+    "lesson": true,
+    "price_usd": 15,
+    "price_note": "$15, $25 with classes. BYOB. Dedicated zouk side room 10pm–2am.",
+    "ig_handle": "bluemoondanceco",
+    "blurb": "Fuego Friday at Blue Moon Dance Co. on South Lamar. Salsa, bachata and zouk social with classes, BYOB, dedicated zouk room late night. High energy Latin dance party.",
+    "location": {
+      "lat": 30.245,
+      "lon": -97.781
+    },
+    "location_approx": true
+  },
+  {
+    "id": "practica-buena-onda",
+    "name": "Practica Buena Onda",
+    "venue": "Austin Uptown Dance",
+    "area": "North Austin",
+    "day": "FRI",
+    "start": "20:30",
+    "end": "22:00",
+    "styles": [
+      "argentine tango"
+    ],
+    "price_usd": 10,
+    "price_note": "$10 at the door, or $5 with any Connection Tango Friday class. Zelle or Venmo only.",
+    "organizer": "Connection Tango (Lindsey & Ricardo)",
+    "address": "8868 Research Blvd #706",
+    "ig_handle": "connectiontango",
+    "blurb": "Practica Buena Onda, Connection Tango's relaxed Friday-night Argentine tango practica at Austin Uptown Dance, 8868 Research Blvd. Work on your tango in a friendly, low-pressure setting.",
+    "location": {
+      "lat": 30.3665,
+      "lon": -97.737
+    },
+    "location_approx": true
+  },
+  {
+    "id": "echale-salsita",
+    "name": "Echale Salsita Social",
+    "venue": "Austin (varies)",
+    "area": "Austin",
+    "day": "SAT",
+    "start": "21:00",
+    "styles": [
+      "salsa",
+      "bachata"
+    ],
+    "price_usd": null,
+    "price_note": "See Instagram for this week's venue and cover",
+    "ig_handle": "echalesalsita.austin",
+    "blurb": "Echale Salsita salsa and bachata social night in Austin. Cuban salsa energy, rotating venues, check Instagram for this week's spot.",
+    "location": {
+      "lat": 30.2672,
+      "lon": -97.7431
+    },
+    "location_approx": true
+  }
+]

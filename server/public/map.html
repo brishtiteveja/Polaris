@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Polaris — Austin Dance Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0e1a; font-family: -apple-system, Inter, sans-serif; }
+  #map { position: absolute; inset: 0; }
+  .hud {
+    position: absolute; top: 14px; left: 14px; z-index: 5; display: flex; gap: 8px; align-items: center;
+    flex-wrap: wrap; max-width: 90vw;
+  }
+  .brand {
+    color: #fff; font-weight: 800; letter-spacing: 1px; font-size: 18px;
+    background: rgba(11,14,26,.85); padding: 8px 14px; border-radius: 999px; border: 1px solid #2a3050;
+  }
+  .brand span { color: #FF4F6E; }
+  .pill {
+    cursor: pointer; color: #cfd6f2; font-size: 13px; font-weight: 600;
+    background: rgba(11,14,26,.85); padding: 7px 12px; border-radius: 999px; border: 1px solid #2a3050;
+  }
+  .pill.on { background: #FF4F6E; color: #fff; border-color: #FF4F6E; }
+  .marker {
+    width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; background: #141a2e; border: 2.5px solid var(--ring, #5b6485); cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.5);
+  }
+  .maplibregl-popup-content {
+    background: #141a2e; color: #e8ecff; border-radius: 12px; border: 1px solid #2a3050;
+    font-size: 13px; line-height: 1.45; min-width: 220px;
+  }
+  .maplibregl-popup-tip { border-top-color: #141a2e !important; }
+  .popup h3 { margin: 0 0 2px; font-size: 15px; }
+  .popup .meta { color: #9aa3c7; }
+  .badge { display: inline-block; margin-top: 6px; padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: 11px; }
+  .b-VERIFIED { background: rgba(15,185,138,.18); color: #0FB98A; }
+  .b-CHANGED { background: rgba(255,176,32,.18); color: #FFB020; }
+  .b-CANCELLED { background: rgba(242,84,91,.18); color: #F2545B; }
+  .b-UNVERIFIED { background: rgba(155,163,199,.15); color: #9aa3c7; }
+  .popup a { color: #FF4F6E; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="hud">
+  <div class="brand">⭐ POLARIS <span>· Austin dance tonight</span></div>
+  <div id="days"></div>
+</div>
+<script>
+const STATUS_RING = { VERIFIED: '#0FB98A', CHANGED: '#FFB020', CANCELLED: '#F2545B', UNVERIFIED: '#5b6485' };
+const STYLE_EMOJI = [
+  [/two-step|country/, '🤠'], [/salsa/, '🔥'], [/bachata/, '🌺'],
+  [/argentine tango/, '🌹'], [/zouk/, '🌊'], [/swing/, '🎷'], [/.*/, '💃'],
+];
+const emojiFor = (styles) => (STYLE_EMOJI.find(([re]) => re.test((styles || []).join(' '))) || [null, '💃'])[1];
+
+const map = new maplibregl.Map({
+  container: 'map',
+  style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+  center: [-97.755, 30.27], zoom: 11.3, attributionControl: { compact: true },
+});
+map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+let markers = [];
+const DAYS = ['ALL', 'FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU'];
+let day = 'ALL';
+
+async function load() {
+  markers.forEach((m) => m.remove());
+  markers = [];
+  const url = day === 'ALL' ? '/feed' : `/feed?day=${day}`;
+  const { events } = await (await fetch(url)).json();
+  for (const e of events) {
+    if (!e.location) continue;
+    const el = document.createElement('div');
+    el.className = 'marker';
+    el.style.setProperty('--ring', STATUS_RING[e.status] || STATUS_RING.UNVERIFIED);
+    el.textContent = emojiFor(e.styles);
+    if (e.status === 'CANCELLED') el.style.filter = 'grayscale(1)';
+    const price = e.price_usd === 0 ? 'Free!' : e.price_usd != null ? `$${e.price_usd}` : 'cover varies';
+    const ev = e.evidence?.post_url
+      ? `<div style="margin-top:4px"><a href="${e.evidence.post_url}" target="_blank">IG evidence ↗</a></div>` : '';
+    const popup = new maplibregl.Popup({ offset: 20 }).setHTML(`
+      <div class="popup">
+        <h3>${emojiFor(e.styles)} ${e.name}</h3>
+        <div class="meta">${e.venue} · ${e.area}</div>
+        <div class="meta">${e.day} ${e.start} · ${price} · ${(e.styles || []).join(', ')}</div>
+        <span class="badge b-${e.status || 'UNVERIFIED'}">${e.status || 'UNVERIFIED'}</span>
+        ${e.rsvp_count ? `<span class="meta"> · ${e.rsvp_count} going</span>` : ''}
+        ${ev}
+      </div>`);
+    markers.push(
+      new maplibregl.Marker({ element: el }).setLngLat([e.location.lon, e.location.lat]).setPopup(popup).addTo(map)
+    );
+  }
+}
+
+const daysEl = document.getElementById('days');
+for (const d of DAYS) {
+  const b = document.createElement('button');
+  b.className = 'pill' + (d === day ? ' on' : '');
+  b.textContent = d;
+  b.onclick = () => {
+    day = d;
+    [...daysEl.children].forEach((c) => c.classList.toggle('on', c.textContent === d));
+    load();
+  };
+  daysEl.appendChild(b);
+}
+map.on('load', load);
+setInterval(load, 30000); // live: re-pull verdicts every 30s during the demo
+</script>
+</body>
+</html>

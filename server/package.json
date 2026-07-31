@@ -1,0 +1,24 @@
+{
+  "name": "polaris-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ingest": "tsx src/ingest.ts",
+    "crawl": "tsx src/crawl.ts",
+    "pulse": "tsx src/pulse.ts",
+    "reconcile": "tsx src/reconcile.ts",
+    "refresh": "tsx src/pulse.ts && tsx src/reconcile.ts",
+    "api": "tsx src/api.ts"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.15.0",
+    "@hono/node-server": "^1.13.0",
+    "apify-client": "^2.9.5",
+    "dotenv": "^16.4.5",
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
