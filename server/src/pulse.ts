@@ -1,8 +1,12 @@
-// The agent's eyes: run the Apify Instagram scraper over our source handles
-// and index every post into Elastic (idempotent — _id = post URL).
+// The agent's eyes: Apify scrapes the Instagram accounts behind Austin's dance
+// venues; every post lands in Elastic as the agent's perception log.
 //
-// Actor: contactminerlabs/instagram-posts-reels-scraper---cheap-all-in-one
-// Usage: npm run pulse [-- --handles echalesalsita.austin,jewlzfletch] [--limit 8]
+// Actor: apify/instagram-scraper (~$0.008 per profile run, profile-based).
+// Note: contactminerlabs/instagram-posts-reels-scraper is keyword-only and
+// requires a paid rental — the official scraper takes profile URLs, which is
+// what verification needs.
+//
+// Usage: npm run pulse [-- --handles a,b] [--limit 8]
 import { ApifyClient } from 'apify-client';
 import { es, IDX } from './es.js';
 import sources from '../seed/sources.json' with { type: 'json' };
@@ -13,63 +17,53 @@ if (!token) {
   process.exit(1);
 }
 
-const ACTOR = 'contactminerlabs/instagram-posts-reels-scraper---cheap-all-in-one';
+const ACTOR = 'apify/instagram-scraper';
 
 const argv = process.argv.slice(2);
-const flag = (name: string) => {
-  const i = argv.indexOf(`--${name}`);
+const flag = (n: string) => {
+  const i = argv.indexOf(`--${n}`);
   return i >= 0 ? argv[i + 1] : undefined;
 };
 const handles = (flag('handles')?.split(',') ?? sources.instagram_handles).map((h) => h.trim()).filter(Boolean);
 const limit = Number(flag('limit') ?? 6);
 
-console.log(`running ${ACTOR}\n  handles: ${handles.join(', ')}\n  per-handle limit: ${limit}`);
-
+console.log(`${ACTOR} · ${handles.length} handles · ${limit} posts each`);
 const apify = new ApifyClient({ token });
 
-// Field names differ between IG actors; send a permissive input and normalize output.
-// If the run fails on input validation, check the actor's Input tab and adjust here.
-const input: Record<string, unknown> = {
-  usernames: handles,
-  username: handles,
+const run = await apify.actor(ACTOR).call({
+  directUrls: handles.map((h) => `https://www.instagram.com/${h}/`),
+  resultsType: 'posts',
   resultsLimit: limit,
-  maxPosts: limit,
-};
-
-const run = await apify.actor(ACTOR).call(input);
-console.log(`run ${run.id} → status ${run.status}`);
+  addParentData: false,
+});
+console.log(`run ${run.id} → ${run.status} · $${run.usageTotalUsd?.toFixed(4)}`);
 
 const { items } = await apify.dataset(run.defaultDatasetId).listItems();
 console.log(`dataset items: ${items.length}`);
-if (items.length > 0) console.log('first item keys:', Object.keys(items[0] as object).join(', '));
 
-type Norm = { handle: string; caption: string; url: string; taken_at: string | null };
-function normalize(it: Record<string, any>): Norm | null {
-  const caption = it.caption ?? it.captionText ?? it.text ?? it.description ?? '';
-  const url = it.url ?? it.postUrl ?? it.post_url ?? it.link ?? it.shortcode_url ?? null;
-  const handle =
-    it.ownerUsername ?? it.username ?? it.owner_username ?? it.handle ?? it.profile ?? it.user?.username ?? '';
-  const tsRaw = it.timestamp ?? it.takenAt ?? it.taken_at ?? it.publishedAt ?? it.createTime ?? null;
-  if (!url) return null;
-  let taken_at: string | null = null;
-  if (tsRaw != null) {
-    const d = typeof tsRaw === 'number' ? new Date(tsRaw < 1e12 ? tsRaw * 1000 : tsRaw) : new Date(tsRaw);
-    if (!Number.isNaN(d.getTime())) taken_at = d.toISOString();
-  }
-  return { handle: String(handle).toLowerCase(), caption: String(caption), url: String(url), taken_at };
-}
+const docs = (items as Record<string, any>[])
+  .filter((it) => it.url && (it.caption ?? '').length > 0)
+  .map((it) => ({
+    handle: String(it.ownerUsername ?? '').toLowerCase(),
+    caption: String(it.caption),
+    caption_sem: String(it.caption).slice(0, 2000),
+    url: String(it.url),
+    taken_at: it.timestamp ? new Date(it.timestamp).toISOString() : null,
+    likes: it.likesCount ?? null,
+    hashtags: it.hashtags ?? [],
+    image: it.displayUrl ?? null,
+  }));
 
-const docs = (items as Record<string, any>[]).map((it) => ({ n: normalize(it), raw: it })).filter((d) => d.n);
 if (docs.length === 0) {
-  console.error('No usable items — inspect the first raw item above and fix normalize()/input.');
+  console.error('No usable posts — check handles / actor output.');
   process.exit(1);
 }
 
-const ops = docs.flatMap(({ n, raw }) => [
-  { index: { _index: IDX.posts, _id: n!.url } },
-  { ...n, caption_sem: n!.caption, raw },
-]);
+// _id = post URL → re-running pulse never duplicates the perception log.
+const ops = docs.flatMap((d) => [{ index: { _index: IDX.posts, _id: d.url } }, d]);
 const res = await es.bulk({ operations: ops, refresh: true });
-console.log(`indexed ${docs.length} posts${res.errors ? ' (with some errors)' : ''}`);
-const count = await es.count({ index: IDX.posts });
-console.log(`ig_posts total: ${count.count}`);
+if (res.errors) console.warn('some bulk items failed:', JSON.stringify(res.items.find((i: any) => i.index?.error), null, 1));
+
+const byHandle = docs.reduce<Record<string, number>>((a, d) => ({ ...a, [d.handle]: (a[d.handle] ?? 0) + 1 }), {});
+console.log('posts per handle:', byHandle);
+console.log(`ig_posts total: ${(await es.count({ index: IDX.posts })).count}`);
