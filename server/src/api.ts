@@ -20,7 +20,7 @@ app.get('/', (c) => c.redirect('/map'));
 
 app.get('/feed', async (c) => {
   const { day, style, maxPrice, q } = c.req.query();
-  const filter: unknown[] = [];
+  const filter: any[] = [];
   if (day) filter.push({ term: { day: day.toUpperCase() } });
   if (style) filter.push({ term: { styles: style.toLowerCase() } });
   if (maxPrice) filter.push({

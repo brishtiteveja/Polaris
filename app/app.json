@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Polaris",
+    "slug": "polaris",
+    "scheme": "polaris",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#FFF5F1",
+    "ios": {
+      "bundleIdentifier": "com.roster.app",
+      "supportsTablet": true,
+      "backgroundColor": "#FFF5F1"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

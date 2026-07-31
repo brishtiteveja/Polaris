@@ -1,19 +1,26 @@
 {
   "instagram_handles": [
-    "echalesalsita.austin",
-    "yatinynikolbachata",
-    "jewlzfletch",
-    "littlelonghornsaloon",
-    "thewhitehorseaustin",
-    "sagebrushtexas",
+    "planetmusicatx",
+    "thelittlelonghornsaloon",
     "samstownpoint",
-    "bluemoondanceco"
+    "atxzouk",
+    "atxfusion",
+    "austininspiredmovement",
+    "echalesalsita.austin",
+    "rhythmhouseatx",
+    "stargazerbar",
+    "fuego_friday_austin",
+    "salsamania_austin",
+    "bebachata_austin",
+    "austinzouklambada",
+    "chiquitoclubsocial"
   ],
   "crawl_urls": [
     "https://austindancesocials.com",
-    "https://www.salsavida.com/guides/texas/austin/calendar/",
-    "https://cabanaclubaustin.com/events/",
-    "https://do512.com/events/today"
+    "https://austindancesocials.com/salsa",
+    "https://austindancesocials.com/country",
+    "https://austindancesocials.com/tango",
+    "https://austindancesocials.com/swing"
   ],
-  "_note": "IG handles are the agent's eyes. Verify handle spellings against Instagram before the demo — venue handles here are best guesses except the three provided ones (echalesalsita.austin, yatinynikolbachata, jewlzfletch). Login-required sources (member.life, passion.io) intentionally excluded."
+  "_generated_by": "npm run ads"
 }

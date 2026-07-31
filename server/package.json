@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ads": "tsx src/ads.ts",
     "ingest": "tsx src/ingest.ts",
     "crawl": "tsx src/crawl.ts",
     "pulse": "tsx src/pulse.ts",
