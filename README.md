@@ -48,7 +48,7 @@ npm run ingest -- --fresh   # indices + canonical seed
 npm run pulse               # Apify → Instagram posts → Elastic
 npm run crawl               # Apify → calendar pages → Elastic
 npm run reconcile           # agent verdicts written onto events
-npm run api                 # http://localhost:8791/map
+npm run api                 # http://localhost:8873/map
 ```
 
 `GET /ask?q=beginner+friendly+country+night` → hybrid (BM25+ELSER) answer with citations.

@@ -63,7 +63,7 @@ Instagram (24 venue accounts) ──[pulse.ts]──►       ig_posts  percepti
                                 else → VERIFIED   (+ evidence{post_url, snippet, rule})
                                           │
                                           ▼
-                              [api.ts] Hono :8791
+                              [api.ts] Hono :8873
                                 GET /            web app  ← primary demo surface
                                 GET /feed        filters (day, style, maxPrice, q)
                                 GET /ask         RRF hybrid → answer + citations
