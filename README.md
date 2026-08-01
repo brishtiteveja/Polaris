@@ -16,11 +16,11 @@ verdict links to the IG post that proves it.
 
 | | |
 |---|---|
-| upcoming events ingested | **70** (from 133 parsed; past one-offs dropped) |
-| venues | **46** |
-| Instagram accounts watched | **26** |
-| IG posts in the perception log | **201** |
-| verdicts written | **82** — 67 `VERIFIED`, 15 `CHANGED` |
+| upcoming events indexed | **70** (133 parsed; past one-offs dropped) |
+| venues | **29** across Austin |
+| Instagram accounts watched | **24** |
+| IG posts in the perception log | **201** (**86** reels) |
+| events carrying a live verdict | **28** — 21 `VERIFIED`, 7 `CHANGED` |
 | Apify spend | **~$0.20** |
 
 Real example from that run: *Honky Tonk Friday at White Horse* → `✓ IG-verified 8h ago`,
@@ -33,8 +33,9 @@ Instagram didn't match the calendar.
   + `apify/website-content-crawler` (public calendars: austindancesocials.com, salsavida, …)
 - **Elastic Serverless** — `semantic_text`/ELSER hybrid retrieval (RRF), geo_point, agent
   state (`status`, `evidence`, perception log), Kibana dashboard
-- **Server** — TypeScript + Hono (`/map`, `/feed`, `/ask`, `/rsvp`)
-- **App** — Expo React Native (Porch design system)
+- **Server** — TypeScript + Hono (`/feed`, `/ask`, `/reels`, `/rsvp`, `/img`, `/map`)
+- **App** — Expo React Native, runs on web too — tabs: Tonight · Map · Reels · Ask · Saved.
+  Reels play inline via Instagram's public embed player (nothing rehosted, no IG auth).
 
 ## Run it
 

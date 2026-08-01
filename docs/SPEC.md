@@ -21,10 +21,11 @@ ADS ships its entire `events[]` and `venues[]` arrays inside its Next.js chunks,
 
 | extracted | count |
 |---|---|
-| active events | **113** |
-| venues (address, neighborhood, maps URL, website) | **46** |
-| Instagram handles to watch | **14** |
-| by day | SAT 46 · FRI 23 · THU 11 · SUN 10 · WED 9 · MON 7 · TUE 7 |
+| upcoming events (past one-offs dropped) | **70** |
+| venues | **29** (46 parsed) |
+| Instagram accounts watched | **24** |
+| IG posts collected | **201** (86 reels) |
+| live verdicts | **28** — 21 VERIFIED, 7 CHANGED |
 
 That single file gives us the canonical calendar **and** tells the agent which IG accounts
 to point its eyes at. No hand-typed seed. Re-runnable — the calendar refreshes by re-running
@@ -39,18 +40,18 @@ Excluded on purpose: login-walled sources (member.life, bebachata.passion.io).
 | Axis | Play |
 |---|---|
 | Creativity (10) | Live-verified event graph on a Snap-style city map. Personal (we dance in Austin), real problem (driving to a cancelled social). Not a chatbot-over-docs. |
-| Completeness (10) | **Web app anyone can open** + real Apify runs + Elastic cloud + Kibana. 113 real events, real IG posts, real verdicts. |
+| Completeness (10) | **Web app anyone can open** + real Apify runs + Elastic cloud + Kibana. 70 real events, 201 real IG posts, real verdicts, reels playing in-app. |
 | Understanding (10) | Elastic = hybrid retrieval (BM25 + ELSER `semantic_text`) **and** durable agent memory. Apify = real-time perception, $0.008/run, zero scraper infra. |
 
 ## Architecture
 
 ```
-austindancesocials.com  ──[ads.ts]──► seed/events.json (113) + seed/sources.json (14 handles)
+austindancesocials.com  ──[ads.ts]──► seed/events.json (70) + seed/sources.json (24 handles)
                                           │
                                           ▼
                               [ingest.ts] ──────► Elastic Serverless
                                                     events    blurb: semantic_text ← ELSER
-Instagram (14 venue accounts) ──[pulse.ts]──►       ig_posts  perception log
+Instagram (24 venue accounts) ──[pulse.ts]──►       ig_posts  perception log
    apify/instagram-scraper  ~$0.008/run             web_pages (stretch: crawl.ts)
                                           │
                                           ▼
@@ -112,10 +113,10 @@ Bulk errors → per-doc loop.
 | step | cmd | proof |
 |---|---|---|
 | Elastic creds (**human**) | ela.st/hack-austin → `.env` | `/health` |
-| indices + 113 events | `npm run ingest -- --fresh` | Kibana count |
+| indices + 70 events | `npm run ingest -- --fresh` | Kibana count |
 | IG posts | `npm run pulse` | posts per handle |
 | verdicts | `npm run reconcile` | badge tally |
-| API up | `npm run api` | `/feed` returns 113 |
+| API up | `npm run api` | `/feed` returns 70 |
 | **app** | `cd app && npm start` | Tonight · Ask on device |
 | Kibana dashboard · dry-run · push | — | — |
 
@@ -123,7 +124,7 @@ Cut order: web map → crawl.ts → Saved tab → rsvp. **Never cut: Tonight fee
 
 ## Demo script (5 min)
 
-1. **Phone/simulator**: Tonight tab — "Austin's dance scene tonight, 113 events, live."
+1. **Phone/simulator**: Tonight tab — "Austin's dance scene tonight — live."
 2. Tap a `✕ cancelled` badge → **the actual IG post**.
    *"The calendar says it's on. Instagram says closed. Polaris read the post."*
 3. Ask: *"beginner friendly country night under $10"* → semantic hit + citations.

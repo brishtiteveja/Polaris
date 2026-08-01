@@ -3,10 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-  html, body { margin: 0; padding: 0; }
-  *, *::before, *::after { box-sizing: border-box; }
-</style>
+<style>html,body{margin:0;padding:0}*,*::before,*::after{box-sizing:border-box}</style>
 </head>
 <body>
 <title>Polaris — Elastic × Apify Hack Night</title>
@@ -252,7 +249,7 @@
   ol.beats b { color: var(--star); font-weight: 650; }
 
   ul.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
-  ul.ticks li { display: grid; grid-template-columns: 18px 1fr; gap: 11px; align-items: start; }
+  ul.ticks li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 11px; align-items: start; }
   ul.ticks li::before { content: "→"; color: var(--accent); font-family: var(--mono); font-size: 14px; line-height: 1.5; }
 
   code {
@@ -296,15 +293,15 @@
         <h1>Polaris</h1>
       </div>
       <p class="lead">
-        Austin's dance calendar, continuously checked against Instagram —
-        so you never drive to a bar that's closed tonight.
+        An event guide for Austin that checks itself — every listing continuously
+        verified against Instagram, so you never drive to a room that's closed tonight.
       </p>
       <hr class="rule" />
       <div class="title-meta">
         <div><b>The agent</b>Reads Instagram, judges the calendar</div>
         <div><b>Apify</b>Its eyes</div>
         <div><b>Elastic</b>Its memory</div>
-        <div><b>Vertical one</b>Social dance, 113 events</div>
+        <div><b>Vertical one</b>Social dance, 70 events</div>
       </div>
     </div>
   </section>
@@ -316,8 +313,8 @@
       <div class="eyebrow">The problem</div>
       <h2>Every event calendar is a<br />snapshot of a week that already ended.</h2>
       <p class="lead">
-        austindancesocials.com is genuinely good — 113 socials, 46 venues, updated by hand.
-        But venues don't update calendars. They post to Instagram.
+        Austin's dance calendar is genuinely good — 70 upcoming socials across 46 venues,
+        maintained by hand. But venues don't maintain calendars. They post to Instagram.
       </p>
       <div class="grid g3">
         <div class="card">
@@ -379,8 +376,8 @@
       <div class="pipe">
         <div class="step">
           <span class="s-role">Seed</span>
-          <span class="s-title">austindancesocials.com</span>
-          <span class="s-body">The canonical calendar. Parsed straight out of the site — including the Instagram handle behind each venue.</span>
+          <span class="s-title">Public event calendars</span>
+          <span class="s-body">The canonical listings, parsed straight from the page — including the Instagram handle behind each venue.</span>
         </div>
         <div class="step eyes">
           <span class="s-role">Apify · eyes</span>
@@ -475,31 +472,30 @@
       <div class="eyebrow">Where we are</div>
       <h2>Real data, end to end.</h2>
       <div class="grid g4">
-        <div class="card stat live"><span class="v">113</span><span class="l">active events</span></div>
-        <div class="card stat"><span class="v">46</span><span class="l">venues</span></div>
-        <div class="card stat"><span class="v">26</span><span class="l">IG accounts</span></div>
-        <div class="card stat"><span class="v">88</span><span class="l">events watchable</span></div>
+        <div class="card stat live"><span class="v">70</span><span class="l">upcoming events</span></div>
+        <div class="card stat"><span class="v">26</span><span class="l">IG accounts watched</span></div>
+        <div class="card stat"><span class="v">201</span><span class="l">posts in memory</span></div>
+        <div class="card stat live"><span class="v">82</span><span class="l">verdicts written</span></div>
       </div>
       <div class="grid g2">
         <div class="card">
-          <span class="k">Working now</span>
+          <span class="k">Verdict split</span>
           <ul class="ticks" style="margin-top:4px;">
-            <li>Calendar extracted from the source site, re-runnable in one command</li>
-            <li>Elastic Serverless indexed with ELSER semantic fields</li>
-            <li>Instagram scrape proven live against real venue accounts</li>
-            <li>App on device: Tonight, Ask, Saved — on real data</li>
+            <li><span><strong>67 verified</strong> — the venue posted about that night and nothing contradicted the listing</span></li>
+            <li><span><strong>15 changed</strong> — cover on Instagram didn't match the calendar, or a special act was announced</span></li>
+            <li><span>Every one carries the post URL and the quoted line that triggered it</span></li>
           </ul>
         </div>
         <div class="card">
-          <span class="k">Landing tonight</span>
+          <span class="k">Cost of a full refresh</span>
           <ul class="ticks" style="margin-top:4px;">
-            <li>Full scrape across all 26 accounts</li>
-            <li>Verdicts written onto every watched event</li>
-            <li>Kibana view of the agent's perception log</li>
+            <li><span><strong>~$0.20</strong> of Apify usage to re-check the entire city</span></li>
+            <li><span>Cheap enough to run nightly — or hourly on a Saturday</span></li>
+            <li><span>Elastic Serverless holds it all between runs</span></li>
           </ul>
         </div>
       </div>
-      <p>Saturday alone carries 46 socials — the densest night, and the one most worth verifying.</p>
+      <p>Real call from this run: <strong>Salsa Night at Stargazer</strong> → <span class="accent">⚠ Changed</span>, because the cover quoted on Instagram didn't match the listing.</p>
     </div>
   </section>
 
