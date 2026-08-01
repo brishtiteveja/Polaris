@@ -3,7 +3,7 @@ import {
   View, Text, TextInput, Pressable, StyleSheet, ScrollView, Linking, ActivityIndicator,
 } from 'react-native';
 import { colors, radius, shadow, space } from '../theme';
-import { ask, type AskResult } from '../api';
+import { ask, rsvp, type AskResult, type EventDoc } from '../api';
 import { EventCard } from '../components/EventCard';
 
 const SUGGESTIONS = [
@@ -13,11 +13,22 @@ const SUGGESTIONS = [
   'live music two-step under $10',
 ];
 
-export function AskScreen() {
+export function AskScreen({
+  saved, onToggleSave,
+}: {
+  saved: string[];
+  onToggleSave: (e: EventDoc) => void;
+}) {
   const [q, setQ] = useState('');
   const [res, setRes] = useState<AskResult | null>(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+
+  const clear = () => {
+    setQ('');
+    setRes(null);
+    setErr(null);
+  };
 
   const run = async (text: string) => {
     if (!text.trim()) return;
@@ -50,6 +61,11 @@ export function AskScreen() {
           style={styles.input}
           returnKeyType="search"
         />
+        {q || res ? (
+          <Pressable onPress={clear} style={styles.clear} hitSlop={6}>
+            <Text style={styles.clearText}>✕</Text>
+          </Pressable>
+        ) : null}
         <Pressable onPress={() => run(q)} style={styles.go}>
           <Text style={styles.goText}>Ask</Text>
         </Pressable>
@@ -73,7 +89,22 @@ export function AskScreen() {
         {res ? (
           <>
             <View style={styles.answer}>
-              <Text style={styles.answerText}>{res.answer}</Text>
+              <Text style={styles.answerLabel}>
+                {res.events.length ? `${res.events.length} matches` : 'No matches'}
+              </Text>
+              {res.events.length ? (
+                res.events.slice(0, 3).map((e) => (
+                  <View key={e.id} style={styles.line}>
+                    <Text style={styles.lineName}>{e.name}</Text>
+                    <Text style={styles.lineMeta}>
+                      {e.venue} · {e.area} · {e.day} {e.start} ·{' '}
+                      {e.price_usd === 0 ? 'free' : e.price_usd != null ? `$${e.price_usd}` : 'cover varies'}
+                    </Text>
+                  </View>
+                ))
+              ) : (
+                <Text style={styles.lineMeta}>Try another style, day, or area.</Text>
+              )}
             </View>
 
             {res.citations.length ? (
@@ -89,7 +120,17 @@ export function AskScreen() {
               </View>
             ) : null}
 
-            {res.events.map((e) => <EventCard key={e.id} e={e} />)}
+            {res.events.map((e) => (
+              <EventCard
+                key={e.id}
+                e={e}
+                saved={saved.includes(e.id)}
+                onSave={() => {
+                  onToggleSave(e);
+                  if (!saved.includes(e.id)) rsvp(e.id).catch(() => {});
+                }}
+              />
+            ))}
           </>
         ) : null}
       </ScrollView>
@@ -121,10 +162,18 @@ const styles = StyleSheet.create({
   },
   suggestText: { color: colors.bone, fontSize: 14 },
   answer: {
-    backgroundColor: colors.panel, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.lamp,
-    padding: space(2), ...shadow.card,
+    backgroundColor: colors.panel, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.line,
+    borderLeftWidth: 4, borderLeftColor: colors.lamp,
+    padding: space(2), gap: space(1.25), ...shadow.card,
   },
-  answerText: { color: colors.bone, fontSize: 14.5, lineHeight: 22 },
+  answerLabel: {
+    color: colors.muted, fontSize: 10.5, fontWeight: '800', letterSpacing: 1.4, textTransform: 'uppercase',
+  },
+  line: { gap: 2 },
+  lineName: { color: colors.bone, fontSize: 15, fontWeight: '700', letterSpacing: -0.2 },
+  lineMeta: { color: colors.muted, fontSize: 13, lineHeight: 18 },
+  clear: { width: 40, alignItems: 'center', justifyContent: 'center' },
+  clearText: { color: colors.muted, fontSize: 17, fontWeight: '700' },
   cites: { gap: 8 },
   citeRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   cite: {

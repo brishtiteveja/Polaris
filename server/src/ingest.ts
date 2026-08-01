@@ -1,7 +1,17 @@
 // Creates the three indices and bulk-loads the canonical event seed.
 // Usage: npm run ingest [-- --fresh]   (--fresh drops existing indices first)
 import { es, requireEs, IDX } from './es.js';
-import events from '../seed/events.json' with { type: 'json' };
+import danceEvents from '../seed/events.json' with { type: 'json' };
+import markets from '../seed/markets.json' with { type: 'json' };
+
+// Polaris is a guide to Austin social life, not just dance. Dance is the first
+// vertical (scraped from austindancesocials.com); farmers' markets are the
+// second (curated). Same doc shape, same verification pipeline — a market's
+// Instagram gets watched exactly like a venue's.
+const events = [
+  ...(danceEvents as any[]).map((e) => ({ category: 'dance', ...e })),
+  ...(markets as any[]),
+];
 
 requireEs();
 
@@ -57,6 +67,7 @@ await createIndex(IDX.events, ['blurb'], {
   organizer: { type: 'text' },
   address: { type: 'text' },
   ig_handle: { type: 'keyword' },
+  category: { type: 'keyword' },
   hero_image: { type: 'keyword', index: false },
   ig_profile: { type: 'keyword', index: false },
   ig_reel: { type: 'keyword', index: false },
