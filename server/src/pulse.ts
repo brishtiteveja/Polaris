@@ -8,8 +8,10 @@
 //
 // Usage: npm run pulse [-- --handles a,b] [--limit 8]
 import { ApifyClient } from 'apify-client';
-import { es, IDX } from './es.js';
+import { es, requireEs, IDX } from './es.js';
 import sources from '../seed/sources.json' with { type: 'json' };
+
+requireEs();
 
 const token = process.env.PERSONAL_APIFY_TOKEN;
 if (!token) {

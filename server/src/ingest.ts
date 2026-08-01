@@ -1,15 +1,26 @@
 // Creates the three indices and bulk-loads the canonical event seed.
 // Usage: npm run ingest [-- --fresh]   (--fresh drops existing indices first)
-import { es, IDX } from './es.js';
+import { es, requireEs, IDX } from './es.js';
 import events from '../seed/events.json' with { type: 'json' };
 
-const fresh = process.argv.includes('--fresh');
+requireEs();
+
+// --fresh rebuilds the events index only. The Instagram perception log costs
+// real Apify runs to rebuild, so it survives unless --wipe is explicit.
+const wipe = process.argv.includes('--wipe');
+const fresh = wipe || process.argv.includes('--fresh');
 
 // semantic_text → Elastic-hosted ELSER embeds at ingest time (no external LLM).
 // If the trial project rejects semantic_text we fall back to plain text so the
 // night never blocks on it; /ask degrades to BM25 automatically.
-async function createIndex(name: string, semanticFields: string[], extra: Record<string, unknown>) {
-  if (fresh && (await es.indices.exists({ index: name }))) {
+async function createIndex(
+  name: string,
+  semanticFields: string[],
+  extra: Record<string, unknown>,
+  opts: { rebuildable?: boolean } = {}
+) {
+  const drop = opts.rebuildable ? fresh : wipe;
+  if (drop && (await es.indices.exists({ index: name }))) {
     await es.indices.delete({ index: name });
     console.log(`dropped ${name}`);
   }
@@ -52,7 +63,7 @@ await createIndex(IDX.events, ['blurb'], {
   evidence: { type: 'object', enabled: true },
   last_checked: { type: 'date' },
   rsvp_count: { type: 'integer' },
-});
+}, { rebuildable: true });
 
 await createIndex(IDX.posts, ['caption_sem'], {
   handle: { type: 'keyword' },

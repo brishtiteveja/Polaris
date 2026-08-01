@@ -1,0 +1,307 @@
+# Austin Dance Scraper — source registry
+# schema_version: 1
+# Verified 2026-07-31. Handles confirmed from the org's own site footer where possible,
+# otherwise from an indexed public IG profile title. `confidence` records which.
+#
+# Field notes:
+#   kind        aggregator | studio | promoter | venue | artist
+#   instagram   handle without the @; null = no account found
+#   confidence  site_link (best) | profile_indexed | unconfirmed
+#   scrape      how the scraper should treat it
+#                 html_calendar  -> parse event pages off the website
+#                 ig_only        -> schedule lives on Instagram, no usable site calendar
+#                 ig_supplement  -> site is primary, IG catches one-offs / cancellations
+#                 auth_required  -> behind a login, needs credentials or manual export
+
+aggregators:
+  - id: austin_dance_socials
+    name: Austin Dance Socials
+    kind: aggregator
+    website: https://austindancesocials.com
+    event_path: /event/{slug}
+    instagram: null            # none exists — site publishes no social account
+    confidence: site_link
+    scrape: html_calendar
+    notes: >
+      Primary seed. Static HTML grouped by day of week, no API/JSON feed.
+      Their /about states they monitor "30+ Instagram accounts" and refresh
+      weekly (IG), monthly (full), quarterly (venue audit) — as of Jul 2026:
+      119 events / 46 venues. Treat as the schedule backbone.
+
+  - id: salsa_vida
+    name: Salsa Vida (Austin guide)
+    kind: aggregator
+    website: https://www.salsavida.com/guides/texas/austin/calendar/
+    instagram: salsavida
+    confidence: site_link
+    scrape: html_calendar
+    notes: National salsa media site; the IG account is global, not Austin-specific.
+
+  - id: do512
+    name: Do512
+    kind: aggregator
+    website: https://do512.com
+    instagram: do512
+    confidence: site_link
+    scrape: html_calendar
+    notes: General Austin events. Also has TikTok @do512austin. Good for venue cross-refs.
+
+latin_orgs:
+  - id: rhythm_house_atx
+    name: Rhythm House ATX
+    kind: studio
+    website: https://www.rhythmhouseatx.com
+    instagram: rhythmhouseatx
+    confidence: site_link
+    scrape: ig_supplement
+    address: 4622 S Lamar, Austin TX 78704
+    notes: TikTok @rhythm.house.atx. Co-owners Lizeth Katz Pallagi, Lisa Vargas, Travis Herman.
+
+  - id: pasion_latina
+    name: Pasión Latina Dance Company
+    kind: promoter
+    website: null
+    instagram: pasionlatinadance
+    facebook: https://www.facebook.com/PasionLatinaATX
+    confidence: profile_indexed
+    scrape: ig_only
+    notes: >
+      This is your "PassionLatin" — no Austin org is spelled "Passion Latin".
+      Directed by Lisa Vargas, who co-owns Rhythm House ATX; performance teams
+      showcase at Echale Salsita socials. IG display name reads "Lisa Vargas".
+
+  - id: austin_inspired_movement
+    name: Austin Inspired Movement
+    kind: studio
+    website: https://www.austininspiredmovement.com
+    member_portal: https://member.life/inspiredmovement
+    instagram: austininspiredmovement
+    confidence: site_link
+    scrape: ig_supplement
+    address: 4201 S Congress Ave Suite 108, Austin TX 78745
+    notes: Also YouTube @InspiredMovementAustin, TikTok @austininspiredmovement, FB /austininspiredmovement.
+
+  - id: bebachata_austin
+    name: BeBachata Austin
+    kind: studio
+    website: https://bebachata.com/schedule
+    course_portal: https://bebachata.passion.io
+    instagram: bebachata_austin
+    confidence: profile_indexed
+    scrape: ig_supplement
+    notes: >
+      Classes run at Blue Moon Dance Studio, S Lamar. Site's meta tags only expose
+      X/@BeBachata, not the IG handle — hence profile_indexed rather than site_link.
+      passion.io is just their course host, unrelated to Pasión Latina.
+
+  - id: echale_salsita
+    name: Echale Salsita Austin Social
+    kind: promoter
+    website: https://www.echalesalsitaaustinsocial.com
+    instagram: echalesalsita.austin
+    confidence: profile_indexed
+    scrape: ig_only
+    notes: FB /EchaleSalsitaAustin. Hosts showcases for Pasión Latina teams.
+
+  - id: planet_music_atx
+    name: Planet Music ATX
+    kind: promoter
+    website: null
+    instagram: planetmusicatx
+    confidence: profile_indexed
+    scrape: ig_only
+    notes: Not on your list — surfaced as the organizer behind Cabana Club's Salsa/Bachata Sundays and Wednesdays.
+
+artists:
+  # Both are on your list but neither is Austin-based. Keep them as artist feeds
+  # (workshops / visiting-instructor dates), not as Austin schedule sources.
+  - id: yatin_nikol
+    name: Yatin & Nikol
+    kind: artist
+    website: https://yatinnikolbachata.com
+    instagram: yatinynikolbachata
+    confidence: profile_indexed
+    scrape: ig_only
+    home_base: Prague, CZ
+    notes: Touring bachata duo — relevant to Austin only as visiting artists.
+
+  - id: jewlz_fletch
+    name: Julie "Jewlz" Fletch Hansen
+    kind: artist
+    website: null
+    instagram: jewlzfletch
+    confidence: profile_indexed
+    scrape: ig_only
+    home_base: Utah (per third-party credit); appears on LA Bachata Festival roster
+    notes: Individual bachata instructor. No Austin affiliation found.
+
+venues:
+  # Pulled from the austindancesocials.com venue list. Most have no usable calendar
+  # of their own — IG is where the dance nights actually get announced.
+  - id: cabana_club
+    name: Cabana Club Austin
+    website: https://cabanaclubaustin.com/events/
+    instagram: cabanaclubatx
+    confidence: site_link
+    scrape: html_calendar
+    address: 5012 E 7th St, Austin TX 78702
+    notes: >
+      Watch out — three near-identical handles exist. The site footer links
+      @cabanaclubatx; @cabanaclub.atx also exists; TikTok and the Linktree slug
+      are @cabanaclubaustin. Use cabanaclubatx.
+
+  - id: go_dance
+    name: Go Dance Studio
+    website: https://godancestudio.com
+    instagram: godancestudio
+    confidence: site_link
+    scrape: html_calendar
+
+  - id: esquina_tango
+    name: Esquina Tango
+    website: https://www.esquinatango.org
+    instagram: esquinatango
+    confidence: site_link
+    scrape: html_calendar
+    notes: Older account @esquinatangoaustin still exists; current footer points to @esquinatango.
+
+  - id: balance_dance_studios
+    name: Balance Dance Studios
+    website: https://www.balancedancestudios.com
+    instagram: balancedancestudios
+    confidence: site_link
+    scrape: html_calendar
+
+  - id: austin_uptown_dance
+    name: Austin Uptown Dance
+    website: https://www.austinuptowndance.com
+    instagram: austinuptown
+    confidence: site_link
+    scrape: html_calendar
+
+  - id: blue_moon_dance
+    name: Blue Moon Dance Co.
+    website: https://www.bluemoondance.co
+    instagram: bluemoondance.co
+    confidence: site_link
+    scrape: ig_supplement
+    notes: Hosts BeBachata Austin classes.
+
+  - id: twins_nightclub
+    name: Twins Nightclub
+    website: https://twinsrooftop.com
+    instagram: twinsnightclub
+    confidence: site_link
+    scrape: ig_supplement
+
+  - id: wild_west
+    name: Wild West
+    website: https://wildwestcedarpark.com
+    instagram: wildwestcp
+    confidence: site_link
+    scrape: html_calendar
+
+  - id: donns_depot
+    name: Donn's Depot
+    website: https://donnsdepot.com
+    instagram: donnsdepot
+    confidence: site_link
+    scrape: html_calendar
+
+  - id: glorias_domain
+    name: Gloria's Latin Cuisine — The Domain
+    website: https://www.gloriascuisine.com/salsa-night
+    instagram: gloriasnightlifeaustin
+    confidence: site_link
+    scrape: ig_supplement
+    notes: Brand-wide account is @gloriaslatincuisine; use the Austin nightlife one.
+
+  - id: sagebrush
+    name: Sagebrush
+    website: https://sagebrushtexas.com
+    instagram: sagebrushtexas
+    confidence: profile_indexed
+    scrape: html_calendar
+
+  - id: white_horse
+    name: The White Horse
+    website: https://thewhitehorseaustin.com
+    instagram: whitehorseatx
+    confidence: profile_indexed
+    scrape: html_calendar
+    notes: Two-step lessons are run by Dancin' Austin (@dancinaustin), not the venue.
+
+  - id: mavericks_dance_hall
+    name: Mavericks Dance Hall (Pflugerville)
+    website: https://mavericksdancehall.com
+    instagram: mavericksdancehall
+    confidence: profile_indexed
+    scrape: html_calendar
+    notes: Do not confuse with @mavericksthecolony (different location).
+
+  - id: little_longhorn
+    name: Little Longhorn Saloon
+    website: https://thelittlelonghornsaloon.com
+    instagram: thelittlelonghornsaloon
+    confidence: profile_indexed
+    scrape: ig_supplement
+
+  - id: sams_town_point
+    name: Sam's Town Point
+    website: https://samstownpointatx.com
+    instagram: samstownpoint
+    confidence: profile_indexed
+    scrape: html_calendar
+
+  - id: broken_spoke
+    name: The Broken Spoke
+    website: https://brokenspokeaustintx.net
+    instagram: brokenspokeaustintx
+    confidence: profile_indexed
+    scrape: html_calendar
+    notes: Site footer lists only Facebook + YouTube; handle inferred from domain match.
+
+  - id: avila
+    name: Avila Soccer & Dance Hall
+    website: https://avilasoccer.com
+    instagram: null
+    confidence: unconfirmed
+    scrape: html_calendar
+    notes: >
+      Operator account is probably @avilacreativesoccer but unverified — site blocks
+      crawling via robots.txt. Dance nights are run by Dance U2 (danceu2.com), which
+      lists no Instagram.
+
+  - id: hancock_rec_center
+    name: Hancock Recreation Center
+    website: https://www.austintexas.gov/department/hancock-recreation-center
+    instagram: null
+    confidence: unconfirmed
+    scrape: html_calendar
+    notes: City facility, no venue-level account. Dept account is @austincityparks.
+
+  - id: cherrywood_hall
+    name: Cherrywood Hall
+    website: null
+    instagram: null
+    confidence: unconfirmed
+    scrape: ig_only
+    notes: >
+      No venue found under this exact name. Closest is Cherrywood Center
+      (1605 E 38½ St) with an IG titled @thecherrywoodcenter — name mismatch,
+      needs a human eyeball before wiring in.
+
+auth_required:
+  # Logged-in surfaces. Not scrapeable without credentials; decide whether to
+  # support them at all or just link out.
+  - id: inspired_movement_member
+    name: Austin Inspired Movement — member portal
+    website: https://member.life/inspiredmovement
+    parent: austin_inspired_movement
+    scrape: auth_required
+
+  - id: bebachata_portal
+    name: BeBachata — course portal
+    website: https://bebachata.passion.io
+    parent: bebachata_austin
+    scrape: auth_required

@@ -4,9 +4,27 @@
 // then watches for real-time changes. robots.txt allows all.
 //
 // Usage: npm run ads   → rewrites seed/events.json + seed/sources.json
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 const ORIGIN = 'https://austindancesocials.com';
+
+// Hand-verified venue → Instagram map (sources/Insta_profile_sources.json).
+// ADS only carries instagramUrl for some events; this fills the rest so the
+// agent can watch every venue that has a public account.
+type IgSource = { name: string; instagram: string | null; confidence?: string; group?: string };
+const igSources: IgSource[] = JSON.parse(
+  readFileSync(new URL('../../sources/Insta_profile_sources.json', import.meta.url), 'utf8')
+).sources;
+
+const norm = (s: string) =>
+  s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').replace(/\b(the|a|austin|atx|dance|co|company|studios?|hall|saloon|club|nightclub|bar)\b/g, ' ').replace(/\s+/g, ' ').trim();
+
+const IG_BY_VENUE = new Map<string, string>();
+for (const s of igSources) {
+  if (!s.instagram || s.group === 'aggregators') continue; // aggregator accounts aren't venue truth
+  const k = norm(s.name);
+  if (k) IG_BY_VENUE.set(k, s.instagram.toLowerCase());
+}
 
 /** JS source has JSON in nested string escapes — peel them before scanning. */
 const unescape = (s: string) =>
@@ -113,11 +131,25 @@ for (const o of objects) {
 }
 console.log(`parsed: ${rawEvents.length} events · ${venues.size} venues`);
 
+// One-time events carry a `date`; recurring ones don't. Drop past one-offs —
+// a February showcase is not "what's on this week".
+const TODAY = new Date().toISOString().slice(0, 10);
+
 const events = rawEvents
   .filter((e) => e.isActive !== false)
+  .filter((e) => !e.date || e.date >= TODAY)
   .map((e) => {
     const v = venues.get(e.venueId) ?? {};
-    const igHandle = handleOf(e.instagramUrl) || handleOf(v.instagramUrl);
+    const venueName = v.name ?? '';
+    const igHandle =
+      handleOf(e.instagramUrl) ||
+      handleOf(v.instagramUrl) ||
+      IG_BY_VENUE.get(norm(venueName)) ||
+      // Fall back to a loose containment match ("Mavericks" ↔ "Mavericks Dance Hall").
+      [...IG_BY_VENUE.entries()].find(
+        ([k]) => k.length > 3 && (norm(venueName).includes(k) || k.includes(norm(venueName)))
+      )?.[1] ||
+      '';
     const styles: string[] = (e.danceStyles ?? []).map((s: string) => s.toLowerCase());
     const price = typeof e.coverCharge === 'number' ? e.coverCharge : null;
     const area = v.neighborhood ?? v.city ?? 'Austin';
@@ -130,6 +162,8 @@ const events = rawEvents
       location_approx: true,
       address: [v.address, v.city, v.zipCode].filter(Boolean).join(', ') || undefined,
       day: DAY[String(e.dayOfWeek).toLowerCase()] ?? 'FRI',
+      date: e.date ?? undefined,
+      recurring: !e.date,
       start: e.startTime ?? '',
       end: e.endTime ?? undefined,
       styles,

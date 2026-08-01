@@ -2,113 +2,137 @@
 
 **Elastic × Apify Hack Night, Austin — 2026-07-31 · ~2h hack · 5-min demo**
 **Challenge:** *"Use Apify and Elastic to build an Agent that pulls real-time web data and translates them into actionable insights."*
-**First vertical:** dance socials (ground truth: austindancesocials.com)
+**First vertical:** dance socials. **Primary source: austindancesocials.com.**
 
 ## One-liner
 
-Austin dance calendars rot — the truth lives on Instagram. Polaris keeps the canonical
-schedule in Elastic, uses Apify to watch venue/organizer IG accounts and public calendar
-sites, and an agent reconciles them into live verdicts — **VERIFIED / CHANGED / CANCELLED**
-— on a Snap-map of the city. Every claim cites a real IG post.
+Austin dance calendars rot — the truth lives on Instagram. Polaris ingests the full
+austindancesocials.com calendar into Elastic, then uses Apify to watch the Instagram
+accounts behind each venue. A rule-based agent reconciles the two into live verdicts —
+**VERIFIED / CHANGED / CANCELLED** — on a dark map of the city. Every verdict cites the
+exact IG post that produced it.
 
 > **Apify is the agent's eyes. Elastic is its memory — search index and state store in one.**
+
+## Data spine — austindancesocials.com is the source of truth
+
+ADS ships its entire `events[]` and `venues[]` arrays inside its Next.js chunks,
+**including a per-event `instagramUrl`**. `npm run ads` parses them (robots.txt: `Allow: /`):
+
+| extracted | count |
+|---|---|
+| active events | **113** |
+| venues (address, neighborhood, maps URL, website) | **46** |
+| Instagram handles to watch | **14** |
+| by day | SAT 46 · FRI 23 · THU 11 · SUN 10 · WED 9 · MON 7 · TUE 7 |
+
+That single file gives us the canonical calendar **and** tells the agent which IG accounts
+to point its eyes at. No hand-typed seed. Re-runnable — the calendar refreshes by re-running
+one command. Every event doc carries `source: "austindancesocials.com"`.
+
+Secondary (stretch): `apify/website-content-crawler` over ADS style/day pages + other Austin
+calendars, indexed as `web_pages` so `/ask` can cite prose the structured data misses.
+Excluded on purpose: login-walled sources (member.life, bebachata.passion.io).
 
 ## Judging map (30 pts)
 
 | Axis | Play |
 |---|---|
-| Creativity (10) | Live-verified event graph on a Snapchat-style city map — not a chatbot-over-docs. Personal (we dance in Austin). Real problem: driving to a cancelled social. |
-| Completeness (10) | End-to-end live: two Apify actors → Elastic → map + RN app on device. Kibana as second window. Elastic cloud + Apify cloud = deployed backends. |
-| Understanding (10) | Elastic = hybrid retrieval (BM25 + ELSER `semantic_text`) **and** durable agent memory (verdicts + evidence + perception log). Apify = real-time perception, pay-per-use, zero scraper infra. |
+| Creativity (10) | Live-verified event graph on a Snap-style city map. Personal (we dance in Austin), real problem (driving to a cancelled social). Not a chatbot-over-docs. |
+| Completeness (10) | **Web app anyone can open** + real Apify runs + Elastic cloud + Kibana. 113 real events, real IG posts, real verdicts. |
+| Understanding (10) | Elastic = hybrid retrieval (BM25 + ELSER `semantic_text`) **and** durable agent memory. Apify = real-time perception, $0.008/run, zero scraper infra. |
 
 ## Architecture
 
 ```
-seed/events.json   canonical socials (from austindancesocials.com) + venue geo
-seed/sources.json  IG handles + public calendar URLs
-        │
-        ▼
-[ingest.ts] ────────────────────────► Elastic Serverless
-                                        events     blurb: semantic_text ← ELSER
-                                        ig_posts   the agent's perception log
-[pulse.ts] ── Apify actor #1 ───────►   web_pages  crawled calendars, semantic
-    contactminerlabs/instagram-posts-reels-scraper---cheap-all-in-one
-[crawl.ts] ── Apify actor #2 ───────►
-    apify/website-content-crawler  (ADS, salsavida, cabana club, do512)
-        │
-        ▼
-[reconcile.ts]  rule-based agent judgment (NO external LLM — explainable):
-    post → event match (handle + day words / "tonight" in America/Chicago)
-    cancel regex → CANCELLED · $-regex vs canonical price → CHANGED · else VERIFIED
-    _update event docs with {status, evidence{post_url, snippet, rule}, last_checked}
-        │
-        ▼
-[api.ts]  Hono :8787
-    GET  /map                      Snap-map (MapLibre + CARTO dark) — pins ringed by status
-    GET  /feed?day&style&maxPrice  filtered structured search
-    GET  /ask?q=                   RRF hybrid (BM25 + semantic) over events + web_pages
-                                   → templated answer + citations
-    POST /rsvp                     community stub (rsvp_count++)
-        │
-        ▼
-[app/]  Expo RN — Porch design system · tabs: Tonight · Ask · Saved
+austindancesocials.com  ──[ads.ts]──► seed/events.json (113) + seed/sources.json (14 handles)
+                                          │
+                                          ▼
+                              [ingest.ts] ──────► Elastic Serverless
+                                                    events    blurb: semantic_text ← ELSER
+Instagram (14 venue accounts) ──[pulse.ts]──►       ig_posts  perception log
+   apify/instagram-scraper  ~$0.008/run             web_pages (stretch: crawl.ts)
+                                          │
+                                          ▼
+                              [reconcile.ts]  rule-based, no LLM:
+                                weekly-rundown captions split per night
+                                "closed"/"cancelled" → CANCELLED
+                                $ mismatch vs calendar → CHANGED
+                                live band / special guest → CHANGED
+                                else → VERIFIED   (+ evidence{post_url, snippet, rule})
+                                          │
+                                          ▼
+                              [api.ts] Hono :8787
+                                GET /            web app  ← primary demo surface
+                                GET /feed        filters (day, style, maxPrice, q)
+                                GET /ask         RRF hybrid → answer + citations
+                                POST /rsvp       community counter
+                                          │
+                              ┌───────────┴───────────┐
+                         web app (primary)      Expo RN app (stretch)
+                         map + list + ask       Porch design system
 ```
-
-Excluded on purpose: login-required sources (member.life, bebachata.passion.io) — credentials
-in scrapers + ToS + the clock. No external LLM key: semantic = Elastic-hosted ELSER;
-verdicts = rules. (If the trial exposes Elastic Managed LLM inference, /ask answers can
-upgrade from templated to generated — optional, never a dependency.)
-
-## Elastic usage (the "why Elastic" answer)
-
-1. **Hybrid search** — one `semantic_text` field embeds via ELSER at ingest, zero embedding
-   code. `/ask` = RRF over BM25 + semantic. Demo: "beginner friendly country night" →
-   Little Longhorn with no keyword overlap.
-2. **Agent memory** — perception (`ig_posts`, `web_pages`) and judgment (`status`,
-   `evidence`, `last_checked` on `events`) live in Elastic. Kill everything, restart, state
-   survives. Idempotent re-runs (doc `_id` = post/page URL, event slug).
-3. **Geo** — `location: geo_point` feeds the map (and `geo_distance` "near me" later).
-4. **Kibana** — status pie + posts-per-handle bar as the live ops window.
-
-Pre-decided fallbacks: `semantic_text` create fails → plain `text` (ingest.ts auto-falls-back)
-and `/ask` degrades to BM25. Bulk errors → per-doc loop.
 
 ## Surfaces
 
-- **/map (laptop + projector)** — dark city map, emoji pins per style (🤠🔥🌺🌹🌊), ring
-  color = verification status, popup has price/time/badge + **IG evidence link**, day pills,
-  30s auto-refresh. Cancelled pins go grayscale.
-- **App · Tonight** — Porch-style feed cards: style chips, price, time, verification badge,
-  tap badge → IG post.
-- **App · Ask** — chat input → `/ask` → answer + citation chips.
-- **App · Saved** — "Count me in" → `/rsvp` + local reminder (expo-notifications). Stub tier.
+**1. Expo RN app (PRIMARY — this is the product)** — Porch design system.
+- **Tonight** — day pills + style pills; ADS-style cards with time, venue, area, cover,
+  style chips, and a **verification badge** (`✓ IG-verified 2h ago` / `⚠ changed` /
+  `✕ cancelled`). Tap badge → the IG post that proves it.
+- **Ask** — one input → hybrid retrieval → answer + citation chips.
+- **Saved** — "Count me in" list, rsvp count, local reminder.
 
-## 2h build order (cut from the bottom)
+**2. Web app — `GET /` (secondary; ship only if the app is done)**
+- **Map view** — dark MapLibre basemap, one pin per venue, emoji by style (🤠🔥🌺🌹🌊),
+  **ring colour = verification status**, cancelled pins go grayscale. Popup: time, cover,
+  styles, badge, **"IG evidence ↗"** link.
+- **List view** — ADS-style day sections and cards, same badges.
+- **Ask** — one input, hybrid retrieval, answer + citation chips.
+- Day pills + style pills + free-only toggle. Auto-refresh every 30s so a live
+  `npm run reconcile` visibly changes the screen mid-demo.
 
-| t | step | proof |
+Same API serves both. The web map is the projector-friendly backup if the simulator misbehaves.
+
+## Elastic usage (the "why Elastic" answer)
+
+1. **Hybrid search** — one `semantic_text` field embeds via ELSER at ingest; `/ask` runs RRF
+   over BM25 + semantic. Demo query: *"beginner friendly country night"* → Little Longhorn,
+   no keyword overlap.
+2. **Agent memory** — perception (`ig_posts`) and judgment (`status`, `evidence`,
+   `last_checked`) live in Elastic, not process memory. Idempotent (`_id` = post URL / event
+   slug); kill everything and restart, nothing is lost.
+3. **Geo** — `location: geo_point` drives the map (and `geo_distance` "near me" later).
+4. **Kibana** — status pie + posts-per-handle bar as the live ops window.
+
+Pre-decided fallbacks: `semantic_text` create fails → plain `text` (auto), `/ask` → BM25.
+Bulk errors → per-doc loop.
+
+## Remaining build order
+
+| step | cmd | proof |
 |---|---|---|
-| 0:00–0:10 | Elastic Serverless project + keys into `.env`; `npm i` | `/health` ok |
-| 0:10–0:25 | `npm run ingest -- --fresh` | Kibana shows 7+ events |
-| 0:25–0:50 | `npm run pulse` — smoke-test 1 handle, then all | posts in Kibana |
-| 0:50–1:05 | `npm run reconcile` → `npm run api` → **/map live** | badges on map |
-| 1:05–1:15 | `npm run crawl` (parallel with app work) | pages indexed |
-| 1:15–1:50 | app: Tonight + Ask wired to API | phone demo |
-| 1:50–2:00 | Kibana dashboard · demo dry-run · push + submit | — |
+| Elastic creds (**human**) | ela.st/hack-austin → `.env` | `/health` |
+| indices + 113 events | `npm run ingest -- --fresh` | Kibana count |
+| IG posts | `npm run pulse` | posts per handle |
+| verdicts | `npm run reconcile` | badge tally |
+| API up | `npm run api` | `/feed` returns 113 |
+| **app** | `cd app && npm start` | Tonight · Ask on device |
+| Kibana dashboard · dry-run · push | — | — |
 
-Cut order: Saved tab → rsvp → crawl → Ask polish. Never cut: **map with badges**.
+Cut order: web map → crawl.ts → Saved tab → rsvp. **Never cut: Tonight feed with badges.**
 
 ## Demo script (5 min)
 
-1. **Map on projector** — "This is Austin's dance scene tonight, live." Point at green rings.
-2. Tap a cancelled pin → grayscale, ✕ badge → **IG evidence link** → the actual post.
-   "The calendar says Friday. Instagram says not this Friday. Polaris knew."
-3. Phone: Tonight feed + Ask "beginner friendly country night" → semantic hit + citations.
-4. Kibana: perception log + verdict pie. "Agent state lives in Elastic — restart anything."
-5. Close: eyes/memory one-liner + two actors + $-per-run economics.
+1. **Phone/simulator**: Tonight tab — "Austin's dance scene tonight, 113 events, live."
+2. Tap a `✕ cancelled` badge → **the actual IG post**.
+   *"The calendar says it's on. Instagram says closed. Polaris read the post."*
+3. Ask: *"beginner friendly country night under $10"* → semantic hit + citations.
+4. Run `npm run pulse && npm run reconcile` live → screen updates in place.
+5. Kibana: perception log + verdict pie. Close on eyes/memory + $0.008/run.
 
 ## Submission (Airtable)
 
-- [ ] Public GitHub repo — **verify `.env` is NOT committed** (`.gitignore` covers it)
-- [ ] Description: One-liner above
-- [ ] Why/how Elastic + Apify: sections above
+- [ ] Public GitHub repo — **verify `.env` never committed**
+- [ ] Description = One-liner
+- [ ] Why/how Elastic + Apify = sections above
 - [ ] Team names + emails

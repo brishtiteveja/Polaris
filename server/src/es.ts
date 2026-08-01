@@ -7,12 +7,24 @@ config(); // fallback: cwd .env
 
 const url = process.env.ELASTIC_URL;
 const apiKey = process.env.ELASTIC_API_KEY;
-if (!url || !apiKey) {
-  console.error('Missing ELASTIC_URL / ELASTIC_API_KEY in .env — create a Serverless Search project (ela.st/hack-austin), then Home → Endpoints & API keys.');
+
+/** False when creds are absent — the API then serves the seed file directly. */
+export const esConfigured = Boolean(url && apiKey);
+
+export const es = esConfigured
+  ? new Client({ node: url!, auth: { apiKey: apiKey! } })
+  : (null as unknown as Client);
+
+/** Scripts that genuinely need Elastic call this first. */
+export function requireEs(): void {
+  if (esConfigured) return;
+  console.error(
+    'Missing ELASTIC_URL / ELASTIC_API_KEY in .env\n' +
+      '  → create a Serverless Search project at https://ela.st/hack-austin,\n' +
+      '    then Home → "Endpoints & API keys", and put both in /Users/andy/dev/Polaris/.env'
+  );
   process.exit(1);
 }
-
-export const es = new Client({ node: url, auth: { apiKey } });
 
 export const IDX = {
   events: 'events',

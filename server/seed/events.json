@@ -11,6 +11,7 @@
     "location_approx": true,
     "address": "1700 Grand Avenue Pkwy, Pflugerville, 78660",
     "day": "SUN",
+    "recurring": true,
     "start": "19:00",
     "end": "02:00",
     "styles": [
@@ -24,6 +25,7 @@
     "price_note": "$5",
     "website": "https://www.mavericksdancehall.com/",
     "maps_url": "https://maps.google.com/?q=Mavericks+Dance+Hall+Pflugerville+TX",
+    "ig_handle": "mavericksdancehall",
     "source": "austindancesocials.com",
     "blurb": "Salsa & Bachata Sundays at Mavericks. at Mavericks Dance Hall in Pflugerville. sundays 19:00. salsa, bachata dancing. lesson included. beginner friendly, no partner needed. $5 cover. Big dance hall with lessons and social dancing. $5 covers both the 7pm beginner class and the social — popular Sunday destination!. Mavericks Dance Hall transforms into Austin's Latin dance destination every Sunday night. This massive venue offers one of the largest dance floors in the area, perfect for spinning and styling. Beginner lessons start at 7pm, followed by open dancing until 2am. The venue features a full bar, comfortable seating areas, and a welcoming atmosphere for dancers of all levels."
   },
@@ -39,6 +41,7 @@
     "location_approx": true,
     "address": "5012 E 7th St, Austin, 78702",
     "day": "WED",
+    "recurring": true,
     "start": "20:00",
     "end": "01:00",
     "styles": [
@@ -70,6 +73,7 @@
     "location_approx": true,
     "address": "1605 E 38th 1/2 St, Austin, 78722",
     "day": "THU",
+    "recurring": true,
     "start": "21:00",
     "end": "00:00",
     "styles": [
@@ -100,6 +104,7 @@
     "location_approx": true,
     "address": "11600 Century Oaks Terrace #128, Austin, 78758",
     "day": "SAT",
+    "recurring": true,
     "start": "23:00",
     "end": "02:00",
     "styles": [
@@ -114,6 +119,7 @@
     "price_note": "$10",
     "website": "https://gloriascuisine.com/",
     "maps_url": "https://maps.google.com/?q=Glorias+Latin+Cuisine+Domain+Austin+TX",
+    "ig_handle": "gloriasnightlifeaustin",
     "source": "austindancesocials.com",
     "blurb": "Salsa Night at Gloria's – The Domain. at Gloria's Latin Cuisine - The Domain in The Domain. saturdays 23:00. salsa, bachata, cumbia dancing. live music. beginner friendly, no partner needed. $10 cover. Weekly Saturday salsa night at Gloria's in The Domain — live Latin bands + DJ. $10 cover.. Every Saturday, Gloria's Latin Cuisine in The Domain turns into a late-night salsa party from 11pm to 2am. Rotating live Latin bands (La Elite, Rumba Latina, Grupo Kaché) plus DJ Vega keep the floor moving with salsa, bachata, and cumbia. $10 cover, upscale-casual dress code (no athletic wear). A great option if you're already in the Domain or want to combine dinner with dancing."
   },
@@ -129,6 +135,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "FRI",
+    "recurring": true,
     "start": "19:00",
     "end": "02:00",
     "styles": [
@@ -142,6 +149,7 @@
     "price_note": "$10",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Honky Tonk Friday at White Horse. at The White Horse in East Austin. fridays 19:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Donation-based two-step lesson at 7pm, then live bands all night. $10 cover.. The White Horse is East Austin's beloved honky-tonk, and Friday nights are legendary! Donation-based two-step lesson at 7pm by Dancing Austin, then live country and western swing bands play while dancers two-step around the floor. The authentic honky-tonk atmosphere, cheap beer, and friendly crowd make this a quintessential Austin experience. $10 cover charge."
   },
@@ -157,6 +165,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "SAT",
+    "recurring": true,
     "start": "21:00",
     "end": "02:00",
     "styles": [
@@ -170,6 +179,7 @@
     "price_note": "$10",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Honky Tonk Saturday at White Horse. at The White Horse in East Austin. saturdays 21:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Donation-based two-step lesson at 7pm, then live music all night at Austin's favorite East side honky-tonk. $10 cover.. Saturday nights at The White Horse bring out the best of Austin's country dancing scene! A donation-based two-step lesson at 7pm (cash/Venmo) with Dancin' Austin leads in, then multiple live bands rotate through the night playing classic country, honky-tonk, and western swing. The dance floor is always lively with two-steppers of all levels. This is where tourists and locals mix for an authentic Austin honky-tonk experience. $10 cover after 7:30pm."
   },
@@ -185,6 +195,7 @@
     "location_approx": true,
     "address": "3201 S Lamar Blvd, Austin, 78704",
     "day": "SAT",
+    "recurring": true,
     "start": "21:00",
     "end": "01:30",
     "styles": [
@@ -198,6 +209,7 @@
     "price_note": "$15 · Two-step lessons Wed-Sat 8-9pm with Terri White, $10 + cover. Dancehall doors 7:15pm, runs to 1:30am.",
     "website": "https://brokenspokeaustintx.net",
     "maps_url": "https://maps.google.com/?q=The+Broken+Spoke+3201+S+Lamar+Austin+TX",
+    "ig_handle": "brokenspokeaustintx",
     "source": "austindancesocials.com",
     "blurb": "Saturday Night at the Broken Spoke. at The Broken Spoke in South Lamar. saturdays 21:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $15 cover. Austin's legendary honky-tonk since 1964. Live country music and real Texas two-step. Two-step lesson 8pm ($10 + cover).. The Broken Spoke is a living legend - Austin's last true Texas dancehall, operating since 1964. Saturday nights feature live country bands on the original stage where Willie Nelson, George Strait, and countless legends have played. Two-step lessons at 8pm with Terri White ($10 plus cover — arrive by 7:30pm to sign up) help beginners get started. The worn wooden dance floor, Christmas lights, and authentic atmosphere make this a must-visit for anyone interested in Texas dance culture."
   },
@@ -213,6 +225,7 @@
     "location_approx": true,
     "address": "2525 W Anderson Ln #530, Austin, 78757",
     "day": "SUN",
+    "recurring": true,
     "start": "17:30",
     "end": "19:00",
     "styles": [
@@ -229,6 +242,7 @@
     "organizer": "Go Dance Studio",
     "website": "https://godancestudio.com/calendar/variety-social/1-25-2026",
     "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
+    "ig_handle": "godancestudio",
     "source": "austindancesocials.com",
     "blurb": "Variety Social Dance. at Go Dance Studio in North Austin. sundays 17:30. two-step, salsa, east-coast-swing, west-coast-swing dancing. beginner friendly, no partner needed. $10 cover. Multi-genre social: Country, Ballroom, Salsa, Swing and more. Request your favorites!. Go Dance Studio's Variety Social is perfect for dancers who love multiple styles! The DJ takes requests and plays a rotating mix of country two-step, East Coast swing, West Coast swing, salsa, cha-cha, waltz, and more. Great opportunity to practice different dances in one evening. The studio's professional sprung wood floor is easy on your joints and perfect for dancing."
   },
@@ -244,6 +258,7 @@
     "location_approx": true,
     "address": "209 Pedernales St, Austin, 78702",
     "day": "SAT",
+    "recurring": true,
     "start": "20:00",
     "end": "23:30",
     "styles": [
@@ -257,6 +272,7 @@
     "organizer": "Esquina Tango",
     "website": "https://www.esquinatango.org/",
     "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
+    "ig_handle": "esquinatango",
     "source": "austindancesocials.com",
     "blurb": "Noche de Tango. at Esquina Tango in East Austin. saturdays 20:00. tango dancing. lesson included. beginner friendly, no partner needed. $15 cover. Monthly milonga at Esquina Tango. All-level class at 8pm, milonga at 8:30pm. BYOB.. Noche de Tango at Esquina Tango, Austin's dedicated tango venue. The 1st Saturday of each month features an all-level tango class at 8:00pm followed by milonga at 8:30pm until 11:30pm. Traditional milonga atmosphere with tandas and cortinas. The intimate space and quality sound system create the perfect atmosphere for connection and musicality."
   },
@@ -272,6 +288,7 @@
     "location_approx": true,
     "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
     "day": "WED",
+    "recurring": true,
     "start": "21:15",
     "end": "22:00",
     "styles": [
@@ -285,6 +302,7 @@
     "organizer": "Connection Tango (Lindsey & Ricardo)",
     "website": "https://connectiontango.com/",
     "maps_url": "https://maps.google.com/?q=4622+S+Lamar+Blvd+Suite+D+Austin+TX+78745",
+    "ig_handle": "rhythmhouseatx",
     "source": "austindancesocials.com",
     "blurb": "Wednesday Mini-Práctica. at Rhythm House ATX in South Lamar. wednesdays 21:15. tango dancing. beginner friendly, no partner needed. $5 cover. Connection Tango's Wednesday mini-práctica at Rhythm House Studio. 9:15-10pm. $5, Venmo or Zelle only at the door.. Connection Tango hosts a relaxed Wednesday-night mini-práctica at Rhythm House Studio (4622 S Lamar Blvd). A practice session rather than a formal milonga, so it's perfect for working on new moves and dancing with different partners from 9:15 to 10pm. $5 at the door, Venmo or Zelle only. Hosted by Lindsey and Ricardo."
   },
@@ -300,6 +318,7 @@
     "location_approx": true,
     "address": "8868 Research Blvd #706, Austin, 78758",
     "day": "SAT",
+    "recurring": true,
     "start": "19:00",
     "end": "22:00",
     "styles": [
@@ -313,6 +332,7 @@
     "organizer": "Connection Tango (Lindsey & Ricardo)",
     "website": "https://connectiontango.com/",
     "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
+    "ig_handle": "austinuptown",
     "source": "austindancesocials.com",
     "blurb": "Milonga Conexión. at Austin Uptown Dance in North Austin. saturdays 19:00. tango dancing. beginner friendly, no partner needed. $15 cover. Connection Tango's monthly milonga, 3rd Saturday at Austin Uptown Studio. 7-10pm, $15. Wine (21+) and snacks provided.. Milonga Conexión is Connection Tango's monthly milonga, held the 3rd Saturday at Austin Uptown Studio (8868 Research Blvd #706). Social Argentine tango from 7 to 10pm with a welcoming community. Wine (21+) and snacks are provided. Dress to impress. $15 at the door. Hosted by Lindsey and Ricardo."
   },
@@ -328,6 +348,7 @@
     "location_approx": true,
     "address": "2525 W Anderson Ln #530, Austin, 78757",
     "day": "SAT",
+    "recurring": true,
     "start": "19:00",
     "end": "22:00",
     "styles": [
@@ -343,6 +364,7 @@
     "organizer": "Austin Ballroom Dancers",
     "website": "https://danceatx.org/",
     "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
+    "ig_handle": "godancestudio",
     "source": "austindancesocials.com",
     "blurb": "Austin Ballroom Dancers Social. at Go Dance Studio in North Austin. saturdays 19:00. east-coast-swing, west-coast-swing, two-step dancing. lesson included. beginner friendly, no partner needed. $15 cover. Austin Ballroom Dancers monthly social. Waltz, foxtrot, swing, Latin, and more! $15 ($10 members, $5 students, first-time guests free).. The Austin Ballroom Dancers (ABD) host a monthly social featuring a wide variety of partner dances. The DJ plays waltz, foxtrot, tango, Viennese waltz, quickstep, East Coast swing, West Coast swing, cha-cha, rumba, and country two-step. Pre-social lesson included. Great for ballroom dancers and those who enjoy multiple styles. Welcoming community that's been active for decades."
   },
@@ -358,6 +380,7 @@
     "location_approx": true,
     "address": "4544 S Lamar Blvd #200/#300, Austin, 78745",
     "day": "SUN",
+    "recurring": true,
     "start": "19:00",
     "end": "21:30",
     "styles": [
@@ -371,6 +394,7 @@
     "organizer": "Fil Cruz Jr.",
     "website": "https://austintango.org/",
     "maps_url": "https://maps.google.com/?q=Balance+Dance+Studios+4544+S+Lamar+Blvd+Austin+TX+78745",
+    "ig_handle": "balancedancestudios",
     "source": "austindancesocials.com",
     "blurb": "Austin Tango Practica. at Balance Dance Studios in South Austin. sundays 19:00. tango dancing. beginner friendly, no partner needed. Weekly tango practica hosted by Fil Cruz Jr. Every Sunday at Balance Dance Studios.. Austin Tango Practica is a welcoming Sunday evening practica at Balance Dance Studios (Studios #2 & #3). First-timers dance FREE! Regular admission is $10 (100% goes to studio rental). The practica format is perfect for practicing moves, dancing with different partners, and improving your skills in a social setting.\\n\\nHouse Rules:\\n• Change shoes in lobby - NO street shoes on studio floor\\n• Clean and sanitize your dance shoes\\n• Dispose of trash before leaving\\n\\nPayment accepted: Cash, PayPal, Venmo, Cash App, or Check (payable to Fil Cruz Jr.)"
   },
@@ -386,6 +410,7 @@
     "location_approx": true,
     "address": "209 Pedernales St, Austin, 78702",
     "day": "FRI",
+    "recurring": true,
     "start": "20:00",
     "end": "23:30",
     "styles": [
@@ -399,6 +424,7 @@
     "organizer": "Esquina Tango",
     "website": "https://www.esquinatango.org/",
     "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
+    "ig_handle": "esquinatango",
     "source": "austindancesocials.com",
     "blurb": "Third Friday Milonga. at Esquina Tango in East Austin. fridays 20:00. tango dancing. beginner friendly, no partner needed. $15 cover. Monthly social dance at Esquina Tango. 3rd Friday of each month, 8-11:30pm. BYOB.. Third Friday Milonga at Esquina Tango! The 3rd Friday of each month, Esquina Tango hosts a social dance from 8:00pm to 11:30pm. Austin's dedicated tango dancers gather in this intimate venue for an evening of Argentine tango. general / member at the door (/ online). BYOB."
   },
@@ -414,6 +440,7 @@
     "location_approx": true,
     "address": "205 E Monroe St, Austin, 78704",
     "day": "SAT",
+    "recurring": true,
     "start": "20:00",
     "end": "23:00",
     "styles": [
@@ -441,6 +468,7 @@
     "location_approx": true,
     "address": "5434 Burnet Rd, Austin, 78756",
     "day": "WED",
+    "recurring": true,
     "start": "17:00",
     "end": "23:00",
     "styles": [
@@ -471,6 +499,7 @@
     "location_approx": true,
     "address": "5434 Burnet Rd, Austin, 78756",
     "day": "FRI",
+    "recurring": true,
     "start": "17:00",
     "end": "01:00",
     "styles": [
@@ -501,6 +530,7 @@
     "location_approx": true,
     "address": "5434 Burnet Rd, Austin, 78756",
     "day": "SAT",
+    "recurring": true,
     "start": "16:00",
     "end": "01:00",
     "styles": [
@@ -531,6 +561,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "THU",
+    "recurring": true,
     "start": "19:00",
     "end": "02:00",
     "styles": [
@@ -544,6 +575,7 @@
     "price_note": "$10",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Thursday Night at White Horse. at The White Horse in East Austin. thursdays 19:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Donation-based two-step lesson at 7pm followed by live music all night. $10 cover.. Thursday nights at The White Horse feature a donation-based two-step lesson at 7pm by Dancing Austin, making it the perfect introduction to country dancing for beginners. After the lesson, live bands take the stage and the dance floor fills up. Less crowded than weekend nights, so it's a great time to practice your new moves. $10 cover charge."
   },
@@ -559,6 +591,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "SUN",
+    "recurring": true,
     "start": "18:00",
     "end": "01:00",
     "styles": [
@@ -572,6 +605,7 @@
     "price_note": "$5",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Sunday at White Horse. at The White Horse in East Austin. sundays 18:00. two-step, country dancing. live music. beginner friendly, no partner needed. $5 cover. Live music and two-stepping every Sunday. $5 cover.. Sunday nights at The White Horse keep the two-step going with live bands and a relaxed, local crowd. No lesson on Sundays now (two-step lessons run Thu/Fri/Sat at 7pm) — just show up and dance. $5 cover."
   },
@@ -587,6 +621,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "MON",
+    "recurring": true,
     "start": "19:30",
     "end": "01:00",
     "styles": [
@@ -600,6 +635,7 @@
     "price_note": "$5",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Monday at White Horse. at The White Horse in East Austin. mondays 19:30. two-step, country dancing. live music. beginner friendly, no partner needed. $5 cover. Live music and two-stepping every Monday night."
   },
@@ -615,6 +651,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "TUE",
+    "recurring": true,
     "start": "19:30",
     "end": "01:00",
     "styles": [
@@ -628,6 +665,7 @@
     "price_note": "$5",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Tuesday at White Horse. at The White Horse in East Austin. tuesdays 19:30. two-step, country dancing. live music. beginner friendly, no partner needed. $5 cover. Live music and two-stepping every Tuesday night."
   },
@@ -643,6 +681,7 @@
     "location_approx": true,
     "address": "500 Comal St, Austin, 78702",
     "day": "WED",
+    "recurring": true,
     "start": "19:30",
     "end": "01:00",
     "styles": [
@@ -656,6 +695,7 @@
     "price_note": "$5",
     "website": "https://thewhitehorseaustin.com",
     "maps_url": "https://maps.google.com/?q=The+White+Horse+500+Comal+St+Austin+TX",
+    "ig_handle": "whitehorseatx",
     "source": "austindancesocials.com",
     "blurb": "Wednesday at White Horse. at The White Horse in East Austin. wednesdays 19:30. two-step, country dancing. live music. beginner friendly, no partner needed. $5 cover. Live music and two-stepping every Wednesday night."
   },
@@ -671,6 +711,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "TUE",
+    "recurring": true,
     "start": "18:00",
     "end": "23:00",
     "styles": [
@@ -685,6 +726,7 @@
     "instructor": "Double or Nothing",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Two-Step Tuesday at Sagebrush. at Sagebrush in South Austin. tuesdays 18:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Double or Nothing Two-Step lessons (6pm beginner, 7pm intermediate) followed by Hayden Butler live at 8pm. $10 cash.. Every Tuesday at Sagebrush features Double or Nothing Two-Step lessons starting at 6pm (beginner) and 7pm (intermediate), followed by Hayden Butler performing live at 8pm. $10 cash covers both lessons and the band. Drink specials include $3 Lonestar 12oz cans and $7 Lonestar + Whiskey Shot combos. A great option for beginners wanting to learn two-step in a real honky-tonk setting."
   },
@@ -700,6 +742,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "WED",
+    "recurring": true,
     "start": "19:00",
     "end": "23:00",
     "styles": [
@@ -714,6 +757,7 @@
     "instructor": "Hill Country Two Step",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Hill Country Two-Step Wednesday at Sagebrush. at Sagebrush in South Austin. wednesdays 19:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Hill Country Two-Step lessons (7pm advanced, 8pm intermediate) followed by live music at 9pm. $10 cash.. Every Wednesday at Sagebrush features Hill Country Two-Step lessons at 7pm (advanced) and 8pm (intermediate), followed by a live band at 9pm. $10 cash covers both lessons and the band. A great midweek option for experienced two-steppers looking to sharpen their skills, though all levels are welcome."
   },
@@ -729,6 +773,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "THU",
+    "recurring": true,
     "start": "19:00",
     "end": "23:00",
     "styles": [
@@ -743,6 +788,7 @@
     "instructor": "Hill Country Two Step",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Thursday Night at Sagebrush. at Sagebrush in South Austin. thursdays 19:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $15 cover. Hill Country Two-Step lesson 7-8pm, then live bands from 8pm. $15 cover.. Thursday nights at Sagebrush open with a beginner-friendly Hill Country Two-Step lesson from 7 to 8pm, followed by live country bands from 8pm onward. $15 cover includes the lesson and the music. South Austin honky-tonk atmosphere with a spacious dance floor and outdoor patio with fire pits."
   },
@@ -758,6 +804,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "FRI",
+    "recurring": true,
     "start": "19:00",
     "end": "02:00",
     "styles": [
@@ -771,6 +818,7 @@
     "price_note": "Cover varies · Cover varies by act — check sagebrushaustin.com/events for the week's lineup. No weekend dance lesson; lessons run Sun/Tue/Thu.",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Friday Night at Sagebrush. at Sagebrush in South Austin. fridays 19:00. two-step, country dancing. live music. beginner friendly, no partner needed. Live classic country, honky-tonk, and western swing bands. Cover varies by act ($10-$25).. Sagebrush is South Austin's premier country dance destination. Friday nights feature live classic country, honky-tonk, and western swing bands with rotating lineups. The spacious dance floor, quality sound, and consistently great bands make this a favorite for serious two-steppers. Check sagebrushaustin.com/events for the current week's lineup and cover. The outdoor area with fire pits is perfect for taking a break between dances."
   },
@@ -786,6 +834,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "SAT",
+    "recurring": true,
     "start": "19:00",
     "end": "02:00",
     "styles": [
@@ -799,6 +848,7 @@
     "price_note": "Cover varies · Cover varies by act — check sagebrushaustin.com/events for the week's lineup. No weekend dance lesson; lessons run Sun/Tue/Thu.",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Saturday Night at Sagebrush. at Sagebrush in South Austin. saturdays 19:00. two-step, country dancing. live music. beginner friendly, no partner needed. Big Saturday night with live bands and two-stepping. Cover varies by act ($10-$20).. Saturday at Sagebrush is the main event for Austin country dancers. Expect a packed house, great live bands, and a lively dance floor full of two-steppers. The venue's attention to booking quality acts means you'll hear genuine country music, not pop-country. Check sagebrushaustin.com/events for the current week's lineup, lesson schedule, and cover. The outdoor patio with fire pits and food trucks adds to the experience."
   },
@@ -814,6 +864,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "SUN",
+    "recurring": true,
     "start": "17:00",
     "end": "22:00",
     "styles": [
@@ -828,6 +879,7 @@
     "instructor": "Double or Nothing",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Sunday Two-Step at Sagebrush. at Sagebrush in South Austin. sundays 17:00. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Double or Nothing Two-Step lessons (5pm advanced, 6pm intermediate) followed by Matt Tedder live at 7pm. $10 cash.. Every Sunday at Sagebrush features Double or Nothing Two-Step lessons at 5pm (advanced) and 6pm (intermediate), followed by Matt Tedder performing live at 7pm. $10 cash covers both lessons and the band. A more relaxed weekend afternoon/evening option that wraps up by 10pm — perfect for getting your two-step fix before the work week starts."
   },
@@ -843,6 +895,7 @@
     "location_approx": true,
     "address": "1600 W 5th St, Austin, 78703",
     "day": "FRI",
+    "recurring": true,
     "start": "21:00",
     "end": "00:00",
     "styles": [
@@ -856,6 +909,7 @@
     "price_usd": 10,
     "price_note": "$10",
     "maps_url": "https://maps.google.com/?q=Donns+Depot+1600+W+5th+St+Austin+TX",
+    "ig_handle": "donnsdepot",
     "source": "austindancesocials.com",
     "blurb": "Friday Night at Donn's Depot. at Donn's Depot in West Austin. fridays 21:00. two-step, country, east-coast-swing dancing. live music. beginner friendly, no partner needed. $10 cover. Donn & The Station Masters live at 9pm in a converted 1940s train depot. $10 cover.. Donn's Depot is one of Austin's most unique venues — a converted 1940s train car that's been a neighborhood bar since 1972. Friday nights feature Donn & The Station Masters at 9pm. The tiny dance floor fills up fast with regulars who've been coming for decades. This is old Austin at its finest — quirky, unpretentious, and full of character. $10 cover."
   },
@@ -871,6 +925,7 @@
     "location_approx": true,
     "address": "1600 W 5th St, Austin, 78703",
     "day": "WED",
+    "recurring": true,
     "start": "19:30",
     "end": "23:30",
     "styles": [
@@ -884,6 +939,7 @@
     "price_note": "$10",
     "instructor": "Double or Nothing",
     "maps_url": "https://maps.google.com/?q=Donns+Depot+1600+W+5th+St+Austin+TX",
+    "ig_handle": "donnsdepot",
     "source": "austindancesocials.com",
     "blurb": "Two-Step Wednesday at Donn's Depot. at Donn's Depot in West Austin. wednesdays 19:30. two-step, country dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Double or Nothing Two-Step lesson at 7:30pm, then Frank Cavitt & The Honky-Tonk Doctors 8:30-11:30pm. $10.. Donn's Depot — Austin's beloved converted 1940s train car bar — hosts Double or Nothing Two-Step lessons every Wednesday at 7:30pm, followed by Frank Cavitt & The Honky-Tonk Doctors playing live from 8:30-11:30pm. A great option for beginners: learn to two-step, then immediately practice with live country music. $10 cover. Quirky, unpretentious, and full of old Austin character."
   },
@@ -899,6 +955,7 @@
     "location_approx": true,
     "address": "1600 W 5th St, Austin, 78703",
     "day": "SAT",
+    "recurring": true,
     "start": "21:00",
     "end": "00:00",
     "styles": [
@@ -912,6 +969,7 @@
     "price_usd": 10,
     "price_note": "$10",
     "maps_url": "https://maps.google.com/?q=Donns+Depot+1600+W+5th+St+Austin+TX",
+    "ig_handle": "donnsdepot",
     "source": "austindancesocials.com",
     "blurb": "Saturday Night at Donn's Depot. at Donn's Depot in West Austin. saturdays 21:00. two-step, country, east-coast-swing dancing. live music. beginner friendly, no partner needed. $10 cover. Live music in a converted 1940s train depot. Rotating acts. $10 cover.. Saturday nights at Donn's Depot continue the tradition of eclectic live music in this beloved train-car-turned-bar. Rotating acts play country, honky-tonk, and more from 9pm. The intimate space means you might be dancing elbow-to-elbow, but that's part of the charm. $10 cover."
   },
@@ -927,6 +985,7 @@
     "location_approx": true,
     "address": "2115 Allred Dr, Austin, 78748",
     "day": "FRI",
+    "recurring": true,
     "start": "20:00",
     "end": "01:00",
     "styles": [
@@ -957,6 +1016,7 @@
     "location_approx": true,
     "address": "2115 Allred Dr, Austin, 78748",
     "day": "SAT",
+    "recurring": true,
     "start": "21:00",
     "end": "01:00",
     "styles": [
@@ -987,6 +1047,7 @@
     "location_approx": true,
     "address": "1000 E 41st St, Austin, 78751",
     "day": "MON",
+    "recurring": true,
     "start": "19:15",
     "end": "21:30",
     "styles": [
@@ -1015,6 +1076,7 @@
     "location_approx": true,
     "address": "4721 Loyola Ln, Austin, 78723",
     "day": "TUE",
+    "recurring": true,
     "start": "17:45",
     "end": "19:45",
     "styles": [
@@ -1044,6 +1106,7 @@
     "location_approx": true,
     "address": "811 E 41st St, Austin, 78751",
     "day": "WED",
+    "recurring": true,
     "start": "19:15",
     "end": "21:30",
     "styles": [
@@ -1072,6 +1135,7 @@
     "location_approx": true,
     "address": "510 N Guadalupe St, San Marcos, 78666",
     "day": "SUN",
+    "recurring": true,
     "start": "13:00",
     "end": "16:00",
     "styles": [
@@ -1100,6 +1164,7 @@
     "location_approx": true,
     "address": "2525 W Anderson Ln #530, Austin, 78757",
     "day": "TUE",
+    "recurring": true,
     "start": "20:30",
     "end": "22:30",
     "styles": [
@@ -1113,6 +1178,7 @@
     "organizer": "Go Dance Studio",
     "website": "https://godancestudio.com/calendar/",
     "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
+    "ig_handle": "godancestudio",
     "source": "austindancesocials.com",
     "blurb": "Go West: Weekly West Coast Swing. at Go Dance Studio in North Austin. tuesdays 20:30. west-coast-swing dancing. beginner friendly, no partner needed. $10 cover. Weekly West Coast Swing social dance. Open to all levels.. Go West is the Tuesday night destination for Austin's West Coast Swing dancers. The social dance runs 8:30-10:30pm with DJ'd music spanning contemporary pop, R&B, blues, and WCS classics. Go Dance Studio's excellent floor makes for smooth dancing. All levels welcome - the community is supportive of newer dancers. A great way to get your midweek WCS fix!"
   },
@@ -1128,6 +1194,7 @@
     "location_approx": true,
     "address": "2525 W Anderson Ln #530, Austin, 78757",
     "day": "TUE",
+    "recurring": true,
     "start": "21:15",
     "end": "22:30",
     "styles": [
@@ -1158,6 +1225,7 @@
     "location_approx": true,
     "address": "8868 Research Blvd #706, Austin, 78758",
     "day": "THU",
+    "recurring": true,
     "start": "20:45",
     "end": "23:00",
     "styles": [
@@ -1172,6 +1240,7 @@
     "instructor": "Austin Westie Academy instructors",
     "website": "https://www.austinwestieacademy.com/",
     "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
+    "ig_handle": "austinuptown",
     "source": "austindancesocials.com",
     "blurb": "Austin Westie Academy Social. at Austin Uptown Dance in North Austin. thursdays 20:45. west-coast-swing dancing. lesson included. beginner friendly, no partner needed. $10 cover. Weekly WCS classes and social dancing. One of Austin's longest-running WCS venues.. Austin Westie Academy has been teaching West Coast Swing in Austin for years. Thursday nights at Austin Uptown Dance feature progressive classes followed by social dancing. Classes at 7:45pm with three simultaneous levels (Crash Course, Foundations, Patterns & Concepts), then open dancing until 11pm. The experienced instructors break down WCS in an accessible way. Great community for all levels."
   },
@@ -1187,6 +1256,7 @@
     "location_approx": true,
     "address": "3005 S Lamar Blvd Suite 110A, Austin, 78704",
     "day": "SAT",
+    "recurring": true,
     "start": "20:30",
     "end": "23:30",
     "styles": [
@@ -1200,6 +1270,7 @@
     "organizer": "Blue Moon Dance Co.",
     "website": "https://www.bluemoondance.co/events",
     "maps_url": "https://maps.google.com/?q=Blue+Moon+Dance+Co+3005+S+Lamar+Blvd+Austin+TX",
+    "ig_handle": "bluemoondance.co",
     "source": "austindancesocials.com",
     "blurb": "West Coast Swing Dance Party. at Blue Moon Dance Co. in South Lamar. saturdays 20:30. west-coast-swing dancing. beginner friendly, no partner needed. $12 cover. Monthly WCS dance party at Blue Moon. Spacious floating wood floor.. Blue Moon Dance Co. hosts a monthly West Coast Swing party on their gorgeous floating hardwood floor - one of the best dance surfaces in Austin. The 4th Saturday of each month brings out WCS dancers for a night of social dancing with quality music. The spacious studio allows for plenty of room to move. Check their calendar for exact dates."
   },
@@ -1215,6 +1286,7 @@
     "location_approx": true,
     "address": "209 Pedernales St, Austin, 78702",
     "day": "SUN",
+    "recurring": true,
     "start": "17:30",
     "end": "19:30",
     "styles": [
@@ -1227,6 +1299,7 @@
     "price_note": "Cover varies · All-level instruction 5:30-6:30pm, open practice 6:30-7:30pm. $5-10 donation.",
     "website": "https://www.esquinatango.org/kizomba-class-practica/",
     "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
+    "ig_handle": "esquinatango",
     "source": "austindancesocials.com",
     "blurb": "Kizomba Class & Practica. at Esquina Tango in East Austin. sundays 17:30. kizomba dancing. lesson included. beginner friendly, no partner needed. Weekly Kizomba classes and practice. All levels welcome!. Austin's weekly kizomba gathering at Esquina Tango! All-level instruction runs 5:30–6:30pm, followed by open practice 6:30–7:30pm. Donation-based pricing ($5–10) makes this accessible. Kizomba is a smooth, connected partner dance from Angola — sensual but appropriate for all. Great community vibe with patient dancers willing to help newcomers."
   },
@@ -1242,6 +1315,7 @@
     "location_approx": true,
     "address": "8863 Anderson Mill Rd, Suite 107, Austin, 78729",
     "day": "WED",
+    "recurring": true,
     "start": "19:30",
     "end": "20:30",
     "styles": [
@@ -1272,6 +1346,7 @@
     "location_approx": true,
     "address": "8863 Anderson Mill Rd, Suite 107, Austin, 78729",
     "day": "MON",
+    "recurring": true,
     "start": "19:30",
     "end": "20:30",
     "styles": [
@@ -1300,6 +1375,7 @@
     "location_approx": true,
     "address": "8863 Anderson Mill Rd, Suite 107, Austin, 78729",
     "day": "SUN",
+    "recurring": true,
     "start": "14:00",
     "end": "18:00",
     "styles": [
@@ -1331,6 +1407,7 @@
     "location_approx": true,
     "address": "4400 West Gate Blvd, Studio 10, Austin, 78745",
     "day": "SUN",
+    "recurring": true,
     "start": "19:00",
     "end": "23:00",
     "styles": [
@@ -1362,6 +1439,7 @@
     "location_approx": true,
     "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
     "day": "TUE",
+    "recurring": true,
     "start": "18:45",
     "end": "23:45",
     "styles": [
@@ -1393,6 +1471,7 @@
     "location_approx": true,
     "address": "8868 Research Blvd #706, Austin, 78758",
     "day": "SAT",
+    "recurring": true,
     "start": "21:00",
     "end": "02:00",
     "styles": [
@@ -1424,6 +1503,7 @@
     "location_approx": true,
     "address": "401 E Whitestone Blvd, Cedar Park, 78613",
     "day": "THU",
+    "recurring": true,
     "start": "20:00",
     "end": "01:00",
     "styles": [
@@ -1456,6 +1536,7 @@
     "location_approx": true,
     "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
     "day": "FRI",
+    "recurring": true,
     "start": "20:30",
     "end": "00:00",
     "styles": [
@@ -1491,6 +1572,7 @@
     "location_approx": true,
     "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
     "day": "FRI",
+    "recurring": true,
     "start": "20:30",
     "end": "00:00",
     "styles": [
@@ -1522,6 +1604,7 @@
     "location_approx": true,
     "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
     "day": "FRI",
+    "recurring": true,
     "start": "20:30",
     "end": "01:00",
     "styles": [
@@ -1553,6 +1636,8 @@
     "location_approx": true,
     "address": "979 Springdale Rd #130, Austin, 78702",
     "day": "FRI",
+    "date": "2026-08-28",
+    "recurring": false,
     "start": "19:00",
     "end": "22:00",
     "styles": [
@@ -1583,6 +1668,7 @@
     "location_approx": true,
     "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
     "day": "SAT",
+    "recurring": true,
     "start": "13:00",
     "end": "14:30",
     "styles": [
@@ -1613,6 +1699,7 @@
     "location_approx": true,
     "address": "2525 W Anderson Ln #530, Austin, 78757",
     "day": "FRI",
+    "recurring": true,
     "start": "20:30",
     "end": "22:00",
     "styles": [
@@ -1627,6 +1714,7 @@
     "organizer": "Go Dance Studio",
     "website": "https://godancestudio.com/calendar/",
     "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
+    "ig_handle": "godancestudio",
     "source": "austindancesocials.com",
     "blurb": "Salsa & Bachata Social Dance. at Go Dance Studio in North Austin. fridays 20:30. salsa, bachata dancing. beginner friendly, no partner needed. $10 cover. 4th Friday of each month — salsa and bachata social at Go Dance Studio.. A relaxed social dance party at Go Dance Studio featuring salsa, bachata, and a mix of other social Latin dance styles. Great sprung wood floor and welcoming atmosphere. $10 per person, or party pack of 5 for $40. Included in Go Dance memberships."
   },
@@ -1642,6 +1730,7 @@
     "location_approx": true,
     "address": "3005 S Lamar Blvd Suite 110A, Austin, 78704",
     "day": "FRI",
+    "recurring": true,
     "start": "20:00",
     "end": "02:00",
     "styles": [
@@ -1663,94 +1752,6 @@
     "blurb": "Fuego Friday. at Blue Moon Dance Co. in South Lamar. fridays 20:00. salsa, bachata, zouk dancing. lesson included. beginner friendly, no partner needed. $15 cover. The hottest Latin night in ATX! Classes at 8pm, social dancing 10pm-2am. Zouk side room!. Fuego Friday at Blue Moon Dance Co. - Austin's hottest Latin night! Beginner and intermediate salsa & bachata classes at 8pm, then social dancing from 10pm to 2am. Dedicated zouk side room for zouk dancers. $25 for all classes + social, $15 for social only. BYOB and free parking!"
   },
   {
-    "id": "fuego-hub-valentines-feb14",
-    "name": "The Hub — Valentine's Weekend Edition",
-    "venue": "Arthur Murray Dance Center",
-    "area": "Northwest Austin",
-    "location": {
-      "lat": 30.42543,
-      "lon": -97.75916
-    },
-    "location_approx": true,
-    "address": "13945 N Highway 183 Unit C1, Austin, 78717",
-    "day": "SAT",
-    "start": "21:00",
-    "end": "02:00",
-    "styles": [
-      "bachata",
-      "salsa"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15 · One-time Valentine's Weekend event. Part of Fuego Friday's weekend celebration.",
-    "organizer": "Fuego Friday Austin",
-    "instructor": "Brian & Alex",
-    "maps_url": "https://maps.google.com/?q=Arthur+Murray+Dance+Center+13945+N+Highway+183+Austin+TX",
-    "ig_handle": "fuego_friday_austin",
-    "ig_url": "https://instagram.com/fuego_friday_austin",
-    "source": "austindancesocials.com",
-    "blurb": "The Hub — Valentine's Weekend Edition. at Arthur Murray Dance Center in Northwest Austin. saturdays 21:00. bachata, salsa dancing. lesson included. beginner friendly, no partner needed. $15 cover. Valentine's special! Bachata class at 9pm, then 80% Bachata / 20% Salsa til 2am. DJs Irakli & Masha.. The Hub — Valentine's Weekend Edition by Fuego Friday Austin! Saturday Feb 14 at Arthur Murray Dance Center. Bachata class with Brian & Alex at 9pm, then social dancing from 10pm to 2am. Music: 80% Bachata / 20% Salsa with DJ Irakli & DJ Masha. $20 for classes + social, $15 social only. Part of Fuego Friday's Valentine's Weekend celebration."
-  },
-  {
-    "id": "esquina-salsa-feb27",
-    "name": "Salsa en la Esquina with Mario y su Timbeko",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "FRI",
-    "start": "19:45",
-    "end": "00:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. BYOB.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Salsa en la Esquina with Mario y su Timbeko. at Esquina Tango in East Austin. fridays 19:45. salsa dancing. lesson included. live music. beginner friendly, no partner needed. Live salsa with Mario y su Timbeko! Doors 7:45pm, Class 8pm. BYOB.. Salsa en la Esquina featuring live music by Mario y su Timbeko! Friday, February 27th. Doors open at 7:45pm, Salsa Class at 8:00pm. BYOB. Check esquinatango.org for ticket details."
-  },
-  {
-    "id": "esquina-social-cubano-feb21",
-    "name": "Social Cubano",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "20:00",
-    "end": "00:00",
-    "styles": [
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15 · One-time event. BYOB.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Social Cubano. at Esquina Tango in East Austin. saturdays 20:00. salsa, bachata dancing. lesson included. beginner friendly, no partner needed. $15 cover. Cuban dance night! Rueda de Casino & Afro Cuban Shines classes, then salsa, timba, bachata social. $25 class + social, $15 social only.. Social Cubano at Esquina Tango! Saturday, February 21st. Two all-levels classes: Rueda de Casino with Ashley at 8:00pm and Afro Cuban Shines with Robbie at 8:45pm. Social dancing from 9:30pm with DJ Motivate spinning salsa, timba, bachata and more. $25 for classes + social, $15 for social only. No partner or experience needed."
-  },
-  {
     "id": "fils-milonga",
     "name": "Fil's Milonga",
     "venue": "Austin Uptown Dance",
@@ -1762,6 +1763,7 @@
     "location_approx": true,
     "address": "8868 Research Blvd #706, Austin, 78758",
     "day": "SAT",
+    "recurring": true,
     "start": "19:00",
     "end": "23:00",
     "styles": [
@@ -1774,6 +1776,7 @@
     "price_note": "$15 · Bi-monthly. Next: Aug 22, then Oct 31 (Halloween edition) and Dec 26. Enter through the side door. Cash preferred.",
     "organizer": "Fil Cruz Jr.",
     "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
+    "ig_handle": "austinuptown",
     "source": "austindancesocials.com",
     "blurb": "Fil's Milonga. at Austin Uptown Dance in North Austin. saturdays 19:00. tango dancing. $15 cover. An Evening of Argentine Tango hosted by Fil Cruz Jr. Bi-monthly (even months), 7–11pm. BYOB, snacks provided.. Fil's Milonga — An Evening of Argentine Tango at Austin Uptown Dance Studio. Hosted by Fil Cruz Jr., co-hosted by Michael & Sherie White, David & Tere Walker. 7:00pm to 11:00pm. $15 pay at door (Cash, Venmo, PayPal, Cash App, Zelle, or Check payable to Fil Cruz Jr.). BYOB and some snacks provided. TDJ Fil Cruz Jr. Please enter thru side door — front door will be locked."
   },
@@ -1789,6 +1792,7 @@
     "location_approx": true,
     "address": "5012 E 7th St, Austin, 78702",
     "day": "MON",
+    "recurring": true,
     "start": "19:00",
     "end": "22:00",
     "styles": [
@@ -1802,37 +1806,9 @@
     "organizer": "Esquina Tango",
     "website": "https://www.esquinatango.org/monday-tango/",
     "maps_url": "https://maps.google.com/?q=Cabana+Club+ATX+5012+E+7th+St+Austin+TX+78702",
+    "ig_handle": "cabanaclubatx",
     "source": "austindancesocials.com",
     "blurb": "Free Monday Tango at Cabana Club. at Cabana Club ATX in East Austin. mondays 19:00. tango dancing. lesson included. beginner friendly, no partner needed. free, no cover. FREE community tango night! All-level class at 7pm followed by milonga at 8pm. No partner needed.. Free Monday Tango hosted by Esquina Tango at Cabana Club! Every Monday: All-level Tango Class 7:00-8:00pm (no partner or experience needed), followed by Milonga 8:00-10:00pm. A free community event — come learn, dance, and enjoy great cocktails at this happening East Austin joint! Drinks available. Support your local business that supports culture and dance! Absolutely no outside food or beverages."
-  },
-  {
-    "id": "salsamania-11th-anniversary",
-    "name": "Salsamania 11th Anniversary — Jimmy Bosch Live",
-    "venue": "Austin Uptown Dance",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38937,
-      "lon": -97.72975
-    },
-    "location_approx": true,
-    "address": "8868 Research Blvd #706, Austin, 78758",
-    "day": "SAT",
-    "start": "20:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies",
-    "organizer": "Salsamania Austin",
-    "website": "https://www.salsamaniaaustin.com/get-tickets",
-    "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
-    "ig_handle": "salsamania_austin",
-    "ig_url": "https://instagram.com/salsamania_austin",
-    "source": "austindancesocials.com",
-    "blurb": "Salsamania 11th Anniversary — Jimmy Bosch Live. at Austin Uptown Dance in North Austin. saturdays 20:00. salsa dancing. live music. beginner friendly, no partner needed. Salsamania's 11th anniversary celebration with live salsa concert featuring Jimmy Bosch and Gonzo y Su Orquesta Austin.. Salsamania Austin celebrates 11 years of salsa in Austin with a special live concert featuring Jimmy Bosch (El Trombón Criollo del mundo!) performing with Gonzo y Su Orquesta Austin. This is a ticketed event — early bird tickets $25 (first 75), regular $35, table reservations $60 (seats 4). One of the biggest Latin dance events of the year in Austin."
   },
   {
     "id": "sams-town-monday-blues",
@@ -1846,6 +1822,7 @@
     "location_approx": true,
     "address": "2115 Allred Dr, Austin, 78748",
     "day": "MON",
+    "recurring": true,
     "start": "21:00",
     "end": "00:00",
     "styles": [
@@ -1858,35 +1835,9 @@
     "price_note": "$10",
     "website": "https://www.samstownpointatx.com",
     "maps_url": "https://maps.google.com/?q=Sams+Town+Point+2115+Allred+Dr+Austin+TX",
+    "ig_handle": "samstownpoint",
     "source": "austindancesocials.com",
     "blurb": "Monday Night at Sam's Town Point. at Sam's Town Point in South Austin. mondays 21:00. blues dancing. live music. beginner friendly, no partner needed. $10 cover. Blues dancing with the Little Elmore Reed Blues Band at 9pm every Monday. Pedal-steel 'Steel Monday' set at 7pm before the band.. Every Monday night, Sam's Town Point hosts live blues with a decent crowd of partner dancers. Live band from 10pm to midnight. A great spot for blues dancers looking for a weeknight social with live music in a laid-back South Austin honky-tonk."
-  },
-  {
-    "id": "milonga-linda-fire-horse",
-    "name": "Milonga Linda - Fire Horse Edition",
-    "venue": "Austin Uptown Dance",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38937,
-      "lon": -97.72975
-    },
-    "location_approx": true,
-    "address": "8868 Research Blvd #706, Austin, 78758",
-    "day": "SAT",
-    "start": "19:30",
-    "end": "23:00",
-    "styles": [
-      "tango"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15",
-    "organizer": "Malin Ouk",
-    "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Milonga Linda - Fire Horse Edition. at Austin Uptown Dance in North Austin. saturdays 19:30. tango dancing. beginner friendly, no partner needed. $15 cover. The inaugural Milonga Linda! Lunar New Year Fire Horse edition with DJ El Johnny. Wear red for good luck!. The very first Milonga Linda! To celebrate her debut as a host and the Lunar New Year, Malin Ouk is channeling the vibrant energy of the Fire Horse. DJ El Johnny (John Turci-Escobar) spins the tango music from 7:30-11pm. $15 entry. Light snacks and wine provided, BYOB welcome. Wear red for good luck!"
   },
   {
     "id": "taada-contra-dance",
@@ -1900,6 +1851,7 @@
     "location_approx": true,
     "address": "2525 W Anderson Ln #530, Austin, 78757",
     "day": "SAT",
+    "recurring": true,
     "start": "19:00",
     "end": "22:00",
     "styles": [
@@ -1913,36 +1865,9 @@
     "organizer": "TAADA",
     "website": "https://godancestudio.com",
     "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
+    "ig_handle": "godancestudio",
     "source": "austindancesocials.com",
     "blurb": "TAADA Contra Dance. at Go Dance Studio in North Austin. saturdays 19:00. contra dancing. lesson included. live music. beginner friendly, no partner needed. $10 cover. Monthly contra dance hosted by the Traditional Austin Area Dance Association. No partner needed, all dances taught and called.. Enjoy a night of contra dancing hosted by the Traditional Austin Area Dance Association (TAADA)! Every 3rd Saturday at Go Dance Studio. No partner necessary and beginners are welcome — all dances are taught and called. Live music accompaniment. A great way to experience this traditional American folk dance form in a friendly, inclusive community setting."
-  },
-  {
-    "id": "esquina-passion-mar19",
-    "name": "Esquina Passion — Pre-Festival Milonga",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "THU",
-    "start": "21:00",
-    "end": "00:00",
-    "styles": [
-      "tango"
-    ],
-    "live_music": true,
-    "lesson": false,
-    "skill_level": "intermediate",
-    "price_usd": 15,
-    "price_note": "$15",
-    "organizer": "Esquina Tango / Austin Spring Tango Festival",
-    "website": "https://esquinatango.org/esquinapassion/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Esquina Passion — Pre-Festival Milonga. at Esquina Tango in East Austin. thursdays 21:00. tango dancing. live music. $15 cover. Austin Spring Tango Pre-Festival Milonga with DJ El Yoni. No festival pass needed — everyone welcome.. Kick off Austin Spring Tango Festival Weekend at Esquina Tango! A lively milonga open to all — no festival pass needed. Early arrivals from out of town mingle with the Austin dance community. DJ El Yoni spins, with a special performance by Orquesta Típica Laura Camacho, featuring Buenos Aires-native composer and bassist Laura Camacho (UT Austin ethnomusicology Ph.D. student). $13 general / $11 members online (until 5pm day of event), $15 general / $13 members at the door."
   },
   {
     "id": "be-bachata-saturday",
@@ -1956,6 +1881,7 @@
     "location_approx": true,
     "address": "3005 S Lamar Blvd Suite 110A, Austin, 78704",
     "day": "SAT",
+    "recurring": true,
     "start": "21:00",
     "end": "02:00",
     "styles": [
@@ -1975,120 +1901,6 @@
     "blurb": "Be-Bachata 100% Bachata Social. at Blue Moon Dance Co. in South Lamar. saturdays 21:00. bachata dancing. lesson included. beginner friendly, no partner needed. $20 cover. 100% bachata — one style, one vibe. 9pm class, 10pm–2am social at Blue Moon. 1st & 3rd Saturdays monthly.. Be-Bachata brings pure bachata to Blue Moon Dance Co. on the 1st and 3rd Saturday of every month. Open bachata class at 9pm, then social dancing 10pm–2am. 100% bachata music all night. $20 at the door. No experience or partner needed."
   },
   {
-    "id": "esquina-cumbia-mar14",
-    "name": "Por Suerte hay Cumbia",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "20:00",
-    "end": "00:00",
-    "styles": [
-      "cumbia"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20 · One-time event. $17 presale / $20 door. BYOB.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/cumbia/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Por Suerte hay Cumbia. at Esquina Tango in East Austin. saturdays 20:00. cumbia dancing. lesson included. beginner friendly, no partner needed. $20 cover. Cumbia class + social at Esquina Tango. All levels, no partner needed. BYOB.. Por Suerte hay Cumbia! A cumbia class and social night at Esquina Tango. All-levels cumbia class from 8-9pm (no partner needed), then social dancing 9pm to midnight. $17 presale online, $20 at the door. BYOB. DJ TBA."
-  },
-  {
-    "id": "esquina-social-cubano-mar21",
-    "name": "Social Cubano",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "19:30",
-    "end": "00:00",
-    "styles": [
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15 · One-time event. New start time 7:30pm. BYOB.",
-    "organizer": "Esquina Tango",
-    "instructor": "Alex Burris (Houston) & Robbie",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Social Cubano. at Esquina Tango in East Austin. saturdays 19:30. salsa, bachata dancing. lesson included. beginner friendly, no partner needed. $15 cover. Cuban dance night! Rueda de Casino & Afro Cuban Shines classes, then salsa, timba, bachata social. Guest instructor Alex Burris from Houston.. Social Cubano at Esquina Tango! Saturday, March 21st. NEW earlier start: Rueda de Casino with guest instructor Alex Burris (Houston) at 7:30pm, Afro Cuban Shines with Robbie at 8:15pm, then social dancing from 9pm with DJ Motivate spinning salsa, timba, bachata and more. $25 for classes + social, $15 for social only. No partner or experience needed. BYOB."
-  },
-  {
-    "id": "ecd-celtic-celebration-mar23",
-    "name": "English Country Dance — Celtic Celebration with Live Music",
-    "venue": "Hancock Center",
-    "area": "Hyde Park",
-    "location": {
-      "lat": 30.31303,
-      "lon": -97.76858
-    },
-    "location_approx": true,
-    "address": "1000 E 41st St, Austin, 78751",
-    "day": "MON",
-    "start": "19:30",
-    "end": "21:30",
-    "styles": [
-      "english-country"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time special event. Fragrance-free.",
-    "organizer": "TAADA",
-    "website": "https://taada.us/wp/",
-    "maps_url": "https://maps.google.com/?q=Hancock+Center+1000+E+41st+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "English Country Dance — Celtic Celebration with Live Music. at Hancock Center in Hyde Park. mondays 19:30. english-country dancing. lesson included. live music. beginner friendly, no partner needed. Special Celtic Celebration ECD with live music by Mockingbird (6 musicians)! All dances walked through and called.. A special Celtic Celebration edition of English Country Dance with live music by Mockingbird, a six-musician ensemble! Monday, March 23rd at Hancock Center. All dances will be walked through briefly and called — no experience or partner necessary. $5 admission plus a tip for the band. Fragrance-free event."
-  },
-  {
-    "id": "sebash-jam-mar21",
-    "name": "SeBASH-JAM: West Coast Swing Workshop & Social",
-    "venue": "Go Dance Studio",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38583,
-      "lon": -97.73212
-    },
-    "location_approx": true,
-    "address": "2525 W Anderson Ln #530, Austin, 78757",
-    "day": "SAT",
-    "start": "18:45",
-    "end": "22:00",
-    "styles": [
-      "west-coast-swing"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event.",
-    "organizer": "Go Dance Studio",
-    "website": "https://godancestudio.com/calendar/",
-    "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "SeBASH-JAM: West Coast Swing Workshop & Social. at Go Dance Studio in North Austin. saturdays 18:45. west-coast-swing dancing. lesson included. beginner friendly, no partner needed. WCS workshop followed by social dance party at Go Dance Studio.. SeBASH-JAM — a West Coast Swing workshop and social at Go Dance Studio! Saturday, March 21st. Workshop followed by social dancing. Great opportunity to level up your WCS skills and then practice at the social. Check Go Dance calendar for details and pricing."
-  },
-  {
     "id": "mill-salsa-bachata-thursday",
     "name": "Free Salsa & Bachata Night at The Mill",
     "venue": "The Mill Bar & Grill",
@@ -2100,6 +1912,7 @@
     "location_approx": true,
     "address": "9112 Anderson Mill Rd, Suite B-100, Austin, 78729",
     "day": "THU",
+    "recurring": true,
     "start": "19:30",
     "end": "23:00",
     "styles": [
@@ -2119,235 +1932,6 @@
     "blurb": "Free Salsa & Bachata Night at The Mill. at The Mill Bar & Grill in Northwest Austin. thursdays 19:30. salsa, bachata dancing. lesson included. beginner friendly, no partner needed. free, no cover. FREE biweekly salsa & bachata lesson + social dancing at The Mill Bar & Grill. No cover!. The Austin Kizomba Dance Meetup brings free salsa and bachata to The Mill Bar & Grill every other Thursday! Free lesson by DANCE U2 (Tony Mogaddam & Andrea Whitfield Breen) from 7:30-8:30pm, then social dancing 8:30-11pm with DJ Scott Richmond. Full-service bar and restaurant with food service until 11pm, billiards, and free parking. No cover charge — just show up and dance!"
   },
   {
-    "id": "atx-zouk-weekender-march-2026",
-    "name": "Austin Zouk Lambada Weekender",
-    "venue": "ATX Zouk Space",
-    "area": "South Austin",
-    "location": {
-      "lat": 30.2113,
-      "lon": -97.77855
-    },
-    "location_approx": true,
-    "address": "2315 Campden Dr, Austin, 78745",
-    "day": "FRI",
-    "start": "17:00",
-    "styles": [
-      "zouk"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · Multi-day event: Fri Mar 27 – Sun Mar 29. 8h workshops + 10h social parties. Day pass $60, full pass $100, social-only $10.",
-    "organizer": "Nhat & Gigi / ATX Zouk",
-    "website": "https://www.atxzouk.com/events",
-    "maps_url": "https://maps.google.com/?q=2315+Campden+Dr+Austin+TX+78745",
-    "ig_handle": "austinzouklambada",
-    "ig_url": "https://instagram.com/austinzouklambada",
-    "source": "austindancesocials.com",
-    "blurb": "Austin Zouk Lambada Weekender. at ATX Zouk Space in South Austin. fridays 17:00. zouk dancing. lesson included. beginner friendly, no partner needed. Three-day zouk intensive & social: 8 hours workshops + 10 hours parties with Bruna Peçanha & Leticia Castro. Fri–Sun.. The Austin Zouk Lambada Weekender is a full weekend of Brazilian Zouk — 8 hours of workshops plus 10 hours of social dancing parties. Hosted by Nhat & Gigi, the weekend runs Friday March 27 through Sunday March 29 with instructors Bruna Peçanha and Leticia Castro. Check atxzouk.com for tickets and pricing."
-  },
-  {
-    "id": "noche-de-salsa-apr3",
-    "name": "Noche de Salsa — Live Music with Tiburon",
-    "venue": "Veracruz All Natural",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25985,
-      "lon": -97.71958
-    },
-    "location_approx": true,
-    "address": "2505 Webberville Rd, Austin, 78702",
-    "day": "FRI",
-    "start": "19:00",
-    "end": "00:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. $20 online (class+music) / $25 door (class+music) / $20 music only at door. BYOB.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Veracruz+All+Natural+2505+Webberville+Rd+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Noche de Salsa — Live Music with Tiburon. at Veracruz All Natural in East Austin. fridays 19:00. salsa dancing. lesson included. live music. beginner friendly, no partner needed. Live salsa night with Tiburon at Veracruz All Natural! Class at 7:30pm, live music at 8pm. $20 online / $25 door. BYOB.. Esquina Tango presents Noche de Salsa featuring live music by Tiburon at Veracruz All Natural in East Austin! Doors at 7pm, all-levels salsa class at 7:30pm (no partner or experience needed), then live music and dancing at 8pm. $20 early bird online (until 5pm event day) for class + music, $25 at the door for class + music, or $20 music-only at the door if you skip the class. BYOB."
-  },
-  {
-    "id": "noche-de-cumbia-apr11",
-    "name": "Noche de Cumbia — Plan Sonidero Live",
-    "venue": "Veracruz All Natural",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25985,
-      "lon": -97.71958
-    },
-    "location_approx": true,
-    "address": "2505 Webberville Rd, Austin, 78702",
-    "day": "SAT",
-    "start": "19:00",
-    "end": "22:30",
-    "styles": [
-      "cumbia"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. $20 online / $25 door (class+music) / $20 music only. Kids 17 & under FREE. BYOB. Outdoor.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/cumbia/",
-    "maps_url": "https://maps.google.com/?q=Veracruz+All+Natural+2505+Webberville+Rd+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Noche de Cumbia — Plan Sonidero Live. at Veracruz All Natural in East Austin. saturdays 19:00. cumbia dancing. lesson included. live music. beginner friendly, no partner needed. Outdoor cumbia night with 10-piece band Plan Sonidero. Class at 7:30pm. Kids 17 & under FREE!. Esquina Tango presents Noche de Cumbia at Veracruz All Natural featuring Plan Sonidero — a 10-piece authentic Mexican cumbia band with accordion, keyboard, bass, and percussion! Doors at 7pm, all-levels cumbia class at 7:30pm, live music from 8pm to 10:30pm. $20 early bird online (until 5pm event day), $25 at the door (class + music), $20 music only at the door. Kids 17 and under are FREE! BYOB outdoor event."
-  },
-  {
-    "id": "go-dance-student-appreciation-apr11",
-    "name": "Go Dance Student Appreciation Party",
-    "venue": "Go Dance Studio",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38583,
-      "lon": -97.73212
-    },
-    "location_approx": true,
-    "address": "2525 W Anderson Ln #530, Austin, 78757",
-    "day": "SAT",
-    "start": "19:00",
-    "end": "22:00",
-    "styles": [
-      "west-coast-swing",
-      "two-step",
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 0,
-    "price_note": "Free! · One-time free appreciation event. Three rooms simultaneously.",
-    "organizer": "Go Dance Studio",
-    "website": "https://godancestudio.com/calendar/",
-    "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Go Dance Student Appreciation Party. at Go Dance Studio in North Austin. saturdays 19:00. west-coast-swing, two-step, salsa, bachata dancing. beginner friendly, no partner needed. free, no cover. FREE multi-room party at Go Dance! Three simultaneous rooms: West Coast Swing, Country & Ballroom, Salsa & Bachata.. Go Dance Studio throws a FREE Student Appreciation Party with three simultaneous dance rooms — West Coast Swing, Country & Ballroom, and Salsa & Bachata — all happening at once! Wander between rooms and dance your favorites. Open to all levels, no partner required. A rare chance to sample Austin's best multi-style dance community for free."
-  },
-  {
-    "id": "esquina-social-cubano-apr18",
-    "name": "Social Cubano",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "19:30",
-    "end": "00:00",
-    "styles": [
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15 · One-time event. BYOB.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Social Cubano. at Esquina Tango in East Austin. saturdays 19:30. salsa, bachata dancing. lesson included. beginner friendly, no partner needed. $15 cover. Cuban dance night! Timba & Casino classes at 7:30pm & 8:15pm, then salsa social at 9pm. $25 class+social / $15 social only.. Social Cubano at Esquina Tango! Saturday, April 18th. Two all-levels classes: Timba & Casino Rueda at 7:30pm and a second class at 8:15pm. Social dancing from 9pm with salsa, timba, bachata and more. $25 for classes + social, $15 for social only. No partner or experience needed. BYOB."
-  },
-  {
-    "id": "santa-milonguita-apr18",
-    "name": "Santa Milonguita",
-    "venue": "Cherrywood Hall",
-    "area": "Cherrywood",
-    "location": {
-      "lat": 30.28375,
-      "lon": -97.71329
-    },
-    "location_approx": true,
-    "address": "1605 E 38th 1/2 St, Austin, 78722",
-    "day": "SAT",
-    "start": "20:00",
-    "end": "23:00",
-    "styles": [
-      "tango"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15 · One-time event tied to Lorena and Pancho's visiting instructor weekend. $13/$15 door, $11/$13 online.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=1605+E+38th+1%2F2+St+Austin+TX+78722",
-    "source": "austindancesocials.com",
-    "blurb": "Santa Milonguita. at Cherrywood Hall in Cherrywood. saturdays 20:00. tango dancing. beginner friendly, no partner needed. $15 cover. Special milonga honoring visiting instructors Lorena Ermocida and Pancho Martinez Pey. $13 member / $15 general (door).. Special one-time milonga hosted by Esquina Tango at Cherrywood Hall, honoring visiting instructors Lorena Ermocida and Pancho Martinez Pey (also teaching a workshop and performing at Esquina's Noche de Tango on April 17). 8pm to 11pm. $13 Esquina member / $15 general at the door ($11 / $13 online in advance)."
-  },
-  {
-    "id": "noche-latina-apr24",
-    "name": "Noche Latina: Live Music with Latin Dukes",
-    "venue": "Veracruz All Natural",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25985,
-      "lon": -97.71958
-    },
-    "location_approx": true,
-    "address": "2505 Webberville Rd, Austin, 78702",
-    "day": "FRI",
-    "start": "19:00",
-    "end": "22:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. $20 online (class+music) / $25 door (class+music) / $20 music only at door. BYOB.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Veracruz+All+Natural+2505+Webberville+Rd+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Noche Latina: Live Music with Latin Dukes. at Veracruz All Natural in East Austin. fridays 19:00. salsa dancing. lesson included. live music. beginner friendly, no partner needed. Live salsa night with Latin Dukes at Veracruz All Natural. Class at 7pm, live music 7:30 to 10pm. $20 online / $25 door. BYOB.. Esquina Tango presents Noche Latina featuring live music by Latin Dukes at Veracruz All Natural in East Austin. All-levels salsa class at 7pm (no partner or experience needed), then live music and dancing from 7:30pm to 10pm. $20 early bird online (class + music), $25 at the door (class + music), or $20 music-only at the door. BYOB."
-  },
-  {
-    "id": "esquina-spring-showcase-apr25",
-    "name": "Esquina's Spring Showcase",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "19:00",
-    "styles": [
-      "tango",
-      "salsa"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 18,
-    "price_note": "$18 · One-time event. $15 early bird online / $18 door. End time not listed at source.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Esquina's Spring Showcase. at Esquina Tango in East Austin. saturdays 19:00. tango, salsa dancing. beginner friendly, no partner needed. $18 cover. Esquina Tango's Spring Showcase. $15 early bird online / $18 at door.. Esquina Tango's Spring Showcase on Saturday, April 25th at 7pm. $15 early bird online, $18 at the door."
-  },
-  {
     "id": "combo-chevere-friday",
     "name": "Salsa Night with Combo Chévere",
     "venue": "Firehouse Hostel and Lounge",
@@ -2359,6 +1943,7 @@
     "location_approx": true,
     "address": "605 Brazos St, Austin, 78701",
     "day": "FRI",
+    "recurring": true,
     "start": "22:00",
     "end": "00:30",
     "styles": [
@@ -2375,653 +1960,6 @@
     "blurb": "Salsa Night with Combo Chévere. at Firehouse Hostel and Lounge in Downtown. fridays 22:00. salsa dancing. live music. beginner friendly, no partner needed. $10 cover. Live salsa with Combo Chévere at Firehouse Hostel downtown. $10 cover. 1st Friday monthly.. Combo Chévere's monthly residency at Firehouse Hostel and Lounge in downtown Austin. Live salsa music from 10pm to 12:30am on the 1st Friday of each month. Bring friends, grab a drink, and settle in for a lively night of live salsa. A social, band-driven night out — no lesson, just dancing. $10 cover."
   },
   {
-    "id": "austin-social-dance-festival-apr9",
-    "name": "Austin Social Dance Festival — Zouk & Lambada Night",
-    "venue": "Zilker Hillside Theater",
-    "area": "Zilker",
-    "location": {
-      "lat": 30.25524,
-      "lon": -97.78178
-    },
-    "location_approx": true,
-    "address": "2206 William Barton Dr, Austin, 78746",
-    "day": "THU",
-    "start": "17:00",
-    "end": "22:00",
-    "styles": [
-      "zouk",
-      "lambada"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 0,
-    "price_note": "Free! · Part of Austin Social Dance Festival (Apr 9-12). FREE RSVP: austindances.org.",
-    "organizer": "Austin Inspired Movement",
-    "instructor": "Abelin & Josue",
-    "maps_url": "https://maps.google.com/?q=Zilker+Hillside+Theater+Austin+TX",
-    "ig_handle": "austininspiredmovement",
-    "ig_url": "https://instagram.com/austininspiredmovement",
-    "source": "austindancesocials.com",
-    "blurb": "Austin Social Dance Festival — Zouk & Lambada Night. at Zilker Hillside Theater in Zilker. thursdays 17:00. zouk, lambada dancing. lesson included. beginner friendly, no partner needed. free, no cover. Austin's FIRST Social Dance Festival! FREE Zouk & Lambada night at Zilker. Class at 5pm, social 6-10pm.. Opening night of Austin's first-ever Social Dance Festival at Zilker Hillside Theater. Brazilian Zouk & Lambada theme — Zouk class with Abelin & Josue at 5pm, social dancing 6-10pm with DJ Tiger and DJ Michelle URL. Free, all levels. Part of a 4-day festival (Apr 9-12). RSVP at austindances.org."
-  },
-  {
-    "id": "austin-social-dance-festival-apr10",
-    "name": "Austin Social Dance Festival — Swing, Blues & Country Night",
-    "venue": "Zilker Hillside Theater",
-    "area": "Zilker",
-    "location": {
-      "lat": 30.25524,
-      "lon": -97.78178
-    },
-    "location_approx": true,
-    "address": "2206 William Barton Dr, Austin, 78746",
-    "day": "FRI",
-    "start": "17:00",
-    "end": "22:00",
-    "styles": [
-      "west-coast-swing",
-      "two-step",
-      "blues"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 0,
-    "price_note": "Free! · Part of Austin Social Dance Festival (Apr 9-12). Live band: Golden Hour Heptet. FREE RSVP: austindances.org.",
-    "organizer": "Austin Inspired Movement",
-    "instructor": "Adib",
-    "maps_url": "https://maps.google.com/?q=Zilker+Hillside+Theater+Austin+TX",
-    "ig_handle": "austininspiredmovement",
-    "ig_url": "https://instagram.com/austininspiredmovement",
-    "source": "austindancesocials.com",
-    "blurb": "Austin Social Dance Festival — Swing, Blues & Country Night. at Zilker Hillside Theater in Zilker. fridays 17:00. west-coast-swing, two-step, blues dancing. lesson included. live music. beginner friendly, no partner needed. free, no cover. Austin Social Dance Festival night 2! FREE Swing, Blues & Country at Zilker. Swing class at 5pm, social 6-10pm.. Night 2 of Austin's first Social Dance Festival at Zilker Hillside Theater. Swing, Blues & Country theme — Swing class with Adib at 5pm, social dancing 6-10pm with live music by Golden Hour Heptet. Free, all levels. Part of a 4-day festival (Apr 9-12). RSVP at austindances.org."
-  },
-  {
-    "id": "austin-social-dance-festival-apr11",
-    "name": "Austin Social Dance Festival — Cumbia, Salsa & Bachata Night",
-    "venue": "Zilker Hillside Theater",
-    "area": "Zilker",
-    "location": {
-      "lat": 30.25524,
-      "lon": -97.78178
-    },
-    "location_approx": true,
-    "address": "2206 William Barton Dr, Austin, 78746",
-    "day": "SAT",
-    "start": "17:00",
-    "end": "22:00",
-    "styles": [
-      "cumbia",
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 0,
-    "price_note": "Free! · Part of Austin Social Dance Festival (Apr 9-12). FREE RSVP: austindances.org.",
-    "organizer": "Austin Inspired Movement",
-    "instructor": "Alberto",
-    "maps_url": "https://maps.google.com/?q=Zilker+Hillside+Theater+Austin+TX",
-    "ig_handle": "austininspiredmovement",
-    "ig_url": "https://instagram.com/austininspiredmovement",
-    "source": "austindancesocials.com",
-    "blurb": "Austin Social Dance Festival — Cumbia, Salsa & Bachata Night. at Zilker Hillside Theater in Zilker. saturdays 17:00. cumbia, salsa, bachata dancing. lesson included. beginner friendly, no partner needed. free, no cover. Austin Social Dance Festival night 3! FREE Cumbia, Salsa & Bachata at Zilker. Cumbia class at 5pm, social 6-10pm.. Night 3 of Austin's first Social Dance Festival at Zilker Hillside Theater. Cumbia, Salsa & Bachata theme — Cumbia class with Alberto at 5pm, social dancing 6-10pm with Cumbia Movement and DJ BigJ. Free, all levels. Part of a 4-day festival (Apr 9-12). RSVP at austindances.org."
-  },
-  {
-    "id": "austin-social-dance-festival-apr12",
-    "name": "Austin Social Dance Festival — Multi-Genre Finale",
-    "venue": "Rhythm House ATX",
-    "area": "South Lamar",
-    "location": {
-      "lat": 30.25585,
-      "lon": -97.77398
-    },
-    "location_approx": true,
-    "address": "4622 S Lamar Blvd, Suite D, Austin, 78745",
-    "day": "SUN",
-    "start": "13:00",
-    "end": "22:00",
-    "styles": [
-      "salsa",
-      "bachata",
-      "west-coast-swing",
-      "two-step",
-      "lindy-hop"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 0,
-    "price_note": "Free! · Film 1pm, workshops 2-7pm (Jitterbug, Salsa, Country), party 7-10pm. Part of Austin Social Dance Festival (Apr 9-12). FREE RSVP: austindances.org.",
-    "organizer": "Austin Inspired Movement",
-    "website": "https://www.rhythmhouseatx.com",
-    "maps_url": "https://maps.google.com/?q=4622+S+Lamar+Blvd+Suite+D+Austin+TX+78745",
-    "ig_handle": "austininspiredmovement",
-    "ig_url": "https://instagram.com/austininspiredmovement",
-    "source": "austindancesocials.com",
-    "blurb": "Austin Social Dance Festival — Multi-Genre Finale. at Rhythm House ATX in South Lamar. sundays 13:00. salsa, bachata, west-coast-swing, two-step, lindy-hop dancing. lesson included. beginner friendly, no partner needed. free, no cover. Festival finale! FREE multi-genre day at Rhythm House. Film 1pm, workshops 2-7pm, party & social 7-10pm.. Closing day of Austin's first Social Dance Festival at Rhythm House ATX. Beyond Borders dance film at 1pm. Workshops 2-7pm: Jitterbug with @texas_amh (3pm), Salsa with @pasionlatinadance & @travi_h (5pm), Country with @lizethkatz & @nativetexantwostep (6pm). Party & all-genre social 7-10pm. Free, all levels. RSVP at austindances.org."
-  },
-  {
-    "id": "fils-milonga-may23",
-    "name": "Fil's Milonga",
-    "venue": "Austin Uptown Dance",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38937,
-      "lon": -97.72975
-    },
-    "location_approx": true,
-    "address": "8868 Research Blvd #706, Austin, 78758",
-    "day": "SAT",
-    "start": "19:00",
-    "end": "23:00",
-    "styles": [
-      "tango"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "intermediate",
-    "price_usd": 15,
-    "price_note": "$15 · One-time May edition. Normally last Saturday but shifted from May 30 (Memorial Day weekend). Re-confirmed May 15 via austinuptowndance.com/main-events (Saturday May 23, 7-11pm, hosted by Fil Cruz Jr). Contact: filcruzjr@msn.com or 512-203-9196.",
-    "organizer": "Fil Cruz Jr.",
-    "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Fil's Milonga. at Austin Uptown Dance in North Austin. saturdays 19:00. tango dancing. $15 cover. An Evening of Argentine Tango hosted by Fil Cruz Jr. Shifted from May 30 to avoid Memorial Day weekend.. Fil's Milonga — An Evening of Argentine Tango at Austin Uptown Dance Studio. Hosted by Fil Cruz Jr. 7:00pm to 11:00pm. $15 pay at door (Cash, Venmo, PayPal, Cash App, Zelle, or Check payable to Fil Cruz Jr.). BYOB and some snacks provided. TDJ Fil Cruz Jr. Please enter thru side door — front door will be locked. May edition shifted off the usual 5th Saturday slot to avoid Memorial Day weekend."
-  },
-  {
-    "id": "blue-moon-wcs-may23",
-    "name": "West Coast Swing Dance Party",
-    "venue": "Blue Moon Dance Co.",
-    "area": "South Lamar",
-    "location": {
-      "lat": 30.24372,
-      "lon": -97.78303
-    },
-    "location_approx": true,
-    "address": "3005 S Lamar Blvd Suite 110A, Austin, 78704",
-    "day": "SAT",
-    "start": "20:30",
-    "end": "23:30",
-    "styles": [
-      "west-coast-swing"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 12,
-    "price_note": "$12 · One-time May edition. Normally last Saturday but shifted from May 30 (Memorial Day weekend). Re-confirmed May 15: bluemoondance.co/events lists 'WCS Social with DJ Ryan Maldonado', May 23, 8:30-11:30pm, $12.",
-    "organizer": "Blue Moon Dance Co.",
-    "website": "https://www.bluemoondance.co/events",
-    "maps_url": "https://maps.google.com/?q=Blue+Moon+Dance+Co+3005+S+Lamar+Blvd+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "West Coast Swing Dance Party. at Blue Moon Dance Co. in South Lamar. saturdays 20:30. west-coast-swing dancing. beginner friendly, no partner needed. $12 cover. Monthly WCS dance party at Blue Moon. Shifted from May 30 to avoid Memorial Day weekend.. Blue Moon Dance Co.'s monthly West Coast Swing party on their gorgeous floating hardwood floor — one of the best dance surfaces in Austin. May edition shifted off the usual last-Saturday slot to avoid Memorial Day weekend. 8:30-11:30pm."
-  },
-  {
-    "id": "noche-de-cumbia-may9",
-    "name": "Noche de Cumbia: La Gran Fiesta — Cinco de Mayo Edition",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "19:00",
-    "end": "23:00",
-    "styles": [
-      "cumbia"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. $17 online / $20 door (class+social) / $20 social only. BYOB.",
-    "organizer": "Esquina Tango",
-    "instructor": "Aberto & Julie",
-    "website": "https://www.esquinatango.org/cumbia/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Noche de Cumbia: La Gran Fiesta — Cinco de Mayo Edition. at Esquina Tango in East Austin. saturdays 19:00. cumbia dancing. lesson included. beginner friendly, no partner needed. Cinco de Mayo cumbia social with class at 7pm + DJ Gran Moreno til 11pm. BYOB.. Esquina Tango's Cinco de Mayo edition of Noche de Cumbia. All-levels cumbia class at 7pm with Aberto & Julie (no partner or experience needed), social dancing 8pm-11pm with DJ Gran Moreno spinning authentic cumbia. $17 early bird online (until 5pm event day), $20 at the door (class + social), $20 social only. BYOB."
-  },
-  {
-    "id": "social-cubano-may16",
-    "name": "Social Cubano",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "19:30",
-    "end": "23:00",
-    "styles": [
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15 · One-time event. Sourced from esquinatango.org/events on May 16.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Social Cubano. at Esquina Tango in East Austin. saturdays 19:30. salsa, bachata dancing. lesson included. beginner friendly, no partner needed. $15 cover. Rueda de Casino class 7:30pm, Bachata 8:15pm, then social dancing 9pm-late. $15 social / $25 class+social.. Esquina Tango's Social Cubano features Rueda de Casino class at 7:30pm, Bachata class at 8:15pm, then social dancing from 9pm. $25 for both classes + social, $15 social only."
-  },
-  {
-    "id": "cumbia-en-cabana-may26",
-    "name": "Cumbia en Cabana",
-    "venue": "Cabana Club ATX",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.27202,
-      "lon": -97.74116
-    },
-    "location_approx": true,
-    "address": "5012 E 7th St, Austin, 78702",
-    "day": "TUE",
-    "start": "20:00",
-    "end": "23:00",
-    "styles": [
-      "cumbia"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 7,
-    "price_note": "$7 · One-time event. Sourced from esquinatango.org/events on May 16.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Cabana+Club+ATX+5012+E+7th+St+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Cumbia en Cabana. at Cabana Club ATX in East Austin. tuesdays 20:00. cumbia dancing. beginner friendly, no partner needed. $7 cover. Cumbia social at Cabana Club. $7 cover.. Cumbia en Cabana — a Tuesday cumbia night at Cabana Club in East Austin hosted by Esquina Tango. $7 door charge. Casual East Austin venue with drinks."
-  },
-  {
-    "id": "salsa-en-veracruz-may30",
-    "name": "Salsa en Veracruz with Mario y Su Timbeko",
-    "venue": "Veracruz All Natural",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25985,
-      "lon": -97.71958
-    },
-    "location_approx": true,
-    "address": "2505 Webberville Rd, Austin, 78702",
-    "day": "SAT",
-    "start": "18:30",
-    "end": "22:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20 · One-time event. Live band. Sourced from esquinatango.org/events on May 16.",
-    "organizer": "Esquina Tango / Mario y Su Timbeko",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Veracruz+All+Natural+2505+Webberville+Rd+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Salsa en Veracruz with Mario y Su Timbeko. at Veracruz All Natural in East Austin. saturdays 18:30. salsa dancing. lesson included. live music. beginner friendly, no partner needed. $20 cover. Live salsa with Mario y Su Timbeko! Doors 6:30pm, class 7pm, music 7:30-10pm. $20 online / $25 door (class+music). Kids free.. Salsa en Veracruz brings live salsa to Veracruz All Natural with Mario y Su Timbeko. Doors at 6:30pm, salsa class at 7pm, then live music 7:30-10pm. $20 online / $25 at the door for class + music, $20 music only. Kids free. Casual East Austin spot with food and drinks."
-  },
-  {
-    "id": "wcs-sebash-jam-may30",
-    "name": "WCS Comprehensive Workshops + SeBASH-Jam",
-    "venue": "Go Dance Studio",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38583,
-      "lon": -97.73212
-    },
-    "location_approx": true,
-    "address": "2525 W Anderson Ln #530, Austin, 78757",
-    "day": "SAT",
-    "start": "18:00",
-    "end": "22:00",
-    "styles": [
-      "west-coast-swing"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "intermediate",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. Sourced from godancestudio.com/calendar on May 16.",
-    "organizer": "Go Dance Studio",
-    "website": "https://godancestudio.com/calendar/",
-    "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "WCS Comprehensive Workshops + SeBASH-Jam. at Go Dance Studio in North Austin. saturdays 18:00. west-coast-swing dancing. lesson included. WCS Comprehensive workshops paired with SeBASH-Jam social, 6-10pm at Go Dance Studio.. Go Dance Studio's WCS Comprehensive workshops culminate in the SeBASH-Jam social — 6 to 10pm. A perfect Saturday for West Coast Swing dancers wanting workshops + immediate social application. Sunday May 31 also has a Competition Strategy Intensive for WCS (12-2pm) for those who want to go deeper."
-  },
-  {
-    "id": "salsamania-june6-la-casa-de-la-salsa",
-    "name": "Salsamania presents La Casa de la Salsa with Jimmy Bosch",
-    "venue": "Salsamania Austin",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38044,
-      "lon": -97.72359
-    },
-    "location_approx": true,
-    "address": "8868 Research Blvd #706, Austin, 78758",
-    "day": "SAT",
-    "start": "20:00",
-    "end": "02:00",
-    "styles": [
-      "salsa",
-      "bachata"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time special event. Replaces the regular June 4SA social (June 27 is exdated on salsamania-saturday — Fil's Milonga has the venue that night). Contact: gonzo@salsamaniaaustin.com or +1-737-239-5344.",
-    "organizer": "Salsamania Austin",
-    "instructor": "ON2 workshop",
-    "website": "https://www.salsamaniaaustin.com/get-tickets",
-    "maps_url": "https://maps.google.com/?q=8868+Research+Blvd+706+Austin+TX+78758",
-    "ig_handle": "salsamania_austin",
-    "ig_url": "https://instagram.com/salsamania_austin",
-    "source": "austindancesocials.com",
-    "blurb": "Salsamania presents La Casa de la Salsa with Jimmy Bosch. at Salsamania Austin in North Austin. saturdays 20:00. salsa, bachata dancing. lesson included. live music. beginner friendly, no partner needed. Special June edition. Live band concert with Grammy winner Jimmy Bosch + Gonzo y Su Orquesta Austin. Workshop, DJ Fernando from Dallas, On2Neras performance. Expected to sell out.. Salsamania's June edition replaces the regular 4th-Saturday social with 'The Return of La Casa de la Salsa' — a one-night live band event at Austin Uptown Dance featuring Grammy Award-winning trombonist Jimmy Bosch with Gonzo y Su Orquesta Austin, plus an On2Neras Dance Co. performance and DJ Fernando from Dallas. ON2 salsa workshop 8-9pm, doors 8pm, concert starts 11pm. Expected to sell out — get tickets early at salsamaniaaustin.com."
-  },
-  {
-    "id": "noche-cubana-via-nueva-jun5",
-    "name": "Noche Cubana with Via Nueva",
-    "venue": "Veracruz All Natural",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25985,
-      "lon": -97.71958
-    },
-    "location_approx": true,
-    "address": "2505 Webberville Rd, Austin, 78702",
-    "day": "FRI",
-    "start": "18:30",
-    "end": "22:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20 · One-time event. Live band. Sourced from esquinatango.org/events on May 23.",
-    "organizer": "Esquina Tango / Via Nueva",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Veracruz+All+Natural+2505+Webberville+Rd+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Noche Cubana with Via Nueva. at Veracruz All Natural in East Austin. fridays 18:30. salsa dancing. lesson included. live music. beginner friendly, no partner needed. $20 cover. Live Cuban salsa with Via Nueva! Doors 6:30pm, class 7pm, music 7:30-10pm. $20 online / $25 door.. Esquina Tango's Veracruz live-music series continues with Via Nueva playing Cuban salsa at Veracruz All Natural. Doors at 6:30pm, salsa class at 7pm, then live music 7:30-10pm. $20 online / $25 at the door. Casual East Austin spot with food and drinks."
-  },
-  {
-    "id": "noche-de-tango-jun6",
-    "name": "Noche de Tango",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "20:00",
-    "end": "23:30",
-    "styles": [
-      "tango"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event. Sourced from esquinatango.org/events on May 23.",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Noche de Tango. at Esquina Tango in East Austin. saturdays 20:00. tango dancing. beginner friendly, no partner needed. Monthly Noche de Tango milonga at Esquina Tango. 8-11:30pm.. Esquina Tango's Noche de Tango — a Saturday evening milonga at the home of Austin's tango community. Traditional Argentine tango social. Check esquinatango.org/events for the night's DJ and class details."
-  },
-  {
-    "id": "blanton-all-day-milonga-jun13",
-    "name": "Blanton All Day Milonga",
-    "venue": "Blanton Museum of Art",
-    "area": "UT Campus / Downtown",
-    "location": {
-      "lat": 30.29055,
-      "lon": -97.7605
-    },
-    "location_approx": true,
-    "address": "200 E Martin Luther King Jr Blvd, Austin, 78712",
-    "day": "SAT",
-    "start": "16:00",
-    "end": "22:00",
-    "styles": [
-      "tango"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20 · One-time event. Special venue collaboration with the Blanton Museum.",
-    "organizer": "Esquina Tango / Blanton Museum",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Blanton+Museum+of+Art+200+E+MLK+Jr+Blvd+Austin+TX+78712",
-    "source": "austindancesocials.com",
-    "blurb": "Blanton All Day Milonga. at Blanton Museum of Art in UT Campus / Downtown. saturdays 16:00. tango dancing. lesson included. beginner friendly, no partner needed. $20 cover. Tango lessons (4pm + 6pm) and milonga inside the Blanton Museum. $20.. Esquina Tango brings tango into the Blanton Museum of Art for an all-day milonga. Tango classes at 4pm and 6pm, followed by social dancing among the art. $20 cover. A special venue collaboration — bring a tango partner or come solo."
-  },
-  {
-    "id": "go-dance-salsa-bachata-social-jun26",
-    "name": "Salsa & Bachata Social Dance at Go Dance",
-    "venue": "Go Dance Studio",
-    "area": "North Austin",
-    "location": {
-      "lat": 30.38583,
-      "lon": -97.73212
-    },
-    "location_approx": true,
-    "address": "2525 W Anderson Ln #530, Austin, 78757",
-    "day": "FRI",
-    "start": "20:30",
-    "end": "22:00",
-    "styles": [
-      "salsa",
-      "bachata"
-    ],
-    "live_music": false,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies · One-time event sourced from godancestudio.com/calendar on May 23.",
-    "organizer": "Go Dance Studio",
-    "website": "https://godancestudio.com/calendar/",
-    "maps_url": "https://maps.google.com/?q=Go+Dance+Studio+2525+W+Anderson+Ln+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Salsa & Bachata Social Dance at Go Dance. at Go Dance Studio in North Austin. fridays 20:30. salsa, bachata dancing. beginner friendly, no partner needed. Relaxed Friday salsa/bachata social at Go Dance. 8:30-10pm. Cover at door — check godancestudio.com.. Go Dance Studio's relaxed Friday social featuring salsa, bachata, and a mix of other Latin styles. 8:30-10pm in their North Austin studio. Cover charged at the door — check godancestudio.com/calendar or call ahead for current price."
-  },
-  {
-    "id": "atx-zouk-weekender-jun5",
-    "name": "Austin Zouk Weekender 2026",
-    "venue": "The Mansion (American Legion Post 76)",
-    "area": "Clarksville / West Austin",
-    "location": {
-      "lat": 30.2799,
-      "lon": -97.77048
-    },
-    "location_approx": true,
-    "address": "404 Atlanta St, Austin, 78703",
-    "day": "FRI",
-    "start": "17:00",
-    "end": "23:00",
-    "styles": [
-      "zouk"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20 · Multi-day event: Fri Jun 5 – Sun Jun 7 2026. Workshops + socials. Full pass $180, socials-only $20. Sourced from atxzouk.com on May 25.",
-    "organizer": "ATX Zouk",
-    "instructor": "Diego Silva & Thieli Hanssen (Brazil)",
-    "website": "https://www.atxzouk.com/events",
-    "maps_url": "https://maps.google.com/?q=American+Legion+Post+76+404+Atlanta+St+Austin+TX+78703",
-    "ig_handle": "atxzouk",
-    "ig_url": "https://instagram.com/atxzouk",
-    "source": "austindancesocials.com",
-    "blurb": "Austin Zouk Weekender 2026. at The Mansion (American Legion Post 76) in Clarksville / West Austin. fridays 17:00. zouk dancing. lesson included. beginner friendly, no partner needed. $20 cover. 3-day Brazilian zouk weekender with Diego Silva & Thieli Hanssen (Brazil). Workshops + socials Jun 5-7. Full pass $180; socials $20.. ATX Zouk's flagship weekender brings Diego Silva & Thieli Hanssen from Brazil for 3 days of Brazilian zouk workshops and social parties at The Mansion (American Legion Post 76) in Clarksville. DJs: Paulo and rotating local talent. Full Pass $180 / Fri-only $50 / Sat-only $100 / Sun-only $70 / Socials only $20. Tickets at atxzouk.com."
-  },
-  {
-    "id": "atx-zouk-boat-party-jun26",
-    "name": "ATX Zouk & Lambada Boat Party Weekender",
-    "venue": "Beachfront Boat Rentals",
-    "area": "Lake Travis (NW of Austin)",
-    "location": {
-      "lat": 30.42659,
-      "lon": -97.90989
-    },
-    "location_approx": true,
-    "address": "16120 Wharf Cove, Volente, 78641",
-    "day": "FRI",
-    "start": "18:00",
-    "end": "23:00",
-    "styles": [
-      "zouk"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 120,
-    "price_note": "$120 · Multi-day event: Fri Jun 26 – Sun Jun 28 2026. Lake Travis location (Volente, ~30 min NW of Austin). Includes Sunday boat party 4-8pm. Payment: Venmo @sroselee. Sourced from atxzouk.com on May 25.",
-    "organizer": "ATX Zouk",
-    "instructor": "Julissa & Kuna (DC)",
-    "website": "https://www.atxzouk.com/events",
-    "maps_url": "https://maps.google.com/?q=Beachfront+Boat+Rentals+16120+Wharf+Cove+Volente+TX+78641",
-    "ig_handle": "atxzouk",
-    "ig_url": "https://instagram.com/atxzouk",
-    "source": "austindancesocials.com",
-    "blurb": "ATX Zouk & Lambada Boat Party Weekender. at Beachfront Boat Rentals in Lake Travis (NW of Austin). fridays 18:00. zouk dancing. lesson included. beginner friendly, no partner needed. $120 cover. 3-day zouk & lambada lake weekender at Lake Travis. 10+ hours of workshops, 2 socials, Sunday boat party. Early Bird $120.. ATX Zouk's lake weekender at Beachfront Boat Rentals on Lake Travis. 10.5 hours of zouk and lambada workshops with Julissa & Kuna (DC), two evening socials, and a Sunday boat party on Lake Travis (4-8pm). DJs Fab, Safado, and Ginga. Early Bird Full Pass $120 (Venmo @sroselee). Volente is ~30 min NW of central Austin."
-  },
-  {
-    "id": "sagebrush-anniversary-jun13",
-    "name": "Sagebrush 6th Anniversary & Waylon Jennings Birthday Bash",
-    "venue": "Sagebrush",
-    "area": "South Austin",
-    "location": {
-      "lat": 30.21046,
-      "lon": -97.79995
-    },
-    "location_approx": true,
-    "address": "5500 S Congress Ave, Austin, 78745",
-    "day": "SAT",
-    "start": "19:00",
-    "end": "02:00",
-    "styles": [
-      "two-step",
-      "country"
-    ],
-    "live_music": true,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": null,
-    "price_note": "Cover varies",
-    "organizer": "Sagebrush",
-    "website": "https://sagebrushaustin.com/events",
-    "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Sagebrush 6th Anniversary & Waylon Jennings Birthday Bash. at Sagebrush in South Austin. saturdays 19:00. two-step, country dancing. live music. beginner friendly, no partner needed. Sagebrush's 6th anniversary doubling as a Waylon Jennings birthday bash. Waylon music all night with guest singers, free cake, $3 Lone Star. Two-step the night away.. Sagebrush celebrates its 6th anniversary with a Waylon Jennings birthday bash on Saturday, June 13. Expect Waylon Jennings music all night long with tons of guest singers, free cake, and $3 Lone Star specials. The dance floor stays busy with two-steppers at South Austin's favorite honky-tonk. Music starts around 7pm."
-  },
-  {
-    "id": "social-cubano-jun20",
-    "name": "Social Cubano",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "21:00",
-    "end": "23:30",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Social Cubano. at Esquina Tango in East Austin. saturdays 21:00. salsa dancing. lesson included. beginner friendly, no partner needed. $15 cover. Afro-Cuban / Cuban salsa social at Esquina Tango. Two classes (7:30pm & 8:15pm), social at 9pm. $25 classes + social, $15 social only.. Esquina Tango's Social Cubano celebrates Afro-Cuban and Cuban-style salsa (casino). Two classes lead in (7:30pm and 8:15pm), followed by social dancing from 9pm. $25 covers both classes plus the social, or $15 for social only. A warm, community-driven night of Cuban rhythms in Esquina's intimate east-side studio."
-  },
-  {
-    "id": "noche-cubana-via-nueva-jun27",
-    "name": "Noche Cubana with Via Nueva",
-    "venue": "Veracruz All Natural",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25985,
-      "lon": -97.71958
-    },
-    "location_approx": true,
-    "address": "2505 Webberville Rd, Austin, 78702",
-    "day": "SAT",
-    "start": "19:00",
-    "end": "22:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Veracruz+All+Natural+2505+Webberville+Rd+Austin+TX+78702",
-    "source": "austindancesocials.com",
-    "blurb": "Noche Cubana with Via Nueva. at Veracruz All Natural in East Austin. saturdays 19:00. salsa dancing. lesson included. live music. beginner friendly, no partner needed. $20 cover. Live Cuban salsa with Via Nueva at Veracruz All Natural. Doors 6:30pm, all-level salsa class 7pm, live music + DJ 7:30-10pm. $20 online (class + music), $25 door / $20 music-only. Kids free.. Esquina Tango's live-music series returns to Veracruz All Natural with Noche Cubana featuring Via Nueva. Doors at 6:30pm, an all-level salsa class at 7pm, then live music and a DJ from 7:30 to 10pm. $20 online includes class and live music; at the door $25 (class + music) or $20 (music only); kids 17 and under free. An outdoor-friendly, family-welcome Cuban salsa night."
-  },
-  {
-    "id": "blanton-all-day-swing-jul11",
-    "name": "Blanton All Day: Swing Edition",
-    "venue": "Blanton Museum of Art",
-    "area": "UT Campus / Downtown",
-    "location": {
-      "lat": 30.29055,
-      "lon": -97.7605
-    },
-    "location_approx": true,
-    "address": "200 E Martin Luther King Jr Blvd, Austin, 78712",
-    "day": "SAT",
-    "start": "10:00",
-    "end": "20:00",
-    "styles": [
-      "lindy-hop",
-      "east-coast-swing"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20",
-    "organizer": "Blanton Museum of Art / Austin Swing Syndicate",
-    "website": "https://blantonmuseum.org/programs/blanton-all-day/",
-    "maps_url": "https://maps.google.com/?q=Blanton+Museum+of+Art+200+E+MLK+Jr+Blvd+Austin+TX+78712",
-    "source": "austindancesocials.com",
-    "blurb": "Blanton All Day: Swing Edition. at Blanton Museum of Art in UT Campus / Downtown. saturdays 10:00. lindy-hop, east-coast-swing dancing. lesson included. live music. beginner friendly, no partner needed. $20 cover. Blanton Museum Summer Dance Series, Swing Edition. Live music by Ryan Gould and the Little Kings, lessons by Austin Swing Syndicate. $20 adults, $10 ages 6-17, members free.. The Blanton Museum of Art's Summer Dance Series continues with the Swing Edition. Spend the day at the museum with live swing music from Ryan Gould and the Little Kings and two lessons led by the Austin Swing Syndicate. No experience required and open to all ages. Admission: $20 (18+), $10 (ages 6-17), free for ages 5 and under, and always free for Blanton Members."
-  },
-  {
     "id": "blanton-all-day-twostep-aug8",
     "name": "Blanton All Day: Two-Step + Tango Edition",
     "venue": "Blanton Museum of Art",
@@ -3033,6 +1971,8 @@
     "location_approx": true,
     "address": "200 E Martin Luther King Jr Blvd, Austin, 78712",
     "day": "SAT",
+    "date": "2026-08-08",
+    "recurring": false,
     "start": "10:00",
     "end": "20:00",
     "styles": [
@@ -3063,6 +2003,7 @@
     "location_approx": true,
     "address": "8868 Research Blvd #706, Austin, 78758",
     "day": "FRI",
+    "recurring": true,
     "start": "20:30",
     "end": "22:00",
     "styles": [
@@ -3076,6 +2017,7 @@
     "organizer": "Connection Tango (Lindsey & Ricardo)",
     "website": "https://connectiontango.com/",
     "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
+    "ig_handle": "austinuptown",
     "source": "austindancesocials.com",
     "blurb": "Practica Buena Onda. at Austin Uptown Dance in North Austin. fridays 20:30. tango dancing. beginner friendly, no partner needed. $10 cover. Connection Tango's Friday Argentine tango práctica at Austin Uptown Studio. 8:30-10pm. $10, or $5 with any Friday class. Zelle or Venmo only.. Practica Buena Onda is Connection Tango's relaxed Friday-night Argentine tango práctica at Austin Uptown Studio (8868 Research Blvd #706). Work on your tango in a friendly, low-pressure setting from 8:30 to 10pm. $10 at the door, or $5 with any Connection Tango Friday class. Zelle or Venmo only. Hosted by Lindsey and Ricardo."
   },
@@ -3091,6 +2033,7 @@
     "location_approx": true,
     "address": "5500 S Congress Ave, Austin, 78745",
     "day": "MON",
+    "recurring": true,
     "start": "19:00",
     "end": "23:00",
     "styles": [
@@ -3105,36 +2048,9 @@
     "organizer": "Neon Rainbows",
     "website": "https://sagebrushaustin.com/events",
     "maps_url": "https://maps.google.com/?q=Sagebrush+5500+S+Congress+Ave+Austin+TX",
+    "ig_handle": "sagebrushtexas",
     "source": "austindancesocials.com",
     "blurb": "Neon Rainbows: Queer Two-Step at Sagebrush. at Sagebrush in South Austin. mondays 19:00. two-step, country dancing. lesson included. beginner friendly, no partner needed. $10 cover. Weekly queer two-step & line-dance lessons at Sagebrush. Mondays 7-11pm. All identities welcome.. Neon Rainbows brings inclusive, queer-centered two-step and line-dance lessons to Sagebrush every Monday from 7 to 11pm. The night alternates between Queer Two-Step and Queer Line Dance instruction, all in the welcoming setting of one of South Austin's best honky-tonks. All are welcome regardless of identity or experience — just come ready to dance."
-  },
-  {
-    "id": "esquina-social-cubano-jul18",
-    "name": "Social Cubano",
-    "venue": "Esquina Tango",
-    "area": "East Austin",
-    "location": {
-      "lat": 30.25941,
-      "lon": -97.74589
-    },
-    "location_approx": true,
-    "address": "209 Pedernales St, Austin, 78702",
-    "day": "SAT",
-    "start": "21:00",
-    "end": "01:00",
-    "styles": [
-      "salsa"
-    ],
-    "live_music": false,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 15,
-    "price_note": "$15",
-    "organizer": "Esquina Tango",
-    "website": "https://www.esquinatango.org/events/",
-    "maps_url": "https://maps.google.com/?q=Esquina+Tango+209+Pedernales+St+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Social Cubano. at Esquina Tango in East Austin. saturdays 21:00. salsa dancing. lesson included. beginner friendly, no partner needed. $15 cover. Afro-Cuban / Cuban salsa social at Esquina Tango. Rueda de Casino class 7:30pm + Merengue 8:15pm, social 9pm–1am. $25 classes + social, $15 social only.. Esquina Tango's Social Cubano celebrates Afro-Cuban and Cuban-style salsa (casino). Two classes lead in — Rueda de Casino at 7:30pm (with Ashley) and Merengue at 8:15pm (with Robbie) — followed by social dancing 9pm to 1am. $25 covers both classes plus the social, or $15 for social only. A warm, community-driven night of Cuban rhythms in Esquina's intimate east-side studio."
   },
   {
     "id": "fils-milonga-oct31",
@@ -3148,6 +2064,8 @@
     "location_approx": true,
     "address": "8868 Research Blvd #706, Austin, 78758",
     "day": "SAT",
+    "date": "2026-10-31",
+    "recurring": false,
     "start": "19:00",
     "end": "23:00",
     "styles": [
@@ -3160,66 +2078,9 @@
     "price_note": "$15",
     "organizer": "Fil Cruz Jr.",
     "maps_url": "https://maps.google.com/?q=Austin+Uptown+Dance+8868+Research+Blvd+Austin+TX",
+    "ig_handle": "austinuptown",
     "source": "austindancesocials.com",
     "blurb": "Fil's Milonga — Halloween Edition. at Austin Uptown Dance in North Austin. saturdays 19:00. tango dancing. $15 cover. An Evening of Argentine Tango hosted by Fil Cruz Jr. 7–11pm. BYOB, snacks provided.. Fil's Milonga at Austin Uptown Dance Studio, hosted by Fil Cruz Jr. 7:00pm to 11:00pm. $15 pay at door (Cash, Venmo, PayPal, Cash App, Zelle, or Check). BYOB and some snacks provided. TDJ Fil Cruz Jr. Enter thru side door. This October edition lands on the 5th Saturday (Oct 31)."
-  },
-  {
-    "id": "swing-syndicate-jazz-jam-jul16",
-    "name": "Jazz Jam in the Ballroom — ASS Pre-Move Party",
-    "venue": "The Fed (Texas Federation of Women's Clubs)",
-    "area": "Central Austin",
-    "location": {
-      "lat": 30.28543,
-      "lon": -97.77913
-    },
-    "location_approx": true,
-    "address": "2312 San Gabriel St, Austin, 78705",
-    "day": "THU",
-    "start": "21:00",
-    "end": "00:00",
-    "styles": [
-      "lindy-hop",
-      "east-coast-swing"
-    ],
-    "live_music": true,
-    "lesson": true,
-    "skill_level": "all",
-    "price_usd": 8,
-    "price_note": "$8",
-    "organizer": "Austin Swing Syndicate",
-    "website": "https://www.austinswingsyndicate.org",
-    "maps_url": "https://maps.google.com/?q=Texas+Federation+of+Womens+Clubs+2312+San+Gabriel+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "Jazz Jam in the Ballroom — ASS Pre-Move Party. at The Fed (Texas Federation of Women's Clubs) in Central Austin. thursdays 21:00. lindy-hop, east-coast-swing dancing. lesson included. live music. beginner friendly, no partner needed. $8 cover. Live-music Jazz Jam in the Fed ballroom — one of Austin Swing Syndicate's farewell nights at The Fed. $8 / $5 members. Lesson 8:15pm.. Part of Austin Swing Syndicate's farewell month at The Fed, this Jazz Jam features live music by local talent in the historic Fed ballroom. Free intro lesson at 8:15pm, then social swing dancing 9pm to midnight. $8 admission, $5 members."
-  },
-  {
-    "id": "swing-syndicate-fed-farewell-jul23",
-    "name": "27th Anniversary Dance & Fed Farewell Party",
-    "venue": "The Fed (Texas Federation of Women's Clubs)",
-    "area": "Central Austin",
-    "location": {
-      "lat": 30.28543,
-      "lon": -97.77913
-    },
-    "location_approx": true,
-    "address": "2312 San Gabriel St, Austin, 78705",
-    "day": "THU",
-    "start": "20:00",
-    "end": "00:00",
-    "styles": [
-      "lindy-hop",
-      "east-coast-swing"
-    ],
-    "live_music": true,
-    "lesson": false,
-    "skill_level": "all",
-    "price_usd": 20,
-    "price_note": "$20",
-    "organizer": "Austin Swing Syndicate",
-    "website": "https://www.austinswingsyndicate.org",
-    "maps_url": "https://maps.google.com/?q=Texas+Federation+of+Womens+Clubs+2312+San+Gabriel+Austin+TX",
-    "source": "austindancesocials.com",
-    "blurb": "27th Anniversary Dance & Fed Farewell Party. at The Fed (Texas Federation of Women's Clubs) in Central Austin. thursdays 20:00. lindy-hop, east-coast-swing dancing. live music. beginner friendly, no partner needed. $20 cover. Austin Swing Syndicate's 27th Anniversary and final dance at The Fed. Live bands (Golden Hour Heptet + Rent Party). $20 general, members free.. Austin Swing Syndicate celebrates 27 years and says goodbye to The Fed (TFWC Mansion) with a live-music farewell party. Bands include the Golden Hour Heptet and Rent Party. $20 general admission; all members get in free. The last swing dance at the Fed before the move to Cherrywood Hall."
   },
   {
     "id": "swing-syndicate-housewarming-aug6",
@@ -3233,6 +2094,8 @@
     "location_approx": true,
     "address": "1605 E 38th 1/2 St, Austin, 78722",
     "day": "THU",
+    "date": "2026-08-06",
+    "recurring": false,
     "start": "21:00",
     "end": "00:00",
     "styles": [
@@ -3262,6 +2125,7 @@
     "location_approx": true,
     "address": "315 Lavaca St, Austin, 78701",
     "day": "WED",
+    "recurring": true,
     "start": "20:00",
     "end": "00:00",
     "styles": [

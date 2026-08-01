@@ -5,7 +5,9 @@
 // that produced it, so the app can show its work and a human can audit it.
 //
 // Usage: npm run reconcile
-import { es, IDX, austinDay, todayAustin } from './es.js';
+import { es, requireEs, IDX, austinDay, todayAustin } from './es.js';
+
+requireEs();
 
 const DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const DAY_WORD: Record<string, string> = {

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Polaris — Austin dance, verified live</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root {
+    --bg: #07080f;
+    --bg2: #0d1020;
+    --panel: #141834;
+    --panel2: #1b2043;
+    --line: #262c52;
+    --ink: #eef1ff;
+    --dim: #949cc4;
+    --star: #FF4F6E;
+    --star2: #FFB020;
+    --ok: #16D6A4;
+    --warn: #FFB020;
+    --bad: #FF5470;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg); color: var(--ink); overflow: hidden;
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* starfield */
+  #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .7; }
+
+  .shell { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+  header {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    padding: 14px 20px 10px; border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(13,16,32,.96), rgba(7,8,15,.86));
+    backdrop-filter: blur(14px);
+  }
+  .brand { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+  .brand h1 {
+    margin: 0; font-size: 21px; letter-spacing: 4px; font-weight: 800;
+    background: linear-gradient(92deg, var(--star), var(--star2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .brand .tag { color: var(--dim); font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; }
+  .live { display: flex; align-items: center; gap: 7px; color: var(--dim); font-size: 12px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(22,214,164,.7); animation: pulse 2.2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgba(22,214,164,0); } 100% { box-shadow: 0 0 0 0 rgba(22,214,164,0); } }
+
+  .seg { display: flex; gap: 3px; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .seg button {
+    border: 0; background: transparent; color: var(--dim); font: inherit; font-size: 13px; font-weight: 700;
+    padding: 7px 16px; border-radius: 999px; cursor: pointer; transition: .15s;
+  }
+  .seg button.on { background: var(--star); color: #fff; }
+
+  .filters { display: flex; gap: 8px; padding: 10px 20px; overflow-x: auto; border-bottom: 1px solid var(--line); background: rgba(13,16,32,.7); }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    font: inherit; font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 999px; cursor: pointer;
+    white-space: nowrap; transition: .15s;
+  }
+  .chip:hover { border-color: var(--star); }
+  .chip.on { background: var(--star); border-color: var(--star); color: #fff; }
+  .chip.on.alt { background: var(--star2); border-color: var(--star2); color: #1a1200; }
+
+  main { flex: 1; position: relative; overflow: hidden; }
+  .view { position: absolute; inset: 0; display: none; }
+  .view.on { display: block; }
+
+  /* ---------- list ---------- */
+  #list { overflow-y: auto; padding: 18px 20px 80px; }
+  .daysec { margin-bottom: 26px; }
+  .dayhead { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; font-size: 20px; font-weight: 800; letter-spacing: -.4px; }
+  .today { font-size: 10.5px; letter-spacing: 1.5px; color: #fff; background: var(--star); padding: 3px 9px; border-radius: 999px; }
+  .cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .card {
+    background: linear-gradient(160deg, var(--panel), var(--bg2)); border: 1px solid var(--line);
+    border-radius: 18px; padding: 16px; cursor: pointer; transition: .18s; position: relative; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-3px); border-color: #3b4480; box-shadow: 0 14px 40px rgba(0,0,0,.5); }
+  .card.off { opacity: .55; }
+  .card.off .name { text-decoration: line-through; }
+  .card .row1 { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .time { font-size: 16px; font-weight: 800; letter-spacing: -.2px; }
+  .cost { font-size: 15px; font-weight: 800; color: var(--star2); }
+  .cost.free { color: var(--ok); }
+  .name { margin: 8px 0 3px; font-size: 16px; font-weight: 700; line-height: 1.3; }
+  .venue { color: var(--star); font-weight: 600; font-size: 14px; }
+  .where { color: var(--dim); font-size: 12.5px; margin-top: 2px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .tag { background: var(--panel2); color: #c6cdf5; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 11px;
+    font-size: 11.5px; font-weight: 800; padding: 5px 11px; border-radius: 999px; letter-spacing: .2px;
+  }
+  .b-VERIFIED { background: rgba(22,214,164,.14); color: var(--ok); }
+  .b-CHANGED { background: rgba(255,176,32,.14); color: var(--warn); }
+  .b-CANCELLED { background: rgba(255,84,112,.15); color: var(--bad); }
+  .b-UNVERIFIED { background: rgba(148,156,196,.12); color: var(--dim); }
+  .snip { margin-top: 9px; color: var(--dim); font-size: 12px; font-style: italic; line-height: 1.45;
+          display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* ---------- map ---------- */
+  #map { position: absolute; inset: 0; }
+  .marker {
+    width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-size: 17px;
+    background: #10142c; border: 2.5px solid var(--ring, #4a5490); cursor: pointer;
+    box-shadow: 0 5px 18px rgba(0,0,0,.6); transition: transform .15s;
+  }
+  .marker:hover { transform: scale(1.18); }
+  .marker.off { filter: grayscale(1); opacity: .6; }
+  .maplibregl-popup-content {
+    background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px; min-width: 230px; font: inherit; font-size: 13px;
+  }
+  .maplibregl-popup-tip { border-top-color: var(--panel) !important; border-bottom-color: var(--panel) !important; }
+  .maplibregl-popup-close-button { color: var(--dim); font-size: 18px; padding-right: 6px; }
+
+  /* ---------- ask ---------- */
+  #ask { overflow-y: auto; padding: 26px 20px 80px; }
+  .askwrap { max-width: 720px; margin: 0 auto; }
+  .askbar { display: flex; gap: 9px; }
+  .askbar input {
+    flex: 1; background: var(--panel); border: 1px solid var(--line); border-radius: 999px;
+    padding: 14px 20px; color: var(--ink); font: inherit; font-size: 15px; outline: none;
+  }
+  .askbar input:focus { border-color: var(--star); }
+  .askbar button { border: 0; background: var(--star); color: #fff; font: inherit; font-weight: 800; padding: 0 26px; border-radius: 999px; cursor: pointer; }
+  .hint { color: var(--dim); font-size: 12.5px; margin: 14px 0 8px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; }
+  .sugg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .answer {
+    margin-top: 18px; background: linear-gradient(160deg, var(--panel), var(--bg2));
+    border: 1px solid var(--star); border-radius: 18px; padding: 18px; white-space: pre-wrap; line-height: 1.7;
+  }
+  .cites { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+  .cite { background: var(--panel2); color: #c6cdf5; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; text-decoration: none; }
+  .cite:hover { background: var(--star); color: #fff; }
+
+  .empty { color: var(--dim); text-align: center; padding: 60px 20px; }
+  a.ev { color: var(--star); text-decoration: none; font-weight: 700; }
+  .stat { color: var(--dim); font-size: 12.5px; }
+  .stat b { color: var(--ink); }
+  @media (max-width: 620px) {
+    header { padding: 12px 14px 8px; }
+    .brand h1 { font-size: 17px; letter-spacing: 2.5px; }
+    .filters { padding: 8px 14px; }
+    #list { padding: 14px 14px 80px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="shell">
+  <header>
+    <div class="brand">
+      <h1>✦ POLARIS</h1>
+      <span class="tag">Austin · Dance</span>
+    </div>
+    <div class="live"><span class="dot"></span><span id="livetext">checking Instagram…</span></div>
+    <div class="seg">
+      <button data-view="list" class="on">List</button>
+      <button data-view="map">Map</button>
+      <button data-view="ask">Ask</button>
+    </div>
+  </header>
+
+  <div class="filters" id="dayrow"></div>
+  <div class="filters" id="stylerow"></div>
+
+  <main>
+    <section class="view on" id="list"></section>
+    <section class="view" id="mapview"><div id="map"></div></section>
+    <section class="view" id="ask">
+      <div class="askwrap">
+        <div class="askbar">
+          <input id="q" placeholder="beginner friendly country night under $10" />
+          <button id="go">Ask</button>
+        </div>
+        <div class="hint">Searches meaning, not just keywords — Elasticsearch hybrid retrieval</div>
+        <div class="sugg" id="sugg"></div>
+        <div id="answer"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const API = '';
+const DAYS = ['ALL','MON','TUE','WED','THU','FRI','SAT','SUN'];
+const DAY_NAME = { MON:'Monday', TUE:'Tuesday', WED:'Wednesday', THU:'Thursday', FRI:'Friday', SAT:'Saturday', SUN:'Sunday' };
+const STYLES = [
+  ['all','All styles'], ['two-step','🥾 Two-Step'], ['country','🤠 Country'], ['salsa','🔥 Salsa'],
+  ['bachata','🌺 Bachata'], ['tango','🌹 Tango'], ['zouk','🌊 Zouk'], ['swing','🎷 Swing'], ['blues','💫 Blues'],
+];
+const EMOJI = [[/two-step|country/,'🥾'],[/salsa/,'🔥'],[/bachata/,'🌺'],[/tango/,'🌹'],[/zouk|kizomba/,'🌊'],[/swing|lindy/,'🎷'],[/blues|fusion/,'💫']];
+const emo = s => (EMOJI.find(([r]) => r.test((s||[]).join(' ')))||[0,'💃'])[1];
+const BADGE = {
+  VERIFIED: e => `✓ IG-verified ${ago(e.evidence?.posted_at)}`,
+  CHANGED: () => '⚠ Changed — check IG',
+  CANCELLED: () => '✕ Cancelled per IG',
+  UNVERIFIED: () => 'Not yet verified',
+};
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clock = t => { if(!t) return ''; const [h,m]=t.split(':').map(Number); const ap=h>=12?'PM':'AM'; return `${h%12||12}:${String(m).padStart(2,'0')} ${ap}`; };
+const cost = e => e.price_usd === 0 ? 'Free!' : e.price_usd != null ? `$${e.price_usd}` : 'Varies';
+function ago(iso){ if(!iso) return ''; const h=(Date.now()-new Date(iso))/36e5; return h<1?'just now':h<24?`${Math.round(h)}h ago`:`${Math.round(h/24)}d ago`; }
+
+let day = DAYS.includes(new Date().toLocaleString('en-US',{weekday:'short',timeZone:'America/Chicago'}).toUpperCase())
+  ? new Date().toLocaleString('en-US',{weekday:'short',timeZone:'America/Chicago'}).toUpperCase() : 'ALL';
+let style = 'all', view = 'list', today = day, events = [], markers = [], map = null;
+
+/* ---------- starfield ---------- */
+(function starfield(){
+  const c = document.getElementById('stars'), x = c.getContext('2d');
+  function draw(){
+    c.width = innerWidth; c.height = innerHeight;
+    x.clearRect(0,0,c.width,c.height);
+    for (let i = 0; i < 160; i++) {
+      const r = Math.random() * 1.3;
+      x.globalAlpha = 0.25 + Math.random() * 0.55;
+      x.fillStyle = Math.random() > 0.93 ? '#FF4F6E' : '#dfe5ff';
+      x.beginPath(); x.arc(Math.random()*c.width, Math.random()*c.height, r, 0, 7); x.fill();
+    }
+  }
+  draw(); addEventListener('resize', draw);
+})();
+
+/* ---------- chrome ---------- */
+const dayrow = document.getElementById('dayrow'), stylerow = document.getElementById('stylerow');
+DAYS.forEach(d => {
+  const b = document.createElement('button');
+  b.className = 'chip' + (d === day ? ' on' : '');
+  b.textContent = d === 'ALL' ? 'All week' : DAY_NAME[d];
+  b.onclick = () => { day = d; [...dayrow.children].forEach(c => c.classList.toggle('on', c === b)); load(); };
+  dayrow.appendChild(b);
+});
+STYLES.forEach(([k, label]) => {
+  const b = document.createElement('button');
+  b.className = 'chip alt' + (k === style ? ' on' : '');
+  b.textContent = label;
+  b.onclick = () => { style = k; [...stylerow.children].forEach(c => c.classList.toggle('on', c === b)); load(); };
+  stylerow.appendChild(b);
+});
+document.querySelectorAll('.seg button').forEach(b => {
+  b.onclick = () => {
+    view = b.dataset.view;
+    document.querySelectorAll('.seg button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('on'));
+    document.getElementById(view === 'map' ? 'mapview' : view).classList.add('on');
+    if (view === 'map') { initMap(); setTimeout(() => map.resize(), 30); drawMarkers(); }
+  };
+});
+
+/* ---------- data ---------- */
+async function load(){
+  const p = new URLSearchParams();
+  if (day !== 'ALL') p.set('day', day);
+  if (style !== 'all') p.set('style', style);
+  const r = await fetch(`${API}/feed?${p}`).then(r => r.json());
+  events = r.events; today = r.today;
+  const checked = events.filter(e => e.status && e.status !== 'UNVERIFIED').length;
+  document.getElementById('livetext').innerHTML =
+    `<span class="stat"><b>${events.length}</b> socials · <b>${checked}</b> verified against Instagram</span>`;
+  renderList();
+  if (view === 'map') drawMarkers();
+}
+
+function cardHTML(e){
+  const st = e.status || 'UNVERIFIED';
+  const url = e.evidence?.post_url;
+  return `<div class="card ${st === 'CANCELLED' ? 'off' : ''}" ${url ? `onclick="window.open('${esc(url)}','_blank')"` : ''}>
+    <div class="row1"><span class="time">${emo(e.styles)} ${clock(e.start)}</span>
+      <span class="cost ${e.price_usd === 0 ? 'free' : ''}">${cost(e)}</span></div>
+    <div class="name">${esc(e.name)}</div>
+    <div class="venue">${esc(e.venue)}</div>
+    <div class="where">${esc(e.area)}${e.lesson ? ' · lesson' : ''}${e.live_music ? ' · live music' : ''}</div>
+    <div class="tags">${(e.styles||[]).slice(0,4).map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>
+    <div class="badge b-${st}">${BADGE[st](e)}${url ? ' ↗' : ''}</div>
+    ${e.evidence?.snippet ? `<div class="snip">“${esc(e.evidence.snippet)}”</div>` : ''}
+  </div>`;
+}
+
+function renderList(){
+  const el = document.getElementById('list');
+  if (!events.length) { el.innerHTML = '<div class="empty">Nothing on for that filter.</div>'; return; }
+  const groups = {};
+  events.forEach(e => (groups[e.day] ??= []).push(e));
+  el.innerHTML = ['MON','TUE','WED','THU','FRI','SAT','SUN'].filter(d => groups[d]).map(d => `
+    <div class="daysec">
+      <h2 class="dayhead">${DAY_NAME[d]} ${d === today ? '<span class="today">TONIGHT</span>' : ''}</h2>
+      <div class="cards">${groups[d].map(cardHTML).join('')}</div>
+    </div>`).join('');
+}
+
+/* ---------- map ---------- */
+function initMap(){
+  if (map) return;
+  map = new maplibregl.Map({
+    container: 'map',
+    style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+    center: [-97.752, 30.28], zoom: 10.9, attributionControl: { compact: true },
+  });
+  map.addControl(new maplibregl.NavigationControl(), 'top-right');
+}
+function drawMarkers(){
+  if (!map) return;
+  markers.forEach(m => m.remove()); markers = [];
+  const RING = { VERIFIED:'#16D6A4', CHANGED:'#FFB020', CANCELLED:'#FF5470', UNVERIFIED:'#4a5490' };
+  events.forEach(e => {
+    if (!e.location) return;
+    const st = e.status || 'UNVERIFIED';
+    const el = document.createElement('div');
+    el.className = 'marker' + (st === 'CANCELLED' ? ' off' : '');
+    el.style.setProperty('--ring', RING[st]);
+    el.textContent = emo(e.styles);
+    const url = e.evidence?.post_url;
+    const popup = new maplibregl.Popup({ offset: 22 }).setHTML(`
+      <div style="font-weight:700;font-size:14.5px;margin-bottom:3px">${emo(e.styles)} ${esc(e.name)}</div>
+      <div style="color:#FF4F6E;font-weight:600">${esc(e.venue)}</div>
+      <div style="color:#949cc4;font-size:12.5px">${esc(e.area)} · ${DAY_NAME[e.day]} ${clock(e.start)} · ${cost(e)}</div>
+      <div class="badge b-${st}" style="margin-top:9px">${BADGE[st](e)}</div>
+      ${url ? `<div style="margin-top:8px"><a class="ev" href="${esc(url)}" target="_blank">See the Instagram post ↗</a></div>` : ''}`);
+    markers.push(new maplibregl.Marker({ element: el }).setLngLat([e.location.lon, e.location.lat]).setPopup(popup).addTo(map));
+  });
+}
+
+/* ---------- ask ---------- */
+const SUGG = ['beginner friendly country night','free salsa this week','tango practica north austin','live music two-step under $10','somewhere to dance with no partner'];
+SUGG.forEach(s => {
+  const b = document.createElement('button');
+  b.className = 'chip'; b.textContent = s;
+  b.onclick = () => { document.getElementById('q').value = s; runAsk(); };
+  document.getElementById('sugg').appendChild(b);
+});
+document.getElementById('go').onclick = runAsk;
+document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') runAsk(); });
+
+async function runAsk(){
+  const q = document.getElementById('q').value.trim();
+  if (!q) return;
+  const box = document.getElementById('answer');
+  box.innerHTML = '<div class="answer">Searching…</div>';
+  const r = await fetch(`${API}/ask?q=${encodeURIComponent(q)}`).then(r => r.json());
+  box.innerHTML = `<div class="answer">${esc(r.answer)}</div>
+    ${r.citations?.length ? `<div class="hint" style="margin-top:16px">Sources</div>
+      <div class="cites">${r.citations.slice(0,8).map(c => `<a class="cite" href="${esc(c.url)}" target="_blank">${esc(c.label)} ↗</a>`).join('')}</div>` : ''}
+    <div class="cards" style="margin-top:18px">${(r.events||[]).map(cardHTML).join('')}</div>`;
+}
+
+load();
+setInterval(load, 30000); // live: a reconcile run visibly changes the page mid-demo
+</script>
+</body>
+</html>
