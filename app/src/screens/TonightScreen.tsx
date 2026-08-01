@@ -27,6 +27,7 @@ export function TonightScreen({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [spin, setSpin] = useState(false);
+  const [autoSpun, setAutoSpun] = useState(false);
 
   const load = useCallback(async () => {
     try {
@@ -45,6 +46,17 @@ export function TonightScreen({
     setLoading(true);
     load();
   }, [load]);
+
+  // If you've been staring at the list for a few seconds without choosing,
+  // Polaris offers to choose for you. Once per session only — never nag.
+  useEffect(() => {
+    if (autoSpun || loading || !events.length) return;
+    const t = setTimeout(() => {
+      setSpin(true);
+      setAutoSpun(true);
+    }, 6000);
+    return () => clearTimeout(t);
+  }, [autoSpun, loading, events.length]);
 
   const verified = events.filter((e) => e.status && e.status !== 'UNVERIFIED').length;
 

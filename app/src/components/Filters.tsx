@@ -12,6 +12,7 @@ export const STYLES: { key: string; label: string }[] = [
   { key: 'tango', label: '🌹 Tango' },
   { key: 'zouk', label: '🌊 Zouk' },
   { key: 'swing', label: '🎷 Swing' },
+  { key: 'farmers market', label: '🥕 Markets' },
 ];
 
 export function PillRow({
