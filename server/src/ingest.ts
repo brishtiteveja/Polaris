@@ -74,6 +74,10 @@ await createIndex(IDX.posts, ['caption_sem'], {
   url: { type: 'keyword' },
   taken_at: { type: 'date' },
   matched_event: { type: 'keyword' },
+  is_reel: { type: 'boolean' },
+  image: { type: 'keyword', index: false },
+  video: { type: 'keyword', index: false },
+  likes: { type: 'integer' },
   raw: { type: 'object', enabled: false },
 });
 

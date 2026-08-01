@@ -61,6 +61,34 @@ app.get('/img', async (c) => {
   });
 });
 
+/**
+ * Reels the agent has already collected, newest first. Instagram serves a
+ * public embed player at /reel/<code>/embed, so these play in-app without any
+ * Instagram auth — we only ever store the public post URL.
+ */
+app.get('/reels', async (c) => {
+  if (LOCAL) return c.json({ reels: [], mode: 'local-seed' });
+  const res = await es.search({
+    index: IDX.posts,
+    size: 40,
+    query: { bool: { filter: [{ term: { is_reel: true } }] } },
+    sort: [{ taken_at: 'desc' }],
+  });
+  const reels = res.hits.hits
+    .map((h) => h._source as any)
+    .filter((p) => p.url)
+    .map((p) => ({
+      url: p.url,
+      embed: `${String(p.url).replace(/\/+$/, '')}/embed`,
+      handle: p.handle,
+      caption: (p.caption ?? '').slice(0, 200),
+      image: p.image ?? null,
+      taken_at: p.taken_at,
+      likes: p.likes ?? null,
+    }));
+  return c.json({ reels });
+});
+
 const DAY_ORDER = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
 /** One deterministic sentence per event — every word traceable to a doc field. */
@@ -101,7 +129,7 @@ app.get('/feed', async (c) => {
   const res = await es.search({
     index: IDX.events,
     size: 60,
-    query: { bool: { filter, ...(q ? { must: { multi_match: { query: q, fields: ['name^2', 'venue', 'price_note', 'blurb'] } } } : {}) } },
+    query: { bool: { filter, ...(q ? { must: { multi_match: { query: q, fields: ['name^2', 'venue', 'price_note'] } } } : {}) } },
     sort: q ? undefined : [{ day: 'asc' }, { start: 'asc' }],
   });
   return c.json({
@@ -112,6 +140,8 @@ app.get('/feed', async (c) => {
 
 // Hybrid retrieval: BM25 + ELSER via RRF. Falls back to BM25 if the semantic
 // field wasn't available at index-create time (see ingest.ts fallback).
+// NOTE: textFields must never include the semantic_text field — Elasticsearch
+// rejects match queries against it ("does not support match queries").
 async function hybrid(index: string, q: string, textFields: string[], semField: string, size: number) {
   try {
     return await es.search({
@@ -157,7 +187,7 @@ app.get('/ask', async (c) => {
   }
 
   const [evRes, pgRes] = await Promise.all([
-    hybrid(IDX.events, q, ['name^2', 'venue', 'area', 'price_note', 'blurb'], 'blurb', 4),
+    hybrid(IDX.events, q, ['name^2', 'venue', 'area', 'price_note', 'organizer'], 'blurb', 4),
     hybrid(IDX.pages, q, ['title^2', 'text'], 'text_sem', 2).catch(() => null),
   ]);
 

@@ -4,10 +4,12 @@ import { StatusBar } from 'expo-status-bar';
 import { colors, shadow, space } from './src/theme';
 import type { EventDoc } from './src/api';
 import { TonightScreen } from './src/screens/TonightScreen';
+import { MapScreen } from './src/screens/MapScreen';
+import { ReelsScreen } from './src/screens/ReelsScreen';
 import { AskScreen } from './src/screens/AskScreen';
 import { SavedScreen } from './src/screens/SavedScreen';
 
-type Tab = 'tonight' | 'ask' | 'saved';
+type Tab = 'tonight' | 'map' | 'reels' | 'ask' | 'saved';
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('tonight');
@@ -28,12 +30,16 @@ export default function App() {
 
       <View style={styles.body}>
         {tab === 'tonight' && <TonightScreen saved={savedIds} onToggleSave={toggleSave} />}
+        {tab === 'map' && <MapScreen />}
+        {tab === 'reels' && <ReelsScreen />}
         {tab === 'ask' && <AskScreen />}
         {tab === 'saved' && <SavedScreen events={saved} onToggleSave={toggleSave} />}
       </View>
 
       <View style={styles.tabbar}>
         <Tab label="Tonight" glyph="✦" active={tab === 'tonight'} onPress={() => setTab('tonight')} />
+        <Tab label="Map" glyph="◈" active={tab === 'map'} onPress={() => setTab('map')} />
+        <Tab label="Reels" glyph="▶" active={tab === 'reels'} onPress={() => setTab('reels')} />
         <Tab label="Ask" glyph="◎" active={tab === 'ask'} onPress={() => setTab('ask')} />
         <Tab label="Saved" glyph="♥" active={tab === 'saved'} badge={saved.length} onPress={() => setTab('saved')} />
       </View>

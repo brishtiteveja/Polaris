@@ -1,6 +1,7 @@
 // Polaris API client. Simulator shares the Mac's loopback, so localhost works.
 // On a physical phone, set EXPO_PUBLIC_API_URL to the Mac's LAN IP.
 const BASE = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:8791';
+export const API_BASE = BASE;
 
 export interface EventDoc {
   id: string;
@@ -58,6 +59,22 @@ export async function ask(q: string) {
   const r = await fetch(`${BASE}/ask?q=${encodeURIComponent(q)}`);
   if (!r.ok) throw new Error(`ask ${r.status}`);
   return (await r.json()) as AskResult;
+}
+
+export interface Reel {
+  url: string;
+  embed: string;
+  handle: string;
+  caption: string;
+  image: string | null;
+  taken_at?: string;
+  likes: number | null;
+}
+
+export async function getReels() {
+  const r = await fetch(`${BASE}/reels`);
+  if (!r.ok) throw new Error(`reels ${r.status}`);
+  return (await r.json()) as { reels: Reel[] };
 }
 
 export async function rsvp(id: string) {
