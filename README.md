@@ -12,6 +12,21 @@ verdict links to the IG post that proves it.
 
 > **Apify is the agent's eyes. Elastic is its memory — search index and state store in one.**
 
+## Live numbers (hack night run)
+
+| | |
+|---|---|
+| upcoming events ingested | **70** (from 133 parsed; past one-offs dropped) |
+| venues | **46** |
+| Instagram accounts watched | **26** |
+| IG posts in the perception log | **201** |
+| verdicts written | **82** — 67 `VERIFIED`, 15 `CHANGED` |
+| Apify spend | **~$0.20** |
+
+Real example from that run: *Honky Tonk Friday at White Horse* → `✓ IG-verified 8h ago`,
+quoting the venue's own post. *Salsa Night at Stargazer* → `⚠ Changed` because the cover on
+Instagram didn't match the calendar.
+
 ## Stack
 
 - **Apify** — `contactminerlabs/instagram-posts-reels-scraper---cheap-all-in-one` (IG posts)
@@ -45,4 +60,3 @@ npm run api                 # http://localhost:8787/map
 ## Spec
 
 See [docs/SPEC.md](docs/SPEC.md).
-# Polaris
