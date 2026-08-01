@@ -197,6 +197,9 @@ app.post('/rsvp', async (c) => {
   return c.json({ id, rsvp_count: (doc._source as any).rsvp_count, result: res.result });
 });
 
-const port = Number(process.env.PORT ?? 8787);
+// 8787 is unusable on this machine: VS Code's helper binds 127.0.0.1:8787 and
+// forwards it to an unrelated uvicorn server, so localhost never reaches us
+// even though we listen on 0.0.0.0. 8791 is clear.
+const port = Number(process.env.PORT ?? 8791);
 serve({ fetch: app.fetch, port, hostname: '0.0.0.0' });
-console.log(`Polaris API on http://localhost:${port} — /health /feed /ask /rsvp`);
+console.log(`Polaris API on http://localhost:${port} — / /feed /ask /rsvp /img`);

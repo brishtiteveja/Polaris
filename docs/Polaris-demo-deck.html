@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+</head>
+<body>
+<title>Polaris — Elastic × Apify Hack Night</title>
+
+<style>
+  :root {
+    --ink:        #0A0E1A;
+    --ink-2:      #121829;
+    --ink-3:      #1A2136;
+    --line:       #26304a;
+    --star:       #EEF3FF;
+    --dim:        #8D9AB8;
+    --accent:     #6BD5FF;
+    --accent-dim: #2F7FA0;
+    --ok:         #25C08A;
+    --warn:       #F0A22E;
+    --bad:        #F0555F;
+    --glow:       rgba(107, 213, 255, 0.14);
+
+    --display: ui-sans-serif, -apple-system, "Helvetica Neue", "Segoe UI", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --ink: #F2F5FA; --ink-2: #FFFFFF; --ink-3: #E7EDF6; --line: #C9D5E6;
+      --star: #101726; --dim: #5A6880;
+      --accent: #0E7FA8; --accent-dim: #7FC5DE;
+      --ok: #128A61; --warn: #A96A05; --bad: #C4353F;
+      --glow: rgba(14, 127, 168, 0.10);
+    }
+  }
+  :root[data-theme="light"] {
+    --ink: #F2F5FA; --ink-2: #FFFFFF; --ink-3: #E7EDF6; --line: #C9D5E6;
+    --star: #101726; --dim: #5A6880;
+    --accent: #0E7FA8; --accent-dim: #7FC5DE;
+    --ok: #128A61; --warn: #A96A05; --bad: #C4353F;
+    --glow: rgba(14, 127, 168, 0.10);
+  }
+  :root[data-theme="dark"] {
+    --ink: #0A0E1A; --ink-2: #121829; --ink-3: #1A2136; --line: #26304a;
+    --star: #EEF3FF; --dim: #8D9AB8;
+    --accent: #6BD5FF; --accent-dim: #2F7FA0;
+    --ok: #25C08A; --warn: #F0A22E; --bad: #F0555F;
+    --glow: rgba(107, 213, 255, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--star);
+    font-family: var(--display);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .deck {
+    scroll-snap-type: y mandatory;
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .deck { scroll-behavior: auto; }
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    min-height: 100dvh;
+    padding: clamp(28px, 5vw, 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(16px, 2.2vw, 30px);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .inner { width: min(1080px, 100%); margin: 0 auto; display: flex; flex-direction: column; gap: inherit; }
+
+  .num {
+    position: absolute;
+    top: clamp(20px, 3vw, 36px); right: clamp(20px, 3vw, 40px);
+    font-family: var(--mono); font-size: 12px; color: var(--dim);
+    letter-spacing: 0.08em;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: clamp(11px, 1.1vw, 13px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(44px, 8vw, 104px);
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(30px, 4.6vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 750;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: clamp(17px, 1.6vw, 21px);
+    letter-spacing: -0.015em;
+    margin: 0;
+    font-weight: 700;
+  }
+  p, li { font-size: clamp(15px, 1.45vw, 19px); line-height: 1.55; color: var(--dim); margin: 0; }
+  p.lead { font-size: clamp(18px, 2vw, 25px); color: var(--star); line-height: 1.4; max-width: 62ch; }
+  strong { color: var(--star); font-weight: 650; }
+  .accent { color: var(--accent); }
+
+  .rule { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+  /* ---- title ---- */
+  .title-mark {
+    font-size: clamp(40px, 7vw, 78px);
+    color: var(--accent);
+    line-height: 1;
+    text-shadow: 0 0 42px var(--glow);
+  }
+  .title-meta {
+    display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 56px);
+    font-family: var(--mono); font-size: 13px; color: var(--dim);
+    letter-spacing: 0.04em;
+  }
+  .title-meta b { color: var(--star); font-weight: 600; display: block; margin-bottom: 3px; }
+
+  /* ---- generic cards ---- */
+  .grid { display: grid; gap: clamp(12px, 1.4vw, 18px); }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .g4 { grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); }
+
+  .card {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: clamp(16px, 1.8vw, 24px);
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .card .k {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--dim);
+  }
+
+  /* ---- stats ---- */
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat .v {
+    font-size: clamp(34px, 5vw, 60px); font-weight: 800; letter-spacing: -0.04em;
+    color: var(--star); font-variant-numeric: tabular-nums; line-height: 1;
+  }
+  .stat .l { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+  .stat.live .v { color: var(--accent); }
+
+  /* ---- verdict chips ---- */
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 5px 11px; border-radius: 999px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .chip.ok { color: var(--ok); }
+  .chip.warn { color: var(--warn); }
+  .chip.bad { color: var(--bad); }
+  .chip.idle { color: var(--dim); }
+
+  .verdict-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* ---- event card mock ---- */
+  .mock {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; display: flex; flex-direction: column; gap: 7px;
+    max-width: 460px;
+  }
+  .mock .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .mock .time { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+  .mock .price { color: var(--accent); font-weight: 750; font-size: 16px; }
+  .mock .name { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+  .mock .venue { color: var(--accent); font-size: 14.5px; font-weight: 600; }
+  .mock .area { color: var(--dim); font-size: 13px; }
+  .mock .quote {
+    color: var(--dim); font-size: 12.5px; font-style: italic; line-height: 1.45;
+    border-left: 2px solid var(--line); padding-left: 10px; margin-top: 4px;
+  }
+  .strike { text-decoration: line-through; text-decoration-color: var(--bad); }
+
+  /* ---- pipeline ---- */
+  .pipe { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); align-items: stretch; }
+  .step {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: 13px;
+    padding: 15px 16px; display: flex; flex-direction: column; gap: 6px;
+    position: relative;
+  }
+  .step .s-role {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .step .s-title { font-weight: 700; font-size: 16px; letter-spacing: -0.015em; }
+  .step .s-body { color: var(--dim); font-size: 13.5px; line-height: 1.45; }
+  .step.eyes { border-color: var(--accent-dim); }
+  .step.memory { border-color: var(--accent-dim); }
+
+  /* ---- table ---- */
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; }
+  th, td {
+    text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  th {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--dim); font-weight: 500;
+  }
+  td { color: var(--dim); }
+  td:first-child { color: var(--star); font-weight: 600; white-space: nowrap; }
+  td .pts { font-family: var(--mono); color: var(--accent); }
+
+  /* ---- ordered demo beats ---- */
+  ol.beats { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: b; }
+  ol.beats li {
+    counter-increment: b;
+    display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start;
+  }
+  ol.beats li::before {
+    content: counter(b, decimal-leading-zero);
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 5px 0; text-align: center;
+  }
+  ol.beats b { color: var(--star); font-weight: 650; }
+
+  ul.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+  ul.ticks li { display: grid; grid-template-columns: 18px 1fr; gap: 11px; align-items: start; }
+  ul.ticks li::before { content: "→"; color: var(--accent); font-family: var(--mono); font-size: 14px; line-height: 1.5; }
+
+  code {
+    font-family: var(--mono); font-size: 0.88em;
+    background: var(--ink-3); border: 1px solid var(--line);
+    padding: 1.5px 6px; border-radius: 5px; color: var(--star);
+  }
+
+  /* ---- nav ---- */
+  .dots {
+    position: fixed; right: clamp(10px, 1.6vw, 20px); top: 50%;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 9px; z-index: 20;
+  }
+  .dots button {
+    width: 8px; height: 8px; padding: 0; border-radius: 50%;
+    background: var(--line); border: 0; cursor: pointer;
+    transition: background 160ms, transform 160ms;
+  }
+  .dots button[aria-current="true"] { background: var(--accent); transform: scale(1.45); }
+  .dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 700px) { .dots { display: none; } }
+
+  .hint {
+    position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+    font-family: var(--mono); font-size: 11px; color: var(--dim);
+    letter-spacing: 0.09em; z-index: 20; pointer-events: none;
+    background: var(--ink); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line);
+  }
+</style>
+
+<div class="deck" id="deck">
+
+  <!-- 1 · title -->
+  <section class="slide">
+    <span class="num">01</span>
+    <div class="inner">
+      <div class="title-mark">✦</div>
+      <div>
+        <div class="eyebrow">Elastic × Apify Hack Night · Austin</div>
+        <h1>Polaris</h1>
+      </div>
+      <p class="lead">
+        Austin's dance calendar, continuously checked against Instagram —
+        so you never drive to a bar that's closed tonight.
+      </p>
+      <hr class="rule" />
+      <div class="title-meta">
+        <div><b>The agent</b>Reads Instagram, judges the calendar</div>
+        <div><b>Apify</b>Its eyes</div>
+        <div><b>Elastic</b>Its memory</div>
+        <div><b>Vertical one</b>Social dance, 113 events</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · problem -->
+  <section class="slide">
+    <span class="num">02</span>
+    <div class="inner">
+      <div class="eyebrow">The problem</div>
+      <h2>Every event calendar is a<br />snapshot of a week that already ended.</h2>
+      <p class="lead">
+        austindancesocials.com is genuinely good — 113 socials, 46 venues, updated by hand.
+        But venues don't update calendars. They post to Instagram.
+      </p>
+      <div class="grid g3">
+        <div class="card">
+          <span class="k">Monday</span>
+          <p>The calendar says the two-step night runs 7pm, $10, every week.</p>
+        </div>
+        <div class="card">
+          <span class="k">Thursday</span>
+          <p>The venue posts its weekly rundown: <em>"7/13, Monday: CLOSED."</em></p>
+        </div>
+        <div class="card">
+          <span class="k">Friday</span>
+          <p>You drive across Austin, park, and find a dark room. Nobody told the calendar.</p>
+        </div>
+      </div>
+      <p><strong>The data isn't missing. It's just in the wrong place, in prose, on 26 different accounts.</strong></p>
+    </div>
+  </section>
+
+  <!-- 3 · what it does -->
+  <section class="slide">
+    <span class="num">03</span>
+    <div class="inner">
+      <div class="eyebrow">What Polaris does</div>
+      <h2>Turns Instagram captions into a verdict on every event.</h2>
+      <div class="grid g2">
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <p>Every event carries a live status, and every status links to the post that produced it. No trust required — tap the badge, read the caption yourself.</p>
+          <div class="verdict-row">
+            <span class="chip ok">✓ VERIFIED</span>
+            <span class="chip warn">⚠ CHANGED</span>
+            <span class="chip bad">✕ CANCELLED</span>
+            <span class="chip idle">UNVERIFIED</span>
+          </div>
+          <p>That's the actionable insight: not "here are some events," but <strong>"this one is off tonight, and here's the proof."</strong></p>
+        </div>
+
+        <div class="mock" aria-label="Example event card showing a cancelled verdict">
+          <div class="top">
+            <span class="time">🥾 7:00 PM</span>
+            <span class="price">$10</span>
+          </div>
+          <div class="name strike">Tuesday Night at Little Longhorn</div>
+          <div class="venue">Little Longhorn Saloon</div>
+          <div class="area">Allandale · lesson · live music</div>
+          <div style="margin-top:6px;"><span class="chip bad">✕ CANCELLED PER IG · 2d ago ↗</span></div>
+          <div class="quote">"Here's what we have cookin' this week… 7/13, Monday: CLOSED"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · architecture -->
+  <section class="slide">
+    <span class="num">04</span>
+    <div class="inner">
+      <div class="eyebrow">Architecture</div>
+      <h2>Apify is the agent's eyes.<br />Elastic is its memory.</h2>
+      <div class="pipe">
+        <div class="step">
+          <span class="s-role">Seed</span>
+          <span class="s-title">austindancesocials.com</span>
+          <span class="s-body">The canonical calendar. Parsed straight out of the site — including the Instagram handle behind each venue.</span>
+        </div>
+        <div class="step eyes">
+          <span class="s-role">Apify · eyes</span>
+          <span class="s-title">Instagram scraper</span>
+          <span class="s-body">26 venue accounts, newest posts on demand. Real-time, pay-per-run, no scraper infrastructure.</span>
+        </div>
+        <div class="step memory">
+          <span class="s-role">Elastic · memory</span>
+          <span class="s-title">events + ig_posts</span>
+          <span class="s-body">Every post and every verdict is a document. Kill any process, restart — nothing is lost.</span>
+        </div>
+        <div class="step">
+          <span class="s-role">Agent · judgment</span>
+          <span class="s-title">Reconciler</span>
+          <span class="s-body">Splits weekly-rundown captions per night, then rules on each event and writes back the evidence.</span>
+        </div>
+        <div class="step">
+          <span class="s-role">Surface</span>
+          <span class="s-title">Polaris app</span>
+          <span class="s-body">Tonight · Ask · Saved. Plus a dark city map of what's actually on.</span>
+        </div>
+      </div>
+      <p>The reconciler is deliberately rule-based, not an LLM: every verdict quotes the exact substring that caused it, so a human can audit any call in one glance.</p>
+    </div>
+  </section>
+
+  <!-- 5 · elastic -->
+  <section class="slide">
+    <span class="num">05</span>
+    <div class="inner">
+      <div class="eyebrow">Why Elastic</div>
+      <h2>Search index and agent state, in one store.</h2>
+      <div class="grid g2">
+        <div class="card">
+          <span class="k">Hybrid retrieval</span>
+          <h3>Meaning, not just keywords</h3>
+          <p>One <code>semantic_text</code> field gives ELSER embeddings at ingest — zero embedding code. <code>/ask</code> runs RRF over BM25 + semantic.</p>
+          <p style="margin-top:6px;"><strong>"beginner friendly country night"</strong> → Little Longhorn, which shares not one keyword with the query.</p>
+        </div>
+        <div class="card">
+          <span class="k">Agent memory</span>
+          <h3>State that survives the process</h3>
+          <p>Perception (<code>ig_posts</code>) and judgment (<code>status</code>, <code>evidence</code>, <code>last_checked</code>) are documents, not variables. Document ids are post URLs, so re-runs are idempotent.</p>
+        </div>
+        <div class="card">
+          <span class="k">Geo</span>
+          <h3>The map comes free</h3>
+          <p><code>geo_point</code> per venue drives the city map today, and "what's on near me" next.</p>
+        </div>
+        <div class="card">
+          <span class="k">Kibana</span>
+          <h3>Watching the agent think</h3>
+          <p>Verdict breakdown and posts-per-handle, live, with no dashboard code written.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · apify -->
+  <section class="slide">
+    <span class="num">06</span>
+    <div class="inner">
+      <div class="eyebrow">Why Apify</div>
+      <h2>Instagram, without owning a scraper.</h2>
+      <div class="grid g3">
+        <div class="card stat live">
+          <span class="v">$0.008</span>
+          <span class="l">per profile run, measured</span>
+        </div>
+        <div class="card stat">
+          <span class="v">26</span>
+          <span class="l">accounts watched</span>
+        </div>
+        <div class="card stat">
+          <span class="v">28s</span>
+          <span class="l">scrape to indexed</span>
+        </div>
+      </div>
+      <ul class="ticks">
+        <li>Instagram actively fights scrapers. Apify absorbs the proxying, retries and session rotation — we wrote none of it.</li>
+        <li>Pay-per-run means the whole watchlist costs cents per refresh, so Polaris can re-check the city as often as the city changes.</li>
+        <li>A second actor crawls public calendar pages as prose, indexed alongside the structured events for questions the schema can't answer.</li>
+      </ul>
+      <p><strong>Honest note:</strong> the actor we first picked turned out to be keyword-only and behind a paid rental. We swapped to the official profile scraper — that's why the eyes take profile URLs, not search terms.</p>
+    </div>
+  </section>
+
+  <!-- 7 · numbers -->
+  <section class="slide">
+    <span class="num">07</span>
+    <div class="inner">
+      <div class="eyebrow">Where we are</div>
+      <h2>Real data, end to end.</h2>
+      <div class="grid g4">
+        <div class="card stat live"><span class="v">113</span><span class="l">active events</span></div>
+        <div class="card stat"><span class="v">46</span><span class="l">venues</span></div>
+        <div class="card stat"><span class="v">26</span><span class="l">IG accounts</span></div>
+        <div class="card stat"><span class="v">88</span><span class="l">events watchable</span></div>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <span class="k">Working now</span>
+          <ul class="ticks" style="margin-top:4px;">
+            <li>Calendar extracted from the source site, re-runnable in one command</li>
+            <li>Elastic Serverless indexed with ELSER semantic fields</li>
+            <li>Instagram scrape proven live against real venue accounts</li>
+            <li>App on device: Tonight, Ask, Saved — on real data</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="k">Landing tonight</span>
+          <ul class="ticks" style="margin-top:4px;">
+            <li>Full scrape across all 26 accounts</li>
+            <li>Verdicts written onto every watched event</li>
+            <li>Kibana view of the agent's perception log</li>
+          </ul>
+        </div>
+      </div>
+      <p>Saturday alone carries 46 socials — the densest night, and the one most worth verifying.</p>
+    </div>
+  </section>
+
+  <!-- 8 · demo -->
+  <section class="slide">
+    <span class="num">08</span>
+    <div class="inner">
+      <div class="eyebrow">Demo · five minutes</div>
+      <h2>What you'll see.</h2>
+      <ol class="beats">
+        <li><span><b>Tonight, on the phone.</b> Austin's dance scene for tonight — every card carrying a verdict, not just a listing.</span></li>
+        <li><span><b>Tap a cancelled badge.</b> It opens the actual Instagram post. The calendar said it was on; the venue said closed.</span></li>
+        <li><span><b>Ask it something vague.</b> "beginner friendly country night under $10" — semantic retrieval finds the honky-tonk that never says those words.</span></li>
+        <li><span><b>Re-run the agent live.</b> Scrape, reconcile, and watch a badge change on screen while you're looking at it.</span></li>
+        <li><span><b>Kibana.</b> The perception log and the verdict split — the agent's memory, inspectable.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 9 · scoring -->
+  <section class="slide">
+    <span class="num">09</span>
+    <div class="inner">
+      <div class="eyebrow">Against the rubric</div>
+      <h2>Thirty points, three questions.</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Axis</th><th>The question</th><th>Our answer</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Creativity <span class="pts">10</span></td>
+              <td>Seen it before? Real problem? Personal?</td>
+              <td>A calendar that audits itself against Instagram. We dance in Austin; we've been burned by a stale listing.</td>
+            </tr>
+            <tr>
+              <td>Completeness <span class="pts">10</span></td>
+              <td>Does it work? Deployed? Relevant output?</td>
+              <td>113 real events, real scrapes, real verdicts, running on a phone. Elastic and Apify both hosted.</td>
+            </tr>
+            <tr>
+              <td>Understanding <span class="pts">10</span></td>
+              <td>Why these two tools?</td>
+              <td>Apify is perception we'd otherwise spend the whole night building. Elastic is retrieval and memory in one store — semantic search with no embedding pipeline.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · next -->
+  <section class="slide">
+    <span class="num">10</span>
+    <div class="inner">
+      <div class="eyebrow">After tonight</div>
+      <h2>Dance is the first vertical,<br />not the point.</h2>
+      <div class="grid g3">
+        <div class="card">
+          <span class="k">Next</span>
+          <h3>Tell me before I leave</h3>
+          <p>Save a night, and Polaris pushes when its verdict changes. The reminder is the product.</p>
+        </div>
+        <div class="card">
+          <span class="k">Next</span>
+          <h3>Near me, right now</h3>
+          <p>Geo queries over the same index: what's on within two miles, in the next hour.</p>
+        </div>
+        <div class="card">
+          <span class="k">Later</span>
+          <h3>Any Austin scene</h3>
+          <p>Comedy, live music, run clubs. Same spine: a canonical calendar, watched against the accounts that actually update.</p>
+        </div>
+      </div>
+      <hr class="rule" />
+      <p class="lead">Every event listing on the internet is a claim. <span class="accent">Polaris checks it.</span></p>
+    </div>
+  </section>
+
+</div>
+
+<nav class="dots" id="dots" aria-label="Slide navigation"></nav>
+<div class="hint">↑ ↓ or scroll</div>
+
+<script>
+  const deck = document.getElementById('deck');
+  const slides = [...deck.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+
+  slides.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    b.addEventListener('click', () => s.scrollIntoView());
+    dots.appendChild(b);
+  });
+  const buttons = [...dots.children];
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const i = slides.indexOf(e.target);
+        buttons.forEach((b, j) => b.setAttribute('aria-current', String(j === i)));
+      }
+    });
+  }, { threshold: 0.55 });
+  slides.forEach((s) => io.observe(s));
+
+  function current() {
+    return slides.findIndex((s) => s.getBoundingClientRect().top > -window.innerHeight / 2);
+  }
+  document.addEventListener('keydown', (e) => {
+    const keysNext = ['ArrowDown', 'ArrowRight', 'PageDown', ' '];
+    const keysPrev = ['ArrowUp', 'ArrowLeft', 'PageUp'];
+    if (![...keysNext, ...keysPrev, 'Home', 'End'].includes(e.key)) return;
+    e.preventDefault();
+    const i = Math.max(0, current());
+    if (e.key === 'Home') slides[0].scrollIntoView();
+    else if (e.key === 'End') slides[slides.length - 1].scrollIntoView();
+    else if (keysNext.includes(e.key)) slides[Math.min(slides.length - 1, i + 1)].scrollIntoView();
+    else slides[Math.max(0, i - 1)].scrollIntoView();
+  });
+</script>
+
+</body>
+</html>

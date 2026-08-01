@@ -1,6 +1,6 @@
 // Polaris API client. Simulator shares the Mac's loopback, so localhost works.
 // On a physical phone, set EXPO_PUBLIC_API_URL to the Mac's LAN IP.
-const BASE = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:8787';
+const BASE = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:8791';
 
 export interface EventDoc {
   id: string;

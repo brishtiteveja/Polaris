@@ -29,7 +29,7 @@ Instagram didn't match the calendar.
 
 ## Stack
 
-- **Apify** — `contactminerlabs/instagram-posts-reels-scraper---cheap-all-in-one` (IG posts)
+- **Apify** — `apify/instagram-scraper` (venue posts + reels, ~$0.008/profile)
   + `apify/website-content-crawler` (public calendars: austindancesocials.com, salsavida, …)
 - **Elastic Serverless** — `semantic_text`/ELSER hybrid retrieval (RRF), geo_point, agent
   state (`status`, `evidence`, perception log), Kibana dashboard
@@ -45,7 +45,7 @@ npm run ingest -- --fresh   # indices + canonical seed
 npm run pulse               # Apify → Instagram posts → Elastic
 npm run crawl               # Apify → calendar pages → Elastic
 npm run reconcile           # agent verdicts written onto events
-npm run api                 # http://localhost:8787/map
+npm run api                 # http://localhost:8791/map
 ```
 
 `GET /ask?q=beginner+friendly+country+night` → hybrid (BM25+ELSER) answer with citations.
