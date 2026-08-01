@@ -1,6 +1,8 @@
-# ⭐ Polaris
+<img src="server/public/logo.svg" width="72" alt="Polaris" />
 
-**Find your night out in Austin — live-verified dance socials on a map.**
+# Polaris
+
+**Your guide to Austin — live-verified social events, checked against Instagram.**
 
 Built at the Elastic × Apify Hack Night (Austin, Jul 2026).
 

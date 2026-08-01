@@ -39,7 +39,7 @@
     background: linear-gradient(180deg, rgba(13,16,32,.96), rgba(7,8,15,.86));
     backdrop-filter: blur(14px);
   }
-  .brand { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+  .brand { display: flex; align-items: center; gap: 9px; margin-right: auto; }
   .brand h1 {
     margin: 0; font-size: 21px; letter-spacing: 4px; font-weight: 800;
     background: linear-gradient(92deg, var(--star), var(--star2));
@@ -158,8 +158,22 @@
 <div class="shell">
   <header>
     <div class="brand">
-      <h1>✦ POLARIS</h1>
-      <span class="tag">Austin · Dance</span>
+      <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+        <defs>
+          <linearGradient id="s1" x1="14" y1="6" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFC24B"/><stop offset="0.45" stop-color="#FF6B7F"/><stop offset="1" stop-color="#FF3D63"/>
+          </linearGradient>
+          <radialGradient id="h1" cx="32" cy="32" r="30" gradientUnits="userSpaceOnUse">
+            <stop offset="0.35" stop-color="#FF4F6E" stop-opacity="0.35"/><stop offset="1" stop-color="#FF4F6E" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="url(#h1)"/>
+        <path d="M32 3 C33.4 18.6 36.9 26.6 45.1 29.4 L61 32 L45.1 34.6 C36.9 37.4 33.4 45.4 32 61 C30.6 45.4 27.1 37.4 18.9 34.6 L3 32 L18.9 29.4 C27.1 26.6 30.6 18.6 32 3 Z" fill="url(#s1)"/>
+        <circle cx="51" cy="14" r="2.6" fill="#FFC24B" opacity="0.85"/>
+        <circle cx="14" cy="49" r="1.9" fill="#FF6B7F" opacity="0.85"/>
+      </svg>
+      <h1>POLARIS</h1>
+      <span class="tag">Your guide to Austin</span>
     </div>
     <div class="live"><span class="dot"></span><span id="livetext">checking Instagram…</span></div>
     <div class="seg">

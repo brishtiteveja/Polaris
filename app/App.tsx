@@ -3,6 +3,8 @@ import { View, Text, Pressable, StyleSheet, Platform, SafeAreaView, useWindowDim
 import { StatusBar } from 'expo-status-bar';
 import { colors, shadow, space } from './src/theme';
 import type { EventDoc } from './src/api';
+import { Wordmark, LogoMark } from './src/components/Logo';
+import { Splash } from './src/components/Splash';
 import { TonightScreen } from './src/screens/TonightScreen';
 import { MapScreen } from './src/screens/MapScreen';
 import { ReelsScreen } from './src/screens/ReelsScreen';
@@ -13,6 +15,7 @@ type Tab = 'tonight' | 'map' | 'reels' | 'ask' | 'saved';
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('tonight');
+  const [splashDone, setSplashDone] = useState(false);
   // Saved events are held whole so the Saved tab can show live verdicts.
   const [saved, setSaved] = useState<EventDoc[]>([]);
   const savedIds = saved.map((e) => e.id);
@@ -24,7 +27,7 @@ export default function App() {
     <SafeAreaView style={styles.safe}>
       <StatusBar style="dark" />
       <View style={styles.header}>
-        <Text style={styles.wordmark}>✦ POLARIS</Text>
+        <Wordmark size={26} />
         <Text style={styles.tag}>YOUR GUIDE TO AUSTIN</Text>
       </View>
 
@@ -39,12 +42,14 @@ export default function App() {
       </View>
 
       <View style={styles.tabbar}>
-        <Tab label="Tonight" glyph="✦" active={tab === 'tonight'} onPress={() => setTab('tonight')} />
+        <Tab label="Tonight" glyph="star" active={tab === 'tonight'} onPress={() => setTab('tonight')} />
         <Tab label="Map" glyph="◈" active={tab === 'map'} onPress={() => setTab('map')} />
         <Tab label="Reels" glyph="▶" active={tab === 'reels'} onPress={() => setTab('reels')} />
         <Tab label="Ask" glyph="◎" active={tab === 'ask'} onPress={() => setTab('ask')} />
         <Tab label="Saved" glyph="♥" active={tab === 'saved'} badge={saved.length} onPress={() => setTab('saved')} />
       </View>
+
+      {!splashDone && <Splash onDone={() => setSplashDone(true)} />}
     </SafeAreaView>
   );
 }
@@ -82,7 +87,11 @@ function Tab({
       accessibilityLabel={label}
       style={({ pressed }) => [styles.tab, active && styles.tabOn, { opacity: pressed ? 0.75 : 1 }]}
     >
-      <Text style={[styles.tabGlyph, { color: active ? colors.night : colors.muted }]}>{glyph}</Text>
+      {glyph === 'star' ? (
+        <LogoMark size={19} glow={false} />
+      ) : (
+        <Text style={[styles.tabGlyph, { color: active ? colors.night : colors.muted }]}>{glyph}</Text>
+      )}
       {active ? <Text style={styles.tabLabel}>{label}</Text> : null}
       {!active && badge ? <View style={styles.dot} /> : null}
     </Pressable>
