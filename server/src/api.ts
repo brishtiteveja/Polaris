@@ -33,6 +33,34 @@ const page = (f: string) => readFileSync(new URL(`../public/${f}`, import.meta.u
 app.get('/', (c) => c.html(page('app.html')));
 app.get('/map', (c) => c.html(page('map.html')));
 
+// Instagram's CDN sets Cross-Origin-Resource-Policy, so browsers refuse to
+// render its images from our origin. Streaming them through here fixes the web
+// app (native RN is unaffected). Host allowlist keeps this from being an open
+// proxy — it will only fetch from Instagram/Facebook CDNs.
+const IMG_HOSTS = /(^|\.)(cdninstagram\.com|fbcdn\.net)$/;
+
+app.get('/img', async (c) => {
+  const u = c.req.query('u');
+  if (!u) return c.text('u required', 400);
+  let target: URL;
+  try {
+    target = new URL(u);
+  } catch {
+    return c.text('bad url', 400);
+  }
+  if (target.protocol !== 'https:' || !IMG_HOSTS.test(target.hostname)) {
+    return c.text('host not allowed', 403);
+  }
+  const upstream = await fetch(target.toString());
+  if (!upstream.ok || !upstream.body) return c.text('upstream failed', 502);
+  return new Response(upstream.body, {
+    headers: {
+      'content-type': upstream.headers.get('content-type') ?? 'image/jpeg',
+      'cache-control': 'public, max-age=3600',
+    },
+  });
+});
+
 const DAY_ORDER = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
 /** One deterministic sentence per event — every word traceable to a doc field. */

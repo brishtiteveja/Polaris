@@ -54,6 +54,9 @@ const docs = (items as Record<string, any>[])
     likes: it.likesCount ?? null,
     hashtags: it.hashtags ?? [],
     image: it.displayUrl ?? null,
+    // Reels are the good stuff — a clip of the actual room, dancing.
+    is_reel: it.type === 'Video' || /\/reel\//.test(String(it.url)),
+    video: it.videoUrl ?? null,
   }));
 
 if (docs.length === 0) {

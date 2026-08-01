@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet, Linking } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Linking, Image, ImageBackground } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { colors, radius, shadow, space } from '../theme';
-import type { EventDoc } from '../api';
+import { imageUrl, type EventDoc } from '../api';
 
 const STYLE_EMOJI: [RegExp, string][] = [
   [/two-step|country/, '🥾'],
@@ -65,8 +66,34 @@ export function EventCard({
   onSave?: () => void;
 }) {
   const cancelled = e.status === 'CANCELLED';
+  // Instagram CDN URLs are signed and expire after a few hours — a re-run of
+  // `pulse` refreshes them. Cards without one just render without a photo.
+  const hero = imageUrl(e.evidence?.image ?? e.hero_image);
+
   return (
     <View style={[styles.card, cancelled && styles.cardOff]}>
+      {hero ? (
+        <Pressable
+          onPress={() => Linking.openURL(e.evidence?.post_url ?? e.ig_profile ?? '')}
+          style={styles.heroWrap}
+        >
+          <ImageBackground source={{ uri: hero }} style={styles.hero} imageStyle={styles.heroImg}>
+            <LinearGradient
+              colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.15)', 'rgba(0,0,0,0.72)']}
+              style={StyleSheet.absoluteFill}
+            />
+            {e.ig_handle ? (
+              <View style={styles.igTag}>
+                <Text style={styles.igTagText}>@{e.ig_handle}</Text>
+              </View>
+            ) : null}
+            {e.evidence?.is_reel || e.ig_reel ? (
+              <View style={styles.reelTag}><Text style={styles.reelText}>▶ Reel</Text></View>
+            ) : null}
+          </ImageBackground>
+        </Pressable>
+      ) : null}
+
       <View style={styles.topRow}>
         <Text style={styles.time}>
           {emojiFor(e.styles)}  {clock(e.start)}
@@ -98,6 +125,11 @@ export function EventCard({
             {saved ? '✓ Going' : '+ Count me in'}
           </Text>
         </Pressable>
+        {e.ig_profile ? (
+          <Pressable onPress={() => Linking.openURL(e.ig_profile!)} hitSlop={8}>
+            <Text style={styles.igLink}>Instagram ↗</Text>
+          </Pressable>
+        ) : null}
         {e.rsvp_count ? <Text style={styles.going}>{e.rsvp_count} going</Text> : null}
       </View>
     </View>
@@ -112,8 +144,23 @@ const styles = StyleSheet.create({
     borderColor: colors.line,
     padding: space(2),
     gap: 5,
+    overflow: 'hidden',
     ...shadow.card,
   },
+  heroWrap: { marginHorizontal: -space(2), marginTop: -space(2), marginBottom: space(1) },
+  hero: { height: 168, justifyContent: 'flex-end' },
+  heroImg: { resizeMode: 'cover' },
+  igTag: {
+    position: 'absolute', left: space(1.5), bottom: space(1.25),
+    backgroundColor: 'rgba(0,0,0,0.45)', borderRadius: radius.pill, paddingVertical: 4, paddingHorizontal: 10,
+  },
+  igTagText: { color: '#FFFFFF', fontSize: 12, fontWeight: '700' },
+  reelTag: {
+    position: 'absolute', right: space(1.5), top: space(1.25),
+    backgroundColor: 'rgba(255,79,110,0.92)', borderRadius: radius.pill, paddingVertical: 4, paddingHorizontal: 10,
+  },
+  reelText: { color: '#FFFFFF', fontSize: 11.5, fontWeight: '800' },
+  igLink: { color: colors.lamp, fontSize: 12.5, fontWeight: '700' },
   cardOff: { opacity: 0.72, borderColor: 'rgba(242,84,91,0.35)' },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   time: { color: colors.bone, fontSize: 17, fontWeight: '800', letterSpacing: -0.2 },

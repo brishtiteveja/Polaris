@@ -83,6 +83,38 @@ const postRes = await es.search({
 const posts = postRes.hits.hits.map((h) => ({ _id: h._id as string, ...(h._source as any) }));
 console.log(`events ${events.length} (${byHandle.size} watched handles) · recent posts ${posts.length}`);
 
+// Give every watched event a face: the venue's most recent post image, plus a
+// link to their profile and their latest reel. Independent of verdicts — an
+// unverified event still deserves a picture of the room.
+const lookByHandle = new Map<string, { image?: string; reel?: string; posts: number }>();
+for (const p of posts) {
+  const h = String(p.handle ?? '').toLowerCase();
+  if (!h) continue;
+  const cur = lookByHandle.get(h) ?? { posts: 0 };
+  if (p.image) cur.image = p.image; // posts are ascending → last write is newest
+  if (p.is_reel && p.url) cur.reel = p.url;
+  cur.posts++;
+  lookByHandle.set(h, cur);
+}
+
+let looks = 0;
+for (const [handle, look] of lookByHandle) {
+  for (const ev of byHandle.get(handle) ?? []) {
+    await es.update({
+      index: IDX.events,
+      id: ev.id,
+      doc: {
+        hero_image: look.image ?? null,
+        ig_profile: `https://www.instagram.com/${handle}/`,
+        ig_reel: look.reel ?? null,
+        ig_post_count: look.posts,
+      },
+    });
+    looks++;
+  }
+}
+console.log(`attached imagery to ${looks} events from ${lookByHandle.size} accounts`);
+
 let n = 0;
 const tally: Record<string, number> = {};
 
@@ -123,6 +155,8 @@ for (const post of posts) {
             posted_at: post.taken_at,
             handle: post.handle,
             snippet: seg.text.trim().slice(0, 220),
+            image: post.image ?? null,
+            is_reel: !!post.is_reel,
             rule,
           },
           last_checked: new Date().toISOString(),

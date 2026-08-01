@@ -19,7 +19,10 @@ export interface EventDoc {
   address?: string;
   ig_handle?: string;
   status?: 'VERIFIED' | 'CHANGED' | 'CANCELLED' | 'UNVERIFIED';
-  evidence?: { post_url?: string; posted_at?: string; snippet?: string; rule?: string };
+  evidence?: { post_url?: string; posted_at?: string; snippet?: string; rule?: string; image?: string; is_reel?: boolean };
+  hero_image?: string;
+  ig_profile?: string;
+  ig_reel?: string;
   last_checked?: string;
   rsvp_count?: number;
   location?: { lat: number; lon: number };
@@ -29,6 +32,16 @@ export interface AskResult {
   answer: string;
   events: EventDoc[];
   citations: { label: string; url: string }[];
+}
+
+/**
+ * Instagram CDN images are blocked cross-origin in browsers, so on web we route
+ * them through the API. Native fetches them directly.
+ */
+export function imageUrl(raw?: string): string | undefined {
+  if (!raw) return undefined;
+  const isWeb = typeof document !== 'undefined';
+  return isWeb ? `${BASE}/img?u=${encodeURIComponent(raw)}` : raw;
 }
 
 export async function getFeed(params: { day?: string; style?: string; maxPrice?: number } = {}) {
