@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet, Linking, Image, ImageBackground } fr
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, radius, shadow, space } from '../theme';
 import { imageUrl, type EventDoc } from '../api';
+import { share } from '../share';
 
 const STYLE_EMOJI: [RegExp, string][] = [
   [/two-step|country/, '🥾'],
@@ -65,6 +66,7 @@ export function EventCard({
   saved?: boolean;
   onSave?: () => void;
 }) {
+  const [toast, setToast] = React.useState<string | null>(null);
   const cancelled = e.status === 'CANCELLED';
   // Instagram CDN URLs are signed and expire after a few hours — a re-run of
   // `pulse` refreshes them. Cards without one just render without a photo.
@@ -125,13 +127,24 @@ export function EventCard({
             {saved ? '✓ Going' : '+ Count me in'}
           </Text>
         </Pressable>
+        <Pressable
+          onPress={async () => {
+            const r = await share(e);
+            if (r === 'copied') setToast('Copied — paste it to your friends');
+            setTimeout(() => setToast(null), 2200);
+          }}
+          hitSlop={8}
+        >
+          <Text style={styles.igLink}>{toast ? '✓' : 'Share ↗'}</Text>
+        </Pressable>
         {e.ig_profile ? (
           <Pressable onPress={() => Linking.openURL(e.ig_profile!)} hitSlop={8}>
-            <Text style={styles.igLink}>Instagram ↗</Text>
+            <Text style={styles.igLink}>@IG</Text>
           </Pressable>
         ) : null}
         {e.rsvp_count ? <Text style={styles.going}>{e.rsvp_count} going</Text> : null}
       </View>
+      {toast ? <Text style={styles.toast}>{toast}</Text> : null}
     </View>
   );
 }
@@ -161,6 +174,7 @@ const styles = StyleSheet.create({
   },
   reelText: { color: '#FFFFFF', fontSize: 11.5, fontWeight: '800' },
   igLink: { color: colors.lamp, fontSize: 12.5, fontWeight: '700' },
+  toast: { color: colors.verdigris, fontSize: 11.5, fontWeight: '700', marginTop: 2 },
   cardOff: { opacity: 0.72, borderColor: 'rgba(242,84,91,0.35)' },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   time: { color: colors.bone, fontSize: 17, fontWeight: '800', letterSpacing: -0.2 },

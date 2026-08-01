@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, FlatList, RefreshControl, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable, StyleSheet, FlatList, RefreshControl, ActivityIndicator } from 'react-native';
 import { colors, space } from '../theme';
 import { getFeed, rsvp, type EventDoc } from '../api';
 import { EventCard } from '../components/EventCard';
+import { Roulette } from '../components/Roulette';
 import { DAYS, STYLES, PillRow } from '../components/Filters';
 
 const DAY_LABEL: Record<string, string> = {
@@ -25,6 +26,7 @@ export function TonightScreen({
   const [today, setToday] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [spin, setSpin] = useState(false);
 
   const load = useCallback(async () => {
     try {
@@ -53,9 +55,14 @@ export function TonightScreen({
           {day === today ? 'Tonight in ' : `${DAY_LABEL[day] ?? 'All week'} in `}
           <Text style={{ color: colors.lamp }}>Austin</Text>
         </Text>
-        <Text style={styles.sub}>
-          {loading ? 'Loading…' : `${events.length} socials · ${verified} checked against Instagram`}
-        </Text>
+        <View style={styles.subRow}>
+          <Text style={styles.sub}>
+            {loading ? 'Loading…' : `${events.length} socials · ${verified} checked against Instagram`}
+          </Text>
+          <Pressable onPress={() => setSpin(true)} disabled={!events.length} style={styles.spinBtn}>
+            <Text style={styles.spinText}>🎲  Pick for me</Text>
+          </Pressable>
+        </View>
       </View>
 
       <PillRow items={DAYS.map((d) => ({ key: d, label: d === 'ALL' ? 'All days' : DAY_LABEL[d] ?? d }))} value={day} onChange={setDay} />
@@ -100,6 +107,14 @@ export function TonightScreen({
           ListEmptyComponent={<Text style={styles.errSub}>Nothing on for that filter.</Text>}
         />
       )}
+
+      <Roulette
+        visible={spin}
+        events={events}
+        saved={saved}
+        onSave={onToggleSave}
+        onClose={() => setSpin(false)}
+      />
     </View>
   );
 }
@@ -108,7 +123,12 @@ const styles = StyleSheet.create({
   wrap: { flex: 1, backgroundColor: colors.ground },
   head: { paddingHorizontal: space(2.5), paddingTop: space(1.5), gap: 2 },
   h1: { color: colors.bone, fontSize: 27, fontWeight: '800', letterSpacing: -0.6 },
-  sub: { color: colors.muted, fontSize: 13 },
+  sub: { color: colors.muted, fontSize: 13, flexShrink: 1 },
+  subRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: space(1) },
+  spinBtn: {
+    backgroundColor: colors.lamp, borderRadius: 999, paddingVertical: 7, paddingHorizontal: 14,
+  },
+  spinText: { color: colors.night, fontSize: 12.5, fontWeight: '800' },
   list: { padding: space(2.5), paddingTop: space(1), paddingBottom: space(13), gap: space(1.5) },
   dayHead: { color: colors.bone, fontSize: 19, fontWeight: '800', marginTop: space(1.5), letterSpacing: -0.3 },
   todayTag: { color: colors.lamp, fontSize: 12, fontWeight: '800', letterSpacing: 1 },

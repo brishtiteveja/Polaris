@@ -24,6 +24,8 @@ export interface EventDoc {
   hero_image?: string;
   ig_profile?: string;
   ig_reel?: string;
+  website?: string;
+  maps_url?: string;
   last_checked?: string;
   rsvp_count?: number;
   location?: { lat: number; lon: number };
